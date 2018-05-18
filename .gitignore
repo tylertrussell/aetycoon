@@ -1,6 +1,8 @@
+.DS_Store
+*.pyc
+
 .pytest_cache/
 .idea/
-*.pyc
 *.egg-info/
 dist/
 build/

@@ -1,4 +1,7 @@
 import copy
+import pickle
+
+from google.appengine.ext import db
 
 
 class PickleProperty(db.Property):

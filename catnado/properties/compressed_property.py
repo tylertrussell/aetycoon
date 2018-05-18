@@ -1,8 +1,10 @@
 import zlib
 
+from google.appengine.ext import db
+
 
 class CompressedProperty(db.UnindexedProperty):
-  """A unindexed property that is stored in a compressed form.
+  """An unindexed, compressed property.
 
   CompressedTextProperty and CompressedBlobProperty derive from this class.
   """
@@ -11,7 +13,7 @@ class CompressedProperty(db.UnindexedProperty):
     """Constructor.
 
     Args:
-    level: Controls the level of zlib's compression (between 1 and 9).
+      level: Controls the level of zlib's compression (between 1 and 9).
     """
     super(CompressedProperty, self).__init__(*args, **kwargs)
     self.level = level

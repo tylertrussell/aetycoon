@@ -1,5 +1,7 @@
 import os
 
+from google.appengine.ext import db
+
 
 class CurrentDomainProperty(db.Property):
   """A property that restricts access to the current domain.

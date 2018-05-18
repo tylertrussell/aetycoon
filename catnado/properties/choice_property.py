@@ -1,3 +1,6 @@
+from google.appengine.ext import db
+
+
 class ChoiceProperty(db.IntegerProperty):
   """A property for efficiently storing choices made from a finite set.
 
