@@ -3,7 +3,7 @@
 A collection of useful Google App Engine datastore properties and helpers.
 
 Forked from [aetycoon](https://github.com/Arachnid/aetycoon)
-with many additions and modification.
+with additions and modifications.
 
 **This package is a work-in-progress.** Most notably, the tests are incomplete.
 
