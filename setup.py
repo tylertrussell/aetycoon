@@ -26,7 +26,5 @@ setup(
   packages=[
     'catnado',
     'catnado.properties',
-    'catnado.testing',
   ],
-  py_modules=['conftest']
 )
