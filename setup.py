@@ -15,7 +15,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 
 setup(
   name='gae-catnado',
-  version='0.0.1.dev2',
+  version='0.0.1.dev3',
   description='Google App Engine datastore properties and helpers',
   long_description=long_description,
   long_description_content_type='text/markdown',
@@ -23,6 +23,10 @@ setup(
   author='Tyler Trussell',
   author_email='tigertrussell+pip@gmail.com',
   keywords='google app engine helpers datastore properties',  # Optional
-  packages=['catnado'],
+  packages=[
+    'catnado',
+    'catnado.properties',
+    'catnado.testing',
+  ],
   py_modules=['conftest']
 )
