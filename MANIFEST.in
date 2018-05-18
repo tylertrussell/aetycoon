@@ -1,0 +1,6 @@
+# modified from https://github.com/pypa/sampleproject/blob/master/MANIFEST.in
+
+include README.md
+include LICENSE.txt
+
+include conftest.py
