@@ -1,0 +1,15 @@
+site_name: gae-catnado
+
+site_url: https://tylertrussell.github.io/gae-catnado
+repo_url: https://github.com/tylertrussell/gae-catnado
+
+site_description: gae-catnado, a library of helpers for Google App Engine
+site_author: Tyler Trussell
+copyright: Copyright 2018 Tyler Trussell All Rights Reserved
+
+theme: readthedocs
+
+pages:
+  - Home: index.md
+  - catnado.properties: properties.md
+  - catnado.versionedmodel: versionedmodel.md

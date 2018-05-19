@@ -1,0 +1,64 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "gae-catnado\n\n\nA collection of useful Google App Engine datastore properties and helpers.\n\n\nForked from \naetycoon\n\nwith additions and modifications.\n\n\nThis package is a work-in-progress.\n Most notably, the tests are incomplete.\n\n\nSetup\n\n\nInstall via \npip\n\n\npip install gae-catnado\n\n\n\n\nRequirements\n\n\nGoogle Cloud SDK\n.\n\n\nRunning tests\n\n\nIn order to run tests locally, you'll need to set an environment variable \n\nAPPENGINE_SDK_DIR\n containing your Google App Engine SDK directory (which will\nlook something like \n/your/path/to/google-cloud-sdk/platform/google_appengine\n).\n\n\nThis environment variable allows \nconftest.py\n to add the required paths to \n\nsys.path\n so that the tests may run.\n\n\nCats\n\n\nThey're pretty great.", 
+            "title": "Home"
+        }, 
+        {
+            "location": "/#gae-catnado", 
+            "text": "A collection of useful Google App Engine datastore properties and helpers.  Forked from  aetycoon \nwith additions and modifications.  This package is a work-in-progress.  Most notably, the tests are incomplete.", 
+            "title": "gae-catnado"
+        }, 
+        {
+            "location": "/#setup", 
+            "text": "Install via  pip  pip install gae-catnado", 
+            "title": "Setup"
+        }, 
+        {
+            "location": "/#requirements", 
+            "text": "Google Cloud SDK .", 
+            "title": "Requirements"
+        }, 
+        {
+            "location": "/#running-tests", 
+            "text": "In order to run tests locally, you'll need to set an environment variable  APPENGINE_SDK_DIR  containing your Google App Engine SDK directory (which will\nlook something like  /your/path/to/google-cloud-sdk/platform/google_appengine ).  This environment variable allows  conftest.py  to add the required paths to  sys.path  so that the tests may run.", 
+            "title": "Running tests"
+        }, 
+        {
+            "location": "/#cats", 
+            "text": "They're pretty great.", 
+            "title": "Cats"
+        }, 
+        {
+            "location": "/properties/", 
+            "text": "catnado.properties\n\n\nTODO", 
+            "title": "catnado.properties"
+        }, 
+        {
+            "location": "/properties/#catnadoproperties", 
+            "text": "TODO", 
+            "title": "catnado.properties"
+        }, 
+        {
+            "location": "/versionedmodel/", 
+            "text": "catnado.versionedmodel\n\n\nRudimentary versioning system for Google App Engine and Cloud Datastore.\n\n\nUser classes inherit from \nVersionedModel\n to gain automatic versioning. \n\n\nEvery call to \nput\n on an existing entity will create a new version of that\nentity instead of overwriting it. Consequently, new versions must be marked\nactive deliberately via \nset_active\n.\n\n\nclass SimpleEntity(VersionedModel):\n  name = db.StringProperty(required=True)\n\n# create the first version, which automatically becomes active\nfoo = SimpleEntity(name='foo')\nfoo.put()\n\n# editing an existing entity puts a new version\nfoo.name = 'bar'\nbar = SimpleEntity.get(foo.put())\n\n# but it won't be returned by queries until it's not active\nSimpleEntity.all().filter('name', 'bar').get()  # None\nfoo.set_active()\nSimpleEntity.all().filter('name', 'bar').get()  # bar\n\n# we can view all versions of any instance, sorted by creation date\nobj.all_versions().fetch(None)  # [foo, bar]\n\n\n\n\nDatastore Indexes\n\n\nOnly the active version of any \nVersionedModel\n descendant is returned by\ndatastore queries. This is accomplished by overriding \nVersionedModel.all\n\nto add a filter on the \nactive\n property. Thus any indexes you create on \n\nVersionedModel\n descendants will need to start with \nactive\n.\n\n\n- kind: Cat\n  properties:\n  - name: active  # required because Cat descends from VersionedModel\n  - name: name\n  - name: age\n    direction: desc\n\n\n\n\nDatastore Ancestry\n\n\nEvery unique versioned entity shares a common \nVersionUnifier\n parent which\nkeeps track of the current version. \n\n\nAny version can access its unifier via \nversion_unifier\n. \nparent()\n returns \nwhatever parent was specified when creating the first version. If the specified \nparent is another instance of \nVersionedModel\n, then the active version of that\nentity is returned.\n\n\nparent_obj = SimpleEntity(name='foo')\nparent_obj.put()\n\nchild_obj = SimpleEntity(name='child foo', parent=parent_obj)\nchild_obj.put()\n\n\n Real Datastore Ancestry\n- VersionUnifier\n  - SimpleEntity(name='foo')\n  - VersionUnifier\n    - SimpleEntity(name='child foo')\n\n\n\nparent_obj.name = 'foo fighter'\nparent_obj.put()\nparent_obj.set_active()\n\nchild_obj.parent()  # foo fighter", 
+            "title": "catnado.versionedmodel"
+        }, 
+        {
+            "location": "/versionedmodel/#catnadoversionedmodel", 
+            "text": "Rudimentary versioning system for Google App Engine and Cloud Datastore.  User classes inherit from  VersionedModel  to gain automatic versioning.   Every call to  put  on an existing entity will create a new version of that\nentity instead of overwriting it. Consequently, new versions must be marked\nactive deliberately via  set_active .  class SimpleEntity(VersionedModel):\n  name = db.StringProperty(required=True)\n\n# create the first version, which automatically becomes active\nfoo = SimpleEntity(name='foo')\nfoo.put()\n\n# editing an existing entity puts a new version\nfoo.name = 'bar'\nbar = SimpleEntity.get(foo.put())\n\n# but it won't be returned by queries until it's not active\nSimpleEntity.all().filter('name', 'bar').get()  # None\nfoo.set_active()\nSimpleEntity.all().filter('name', 'bar').get()  # bar\n\n# we can view all versions of any instance, sorted by creation date\nobj.all_versions().fetch(None)  # [foo, bar]", 
+            "title": "catnado.versionedmodel"
+        }, 
+        {
+            "location": "/versionedmodel/#datastore-indexes", 
+            "text": "Only the active version of any  VersionedModel  descendant is returned by\ndatastore queries. This is accomplished by overriding  VersionedModel.all \nto add a filter on the  active  property. Thus any indexes you create on  VersionedModel  descendants will need to start with  active .  - kind: Cat\n  properties:\n  - name: active  # required because Cat descends from VersionedModel\n  - name: name\n  - name: age\n    direction: desc", 
+            "title": "Datastore Indexes"
+        }, 
+        {
+            "location": "/versionedmodel/#datastore-ancestry", 
+            "text": "Every unique versioned entity shares a common  VersionUnifier  parent which\nkeeps track of the current version.   Any version can access its unifier via  version_unifier .  parent()  returns \nwhatever parent was specified when creating the first version. If the specified \nparent is another instance of  VersionedModel , then the active version of that\nentity is returned.  parent_obj = SimpleEntity(name='foo')\nparent_obj.put()\n\nchild_obj = SimpleEntity(name='child foo', parent=parent_obj)\nchild_obj.put()  Real Datastore Ancestry\n- VersionUnifier\n  - SimpleEntity(name='foo')\n  - VersionUnifier\n    - SimpleEntity(name='child foo') \n\nparent_obj.name = 'foo fighter'\nparent_obj.put()\nparent_obj.set_active()\n\nchild_obj.parent()  # foo fighter", 
+            "title": "Datastore Ancestry"
+        }
+    ]
+}
