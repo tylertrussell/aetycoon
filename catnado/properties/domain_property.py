@@ -1,5 +1,6 @@
 import os
 
+from google.appengine.api import users
 from google.appengine.ext import db
 
 
@@ -87,8 +88,8 @@ class CurrentDomainProperty(db.Property):
   def __set__(self, model_instance, value):
     if not value:
       value = unicode(os.environ['HTTP_HOST'])
-    elif (value != os.environ['HTTP_HOST'] and not self.allow_read
-          and not users.is_current_user_admin()):
+    elif (value != os.environ['HTTP_HOST'] and not self.allow_read and
+          not users.is_current_user_admin()):
       raise InvalidDomainError(
         "Domain '%s' attempting to illegally access data for domain '%s'"
         % (os.environ['HTTP_HOST'], value))
@@ -97,8 +98,9 @@ class CurrentDomainProperty(db.Property):
   def get_value_for_datastore(self, model_instance):
     value = super(CurrentDomainProperty, self).get_value_for_datastore(
       model_instance)
-    if (value != os.environ['HTTP_HOST'] and not users.is_current_user_admin()
-          and not self.allow_write):
+    if (value != os.environ['HTTP_HOST'] and
+        not users.is_current_user_admin() and
+        not self.allow_write):
       raise InvalidDomainError(
         "Domain '%s' attempting to allegally modify data for domain '%s'"
         % (os.environ['HTTP_HOST'], value))
@@ -107,3 +109,4 @@ class CurrentDomainProperty(db.Property):
 
 class InvalidDomainError(Exception):
   """Raised when something attempts to access data belonging to another domain."""
+  pass

@@ -19,6 +19,6 @@ class CatnadoPropertyImportTest(SimpleAppEngineTestCase):
       try:
         logging.debug('importing {}'.format(name))
         __import__(name)
-      except:
+      except ImportError:
         logging.error('Error importing module {}'.format(name))
         raise

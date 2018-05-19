@@ -22,7 +22,6 @@ class KeyProperty(db.Property):
     super(KeyProperty, self).__init__(*args, **kwargs)
     self.kind = kwargs.get('kind')
 
-
   def validate(self, value):
     """
     Args:

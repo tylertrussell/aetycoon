@@ -5,26 +5,6 @@ from google.appengine.ext import db
 
 class ArrayProperty(db.UnindexedProperty):
   """An array property that is stored as a string.
-
-  Example usage:
-
-  >>> class ArrayModel(db.Model):
-  ...  v = ArrayProperty('i')
-  >>> m = ArrayModel()
-
-  If you do not supply a default the array will be empty.
-
-  >>> m.v
-  array('i')
-
-  >>> m.v.extend(range(5))
-  >>> m.v
-  array('i', [0, 1, 2, 3, 4])
-  >>> m.put() # doctest: +ELLIPSIS
-  datastore_types.Key.from_path(u'ArrayModel', ...)
-  >>> m2 = ArrayModel.all().get()
-  >>> m2.v
-  array('i', [0, 1, 2, 3, 4])
   """
   data_type = array.array
 

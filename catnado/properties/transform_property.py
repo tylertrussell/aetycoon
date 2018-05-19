@@ -1,5 +1,6 @@
 from google.appengine.ext import db
 
+
 def TransformProperty(source, transform_func=None, *args, **kwargs):
   """Implements a 'transform' datastore property.
 

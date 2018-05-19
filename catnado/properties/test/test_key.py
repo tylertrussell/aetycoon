@@ -1,5 +1,3 @@
-import unittest
-
 from google.appengine.ext import db
 
 from catnado.properties.key_property import KeyProperty

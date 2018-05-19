@@ -1,5 +1,6 @@
 from google.appengine.ext import db
 
+
 class SetProperty(db.ListProperty):
   """A property that stores a set of things.
 
