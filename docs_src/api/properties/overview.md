@@ -1,3 +1,0 @@
-# `catnado.properties`
-
-TODO
