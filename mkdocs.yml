@@ -10,9 +10,15 @@ site_description: gae-catnado, a library of helpers for Google App Engine
 site_author: Tyler Trussell
 copyright: Copyright 2018 Tyler Trussell All Rights Reserved
 
-theme: readthedocs
+theme: material
+
+extra_css: [extras.css]
 
 pages:
   - Home: index.md
-  - catnado.properties: properties.md
-  - catnado.versionedmodel: versionedmodel.md
+  - API:
+    - catnado.properties:
+      - Overview: api/properties/overview.md
+      - catnado.properties.key_property: api/properties/key_property.md
+    - catnado.versionedmodel:
+      - Overview: api/versionedmodel/overview.md

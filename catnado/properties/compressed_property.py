@@ -79,16 +79,14 @@ class CompressedTextProperty(CompressedProperty):
   """A string that will be stored in a compressed form (encoded as UTF-8).
 
   Example usage:
-
   >>> class CompressedTextModel(db.Model):
   ...  v = CompressedTextProperty()
 
   You can create a CompressedTextProperty and set its value with your string.
   You can also retrieve the (decompressed) value by accessing the field.
-
-  >>> ustr = u'\u043f\u0440\u043e\u0440\u0438\u0446\u0430\u0442\u0435\u043b\u044c'
+  >>> ustr = ...
   >>> model = CompressedTextModel(v=ustr)
-  >>> model.put() # doctest: +ELLIPSIS
+  >>> model.put()
   datastore_types.Key.from_path(u'CompressedTextModel', ...)
 
   >>> model2 = CompressedTextModel.all().get()
