@@ -13,7 +13,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 
 setup(
   name='gae-catnado',
-  version='0.0.1.dev6',
+  version='0.0.1.dev7',
   description='Google App Engine datastore properties and helpers',
   long_description=long_description,
   long_description_content_type='text/markdown',
