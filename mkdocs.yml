@@ -3,6 +3,7 @@ docs_dir: docs_src
 extra_css:
 - extras.css
 pages:
+- Home: index.md
 - docgen-api:
   - catnado:
     - __init__: docgen-api/catnado.md
