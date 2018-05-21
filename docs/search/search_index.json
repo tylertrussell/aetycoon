@@ -1,48 +1,18 @@
 {
     "docs": [
         {
-            "location": "/", 
-            "text": "gae-catnado\n\n\nA collection of useful Google App Engine datastore properties and helpers.\n\n\nForked from \naetycoon\n\nwith additions and modifications.\n\n\nThis package is a work-in-progress.\n Most notably, the tests are incomplete.\n\n\nSetup\n\n\nInstall via \npip\n\n\npip install gae-catnado\n\n\n\n\nRequirements\n\n\nGoogle Cloud SDK\n.\n\n\nRunning tests\n\n\nIn order to run tests locally, you'll need to set an environment variable \n\nAPPENGINE_SDK_DIR\n containing your Google App Engine SDK directory (which will\nlook something like \n/your/path/to/google-cloud-sdk/platform/google_appengine\n).\n\n\nThis environment variable allows \nconftest.py\n to add the required paths to \n\nsys.path\n so that the tests may run.\n\n\nCats\n\n\nThey're pretty great.", 
-            "title": "Home"
-        }, 
-        {
-            "location": "/#gae-catnado", 
-            "text": "A collection of useful Google App Engine datastore properties and helpers.  Forked from  aetycoon \nwith additions and modifications.  This package is a work-in-progress.  Most notably, the tests are incomplete.", 
-            "title": "gae-catnado"
-        }, 
-        {
-            "location": "/#setup", 
-            "text": "Install via  pip  pip install gae-catnado", 
-            "title": "Setup"
-        }, 
-        {
-            "location": "/#requirements", 
-            "text": "Google Cloud SDK .", 
-            "title": "Requirements"
-        }, 
-        {
-            "location": "/#running-tests", 
-            "text": "In order to run tests locally, you'll need to set an environment variable  APPENGINE_SDK_DIR  containing your Google App Engine SDK directory (which will\nlook something like  /your/path/to/google-cloud-sdk/platform/google_appengine ).  This environment variable allows  conftest.py  to add the required paths to  sys.path  so that the tests may run.", 
-            "title": "Running tests"
-        }, 
-        {
-            "location": "/#cats", 
-            "text": "They're pretty great.", 
-            "title": "Cats"
-        }, 
-        {
             "location": "/docgen-api/catnado/", 
             "text": "", 
-            "title": "Overview"
+            "title": "__init__"
         }, 
         {
             "location": "/docgen-api/catnado.properties/", 
             "text": "", 
-            "title": "Overview"
+            "title": "__init__"
         }, 
         {
             "location": "/docgen-api/catnado.properties.array_property/", 
-            "text": "Classes\n\n\nArrayProperty\n\n\nAn array property that is stored as a string.\n\n\nClass Functions\n\n\ndefault_value\n\n\nmake_value_from_datastore\n\n\nvalidate\n\n\nget_value_for_datastore\n\n\nempty", 
+            "text": "Classes\n\n\nArrayProperty\n\n\nAn array property that is stored as a string.\n\n\ndefault_value\n\n\nmake_value_from_datastore\n\n\nvalidate\n\n\nget_value_for_datastore\n\n\nempty", 
             "title": "array_property"
         }, 
         {
@@ -52,17 +22,12 @@
         }, 
         {
             "location": "/docgen-api/catnado.properties.array_property/#arrayproperty", 
-            "text": "An array property that is stored as a string.", 
+            "text": "An array property that is stored as a string.  default_value  make_value_from_datastore  validate  get_value_for_datastore  empty", 
             "title": "ArrayProperty"
         }, 
         {
-            "location": "/docgen-api/catnado.properties.array_property/#class-functions", 
-            "text": "default_value  make_value_from_datastore  validate  get_value_for_datastore  empty", 
-            "title": "Class Functions"
-        }, 
-        {
             "location": "/docgen-api/catnado.properties.choice_property/", 
-            "text": "Classes\n\n\nChoiceProperty\n\n\nA property for efficiently storing choices made from a finite set.\n\n\nThis works by mapping each choice to an integer.  The choices must be hashable\n  (so that they can be efficiently mapped back to their corresponding index).\n\n\nClass Functions\n\n\nc2i\n\n\nConverts a choice to its datastore representation.\n\n\nget_choices\n\n\nGets a list of values which may be assigned to this property.\n\n\nmake_value_from_datastore\n\n\nget_value_for_datastore", 
+            "text": "Classes\n\n\nChoiceProperty\n\n\nA property for efficiently storing choices made from a finite set.\n\n\nThis works by mapping each choice to an integer.  The choices must be hashable\n  (so that they can be efficiently mapped back to their corresponding index).\n\n\nc2i\n\n\nConverts a choice to its datastore representation.\n\n\nget_choices\n\n\nGets a list of values which may be assigned to this property.\n\n\nmake_value_from_datastore\n\n\nget_value_for_datastore", 
             "title": "choice_property"
         }, 
         {
@@ -72,17 +37,12 @@
         }, 
         {
             "location": "/docgen-api/catnado.properties.choice_property/#choiceproperty", 
-            "text": "A property for efficiently storing choices made from a finite set.  This works by mapping each choice to an integer.  The choices must be hashable\n  (so that they can be efficiently mapped back to their corresponding index).", 
+            "text": "A property for efficiently storing choices made from a finite set.  This works by mapping each choice to an integer.  The choices must be hashable\n  (so that they can be efficiently mapped back to their corresponding index).  c2i  Converts a choice to its datastore representation.  get_choices  Gets a list of values which may be assigned to this property.  make_value_from_datastore  get_value_for_datastore", 
             "title": "ChoiceProperty"
         }, 
         {
-            "location": "/docgen-api/catnado.properties.choice_property/#class-functions", 
-            "text": "c2i  Converts a choice to its datastore representation.  get_choices  Gets a list of values which may be assigned to this property.  make_value_from_datastore  get_value_for_datastore", 
-            "title": "Class Functions"
-        }, 
-        {
             "location": "/docgen-api/catnado.properties.compressed_property/", 
-            "text": "Classes\n\n\nCompressedProperty\n\n\nAn unindexed, compressed property.\n\n\nCompressedTextProperty and CompressedBlobProperty derive from this class.\n\n\nClass Functions\n\n\nmake_value_from_datastore\n\n\nvalue_to_str\n\n\nReturns the value stored by this property encoded as a (byte) string,\n    or None if value is None.  This string will be stored in the datastore.\n    By default, returns the value unchanged.\n\n\nget_value_for_datastore\n\n\nCompressedTextProperty\n\n\nA string that will be stored in a compressed form (encoded as UTF-8).\n\n\nClass Functions\n\n\nvalue_to_str\n\n\nCompressedBlobProperty\n\n\nA byte string that will be stored in a compressed form.\n\n\nClass Functions", 
+            "text": "Classes\n\n\nCompressedProperty\n\n\nAn unindexed, compressed property.\n\n\nCompressedTextProperty and CompressedBlobProperty derive from this class.\n\n\nmake_value_from_datastore\n\n\nvalue_to_str\n\n\nReturns the value stored by this property encoded as a (byte) string,\n    or None if value is None.  This string will be stored in the datastore.\n    By default, returns the value unchanged.\n\n\nget_value_for_datastore\n\n\nCompressedTextProperty\n\n\nA string that will be stored in a compressed form (encoded as UTF-8).\n\n\nvalue_to_str\n\n\nCompressedBlobProperty\n\n\nA byte string that will be stored in a compressed form.", 
             "title": "compressed_property"
         }, 
         {
@@ -92,23 +52,13 @@
         }, 
         {
             "location": "/docgen-api/catnado.properties.compressed_property/#compressedproperty", 
-            "text": "An unindexed, compressed property.  CompressedTextProperty and CompressedBlobProperty derive from this class.", 
+            "text": "An unindexed, compressed property.  CompressedTextProperty and CompressedBlobProperty derive from this class.  make_value_from_datastore  value_to_str  Returns the value stored by this property encoded as a (byte) string,\n    or None if value is None.  This string will be stored in the datastore.\n    By default, returns the value unchanged.  get_value_for_datastore", 
             "title": "CompressedProperty"
         }, 
         {
-            "location": "/docgen-api/catnado.properties.compressed_property/#class-functions", 
-            "text": "make_value_from_datastore  value_to_str  Returns the value stored by this property encoded as a (byte) string,\n    or None if value is None.  This string will be stored in the datastore.\n    By default, returns the value unchanged.  get_value_for_datastore", 
-            "title": "Class Functions"
-        }, 
-        {
             "location": "/docgen-api/catnado.properties.compressed_property/#compressedtextproperty", 
-            "text": "A string that will be stored in a compressed form (encoded as UTF-8).", 
+            "text": "A string that will be stored in a compressed form (encoded as UTF-8).  value_to_str", 
             "title": "CompressedTextProperty"
-        }, 
-        {
-            "location": "/docgen-api/catnado.properties.compressed_property/#class-functions_1", 
-            "text": "value_to_str", 
-            "title": "Class Functions"
         }, 
         {
             "location": "/docgen-api/catnado.properties.compressed_property/#compressedblobproperty", 
@@ -116,13 +66,8 @@
             "title": "CompressedBlobProperty"
         }, 
         {
-            "location": "/docgen-api/catnado.properties.compressed_property/#class-functions_2", 
-            "text": "", 
-            "title": "Class Functions"
-        }, 
-        {
             "location": "/docgen-api/catnado.properties.derived_property/", 
-            "text": "Functions\n\n\nDerivedProperty\n\n\nImplements a 'derived' datastore property.\n\n\nDerived properties are not set directly, but are instead generated by a\n  function when required. They are useful to provide fields in the datastore\n  that can be used for filtering or sorting in ways that are not otherwise\n  possible with unmodified data - for example, filtering by the length of a\n  BlobProperty, or case insensitive matching by querying the lower cased version\n  of a string.\n\n\nDerivedProperty can be declared as a regular property, passing a function as\n  the first argument, or it can be used as a decorator for the function that\n  does the calculation, either with or without arguments.\n\n\nClasses\n\n\nLengthProperty\n\n\nA convenience class for recording the length of another field\n\n\nClass Functions\n\n\nLowerCaseProperty\n\n\nA convenience class for generating lower-cased fields for filtering.\n\n\nClass Functions", 
+            "text": "Functions\n\n\nDerivedProperty\n\n\nImplements a 'derived' datastore property.\n\n\nDerived properties are not set directly, but are instead generated by a\n  function when required. They are useful to provide fields in the datastore\n  that can be used for filtering or sorting in ways that are not otherwise\n  possible with unmodified data - for example, filtering by the length of a\n  BlobProperty, or case insensitive matching by querying the lower cased version\n  of a string.\n\n\nDerivedProperty can be declared as a regular property, passing a function as\n  the first argument, or it can be used as a decorator for the function that\n  does the calculation, either with or without arguments.\n\n\nClasses\n\n\nLengthProperty\n\n\nA convenience class for recording the length of another field\n\n\nLowerCaseProperty\n\n\nA convenience class for generating lower-cased fields for filtering.", 
             "title": "derived_property"
         }, 
         {
@@ -146,23 +91,13 @@
             "title": "LengthProperty"
         }, 
         {
-            "location": "/docgen-api/catnado.properties.derived_property/#class-functions", 
-            "text": "", 
-            "title": "Class Functions"
-        }, 
-        {
             "location": "/docgen-api/catnado.properties.derived_property/#lowercaseproperty", 
             "text": "A convenience class for generating lower-cased fields for filtering.", 
             "title": "LowerCaseProperty"
         }, 
         {
-            "location": "/docgen-api/catnado.properties.derived_property/#class-functions_1", 
-            "text": "", 
-            "title": "Class Functions"
-        }, 
-        {
             "location": "/docgen-api/catnado.properties.domain_property/", 
-            "text": "Classes\n\n\nCurrentDomainProperty\n\n\nA property that restricts access to the current domain.\n\n\nClass Functions\n\n\nget_value_for_datastore\n\n\nInvalidDomainError\n\n\nRaised when something attempts to access data belonging to another domain.\n\n\nClass Functions", 
+            "text": "Classes\n\n\nCurrentDomainProperty\n\n\nA property that restricts access to the current domain.\n\n\nget_value_for_datastore\n\n\nInvalidDomainError\n\n\nRaised when something attempts to access data belonging to another domain.", 
             "title": "domain_property"
         }, 
         {
@@ -172,13 +107,8 @@
         }, 
         {
             "location": "/docgen-api/catnado.properties.domain_property/#currentdomainproperty", 
-            "text": "A property that restricts access to the current domain.", 
+            "text": "A property that restricts access to the current domain.  get_value_for_datastore", 
             "title": "CurrentDomainProperty"
-        }, 
-        {
-            "location": "/docgen-api/catnado.properties.domain_property/#class-functions", 
-            "text": "get_value_for_datastore", 
-            "title": "Class Functions"
         }, 
         {
             "location": "/docgen-api/catnado.properties.domain_property/#invaliddomainerror", 
@@ -186,13 +116,8 @@
             "title": "InvalidDomainError"
         }, 
         {
-            "location": "/docgen-api/catnado.properties.domain_property/#class-functions_1", 
-            "text": "", 
-            "title": "Class Functions"
-        }, 
-        {
             "location": "/docgen-api/catnado.properties.key_property/", 
-            "text": "Classes\n\n\nKeyProperty\n\n\nA property that stores a key without automatically dereferencing it or\n  requiring a dependency between model classes.\n\n\ndb.ReferenceProperty\n performs a datastore RPC when it is accessed, which\n  can lead to unforeseen performance problems.\n\n\nFurthermore, it needs to have the Kind specified when it is declared, which\n  creates a code dependency between models that can be undesirable.\n\n\nKeyProperty\n helps alleviate these concerns.\n\n\nClass Functions\n\n\nvalidate\n\n\nArgs:\n  value: The value to validate.\nReturns:\n  A valid key.\nRaises:\n  TypeError if the value can't be converted into a `db.Key`", 
+            "text": "Classes\n\n\nKeyProperty\n\n\nA property that stores a key without automatically dereferencing it or\n  requiring a dependency between model classes.\n\n\ndb.ReferenceProperty\n performs a datastore RPC when it is accessed, which\n  can lead to unforeseen performance problems.\n\n\nFurthermore, it needs to have the Kind specified when it is declared, which\n  creates a code dependency between models that can be undesirable.\n\n\nKeyProperty\n helps alleviate these concerns.\n\n\nvalidate\n\n\nArgs:\n  value: The value to validate.\nReturns:\n  A valid key.\nRaises:\n  TypeError if the value can't be converted into a `db.Key`", 
             "title": "key_property"
         }, 
         {
@@ -202,17 +127,12 @@
         }, 
         {
             "location": "/docgen-api/catnado.properties.key_property/#keyproperty", 
-            "text": "A property that stores a key without automatically dereferencing it or\n  requiring a dependency between model classes.  db.ReferenceProperty  performs a datastore RPC when it is accessed, which\n  can lead to unforeseen performance problems.  Furthermore, it needs to have the Kind specified when it is declared, which\n  creates a code dependency between models that can be undesirable.  KeyProperty  helps alleviate these concerns.", 
+            "text": "A property that stores a key without automatically dereferencing it or\n  requiring a dependency between model classes.  db.ReferenceProperty  performs a datastore RPC when it is accessed, which\n  can lead to unforeseen performance problems.  Furthermore, it needs to have the Kind specified when it is declared, which\n  creates a code dependency between models that can be undesirable.  KeyProperty  helps alleviate these concerns.  validate  Args:\n  value: The value to validate.\nReturns:\n  A valid key.\nRaises:\n  TypeError if the value can't be converted into a `db.Key`", 
             "title": "KeyProperty"
         }, 
         {
-            "location": "/docgen-api/catnado.properties.key_property/#class-functions", 
-            "text": "validate  Args:\n  value: The value to validate.\nReturns:\n  A valid key.\nRaises:\n  TypeError if the value can't be converted into a `db.Key`", 
-            "title": "Class Functions"
-        }, 
-        {
             "location": "/docgen-api/catnado.properties.pickle_property/", 
-            "text": "Classes\n\n\nPickleProperty\n\n\nA property for storing complex objects in the datastore in pickled form.\n\n\nClass Functions\n\n\ndefault_value\n\n\nIf possible, copy the value passed in the default= keyword argument.\n    This prevents mutable objects such as dictionaries from being shared across\n    instances.\n\n\nmake_value_from_datastore\n\n\nget_value_for_datastore", 
+            "text": "Classes\n\n\nPickleProperty\n\n\nA property for storing complex objects in the datastore in pickled form.\n\n\ndefault_value\n\n\nIf possible, copy the value passed in the default= keyword argument.\n    This prevents mutable objects such as dictionaries from being shared across\n    instances.\n\n\nmake_value_from_datastore\n\n\nget_value_for_datastore", 
             "title": "pickle_property"
         }, 
         {
@@ -222,17 +142,12 @@
         }, 
         {
             "location": "/docgen-api/catnado.properties.pickle_property/#pickleproperty", 
-            "text": "A property for storing complex objects in the datastore in pickled form.", 
+            "text": "A property for storing complex objects in the datastore in pickled form.  default_value  If possible, copy the value passed in the default= keyword argument.\n    This prevents mutable objects such as dictionaries from being shared across\n    instances.  make_value_from_datastore  get_value_for_datastore", 
             "title": "PickleProperty"
         }, 
         {
-            "location": "/docgen-api/catnado.properties.pickle_property/#class-functions", 
-            "text": "default_value  If possible, copy the value passed in the default= keyword argument.\n    This prevents mutable objects such as dictionaries from being shared across\n    instances.  make_value_from_datastore  get_value_for_datastore", 
-            "title": "Class Functions"
-        }, 
-        {
             "location": "/docgen-api/catnado.properties.set_property/", 
-            "text": "Classes\n\n\nSetProperty\n\n\nA property that stores a set of things.\n\n\nThis is a parameterized property; the parameter must be a valid\n  non-list data type, and all items must conform to this type.\n\n\nClass Functions\n\n\ndefault_value\n\n\nget_form_field\n\n\nmake_value_from_form\n\n\nget_value_for_form\n\n\nmake_value_from_datastore\n\n\nvalidate\n\n\nget_value_for_datastore", 
+            "text": "Classes\n\n\nSetProperty\n\n\nA property that stores a set of things.\n\n\nThis is a parameterized property; the parameter must be a valid\n  non-list data type, and all items must conform to this type.\n\n\ndefault_value\n\n\nget_form_field\n\n\nmake_value_from_form\n\n\nget_value_for_form\n\n\nmake_value_from_datastore\n\n\nvalidate\n\n\nget_value_for_datastore", 
             "title": "set_property"
         }, 
         {
@@ -242,13 +157,53 @@
         }, 
         {
             "location": "/docgen-api/catnado.properties.set_property/#setproperty", 
-            "text": "A property that stores a set of things.  This is a parameterized property; the parameter must be a valid\n  non-list data type, and all items must conform to this type.", 
+            "text": "A property that stores a set of things.  This is a parameterized property; the parameter must be a valid\n  non-list data type, and all items must conform to this type.  default_value  get_form_field  make_value_from_form  get_value_for_form  make_value_from_datastore  validate  get_value_for_datastore", 
             "title": "SetProperty"
         }, 
         {
-            "location": "/docgen-api/catnado.properties.set_property/#class-functions", 
-            "text": "default_value  get_form_field  make_value_from_form  get_value_for_form  make_value_from_datastore  validate  get_value_for_datastore", 
-            "title": "Class Functions"
+            "location": "/docgen-api/catnado.properties.test/", 
+            "text": "", 
+            "title": "__init__"
+        }, 
+        {
+            "location": "/docgen-api/catnado.properties.test.test_import/", 
+            "text": "Classes\n\n\nCatnadoPropertyImportTest\n\n\ntest_importing_catnado_properties", 
+            "title": "test_import"
+        }, 
+        {
+            "location": "/docgen-api/catnado.properties.test.test_import/#classes", 
+            "text": "", 
+            "title": "Classes"
+        }, 
+        {
+            "location": "/docgen-api/catnado.properties.test.test_import/#catnadopropertyimporttest", 
+            "text": "test_importing_catnado_properties", 
+            "title": "CatnadoPropertyImportTest"
+        }, 
+        {
+            "location": "/docgen-api/catnado.properties.test.test_key_property/", 
+            "text": "Classes\n\n\nKeyPropertyAssignmentTest\n\n\nsetUp\n\n\ntest_set_with_entity\n\n\ntest_set_with_key\n\n\nSimpleEntity", 
+            "title": "test_key_property"
+        }, 
+        {
+            "location": "/docgen-api/catnado.properties.test.test_key_property/#classes", 
+            "text": "", 
+            "title": "Classes"
+        }, 
+        {
+            "location": "/docgen-api/catnado.properties.test.test_key_property/#keypropertyassignmenttest", 
+            "text": "setUp  test_set_with_entity  test_set_with_key", 
+            "title": "KeyPropertyAssignmentTest"
+        }, 
+        {
+            "location": "/docgen-api/catnado.properties.test.test_key_property/#simpleentity", 
+            "text": "", 
+            "title": "SimpleEntity"
+        }, 
+        {
+            "location": "/docgen-api/catnado.properties.test.testcase/", 
+            "text": "", 
+            "title": "testcase"
         }, 
         {
             "location": "/docgen-api/catnado.properties.transform_property/", 
@@ -266,103 +221,13 @@
             "title": "TransformProperty"
         }, 
         {
-            "location": "/docgen-api/catnado.properties.test/", 
-            "text": "", 
-            "title": "Overview"
-        }, 
-        {
-            "location": "/docgen-api/catnado.properties.test.test_import/", 
-            "text": "Classes\n\n\nSimpleAppEngineTestCase\n\n\nClass Functions\n\n\ntearDown\n\n\nsetUp\n\n\nCatnadoPropertyImportTest\n\n\nClass Functions\n\n\ntest_importing_catnado_properties", 
-            "title": "test_import"
-        }, 
-        {
-            "location": "/docgen-api/catnado.properties.test.test_import/#classes", 
-            "text": "", 
-            "title": "Classes"
-        }, 
-        {
-            "location": "/docgen-api/catnado.properties.test.test_import/#simpleappenginetestcase", 
-            "text": "", 
-            "title": "SimpleAppEngineTestCase"
-        }, 
-        {
-            "location": "/docgen-api/catnado.properties.test.test_import/#class-functions", 
-            "text": "tearDown  setUp", 
-            "title": "Class Functions"
-        }, 
-        {
-            "location": "/docgen-api/catnado.properties.test.test_import/#catnadopropertyimporttest", 
-            "text": "", 
-            "title": "CatnadoPropertyImportTest"
-        }, 
-        {
-            "location": "/docgen-api/catnado.properties.test.test_import/#class-functions_1", 
-            "text": "test_importing_catnado_properties", 
-            "title": "Class Functions"
-        }, 
-        {
-            "location": "/docgen-api/catnado.properties.test.test_key_property/", 
-            "text": "Classes\n\n\nKeyProperty\n\n\nA property that stores a key without automatically dereferencing it or\n  requiring a dependency between model classes.\n\n\ndb.ReferenceProperty\n performs a datastore RPC when it is accessed, which\n  can lead to unforeseen performance problems.\n\n\nFurthermore, it needs to have the Kind specified when it is declared, which\n  creates a code dependency between models that can be undesirable.\n\n\nKeyProperty\n helps alleviate these concerns.\n\n\nClass Functions\n\n\nvalidate\n\n\nArgs:\n  value: The value to validate.\nReturns:\n  A valid key.\nRaises:\n  TypeError if the value can't be converted into a `db.Key`\n\n\n\nKeyPropertyAssignmentTest\n\n\nClass Functions\n\n\nsetUp\n\n\ntest_set_with_entity\n\n\ntest_set_with_key\n\n\nSimpleAppEngineTestCase\n\n\nClass Functions\n\n\ntearDown\n\n\nsetUp\n\n\nSimpleEntity\n\n\nClass Functions", 
-            "title": "test_key_property"
-        }, 
-        {
-            "location": "/docgen-api/catnado.properties.test.test_key_property/#classes", 
-            "text": "", 
-            "title": "Classes"
-        }, 
-        {
-            "location": "/docgen-api/catnado.properties.test.test_key_property/#keyproperty", 
-            "text": "A property that stores a key without automatically dereferencing it or\n  requiring a dependency between model classes.  db.ReferenceProperty  performs a datastore RPC when it is accessed, which\n  can lead to unforeseen performance problems.  Furthermore, it needs to have the Kind specified when it is declared, which\n  creates a code dependency between models that can be undesirable.  KeyProperty  helps alleviate these concerns.", 
-            "title": "KeyProperty"
-        }, 
-        {
-            "location": "/docgen-api/catnado.properties.test.test_key_property/#class-functions", 
-            "text": "validate  Args:\n  value: The value to validate.\nReturns:\n  A valid key.\nRaises:\n  TypeError if the value can't be converted into a `db.Key`", 
-            "title": "Class Functions"
-        }, 
-        {
-            "location": "/docgen-api/catnado.properties.test.test_key_property/#keypropertyassignmenttest", 
-            "text": "", 
-            "title": "KeyPropertyAssignmentTest"
-        }, 
-        {
-            "location": "/docgen-api/catnado.properties.test.test_key_property/#class-functions_1", 
-            "text": "setUp  test_set_with_entity  test_set_with_key", 
-            "title": "Class Functions"
-        }, 
-        {
-            "location": "/docgen-api/catnado.properties.test.test_key_property/#simpleappenginetestcase", 
-            "text": "", 
-            "title": "SimpleAppEngineTestCase"
-        }, 
-        {
-            "location": "/docgen-api/catnado.properties.test.test_key_property/#class-functions_2", 
-            "text": "tearDown  setUp", 
-            "title": "Class Functions"
-        }, 
-        {
-            "location": "/docgen-api/catnado.properties.test.test_key_property/#simpleentity", 
-            "text": "", 
-            "title": "SimpleEntity"
-        }, 
-        {
-            "location": "/docgen-api/catnado.properties.test.test_key_property/#class-functions_3", 
-            "text": "", 
-            "title": "Class Functions"
-        }, 
-        {
-            "location": "/docgen-api/catnado.properties.test.testcase/", 
-            "text": "", 
-            "title": "testcase"
-        }, 
-        {
             "location": "/docgen-api/catnado.testing/", 
             "text": "", 
-            "title": "Overview"
+            "title": "__init__"
         }, 
         {
             "location": "/docgen-api/catnado.testing.testcase/", 
-            "text": "Classes\n\n\nSimpleAppEngineTestCase\n\n\nClass Functions\n\n\ntearDown\n\n\nsetUp", 
+            "text": "Classes\n\n\nSimpleAppEngineTestCase\n\n\ntearDown\n\n\nsetUp", 
             "title": "testcase"
         }, 
         {
@@ -372,18 +237,13 @@
         }, 
         {
             "location": "/docgen-api/catnado.testing.testcase/#simpleappenginetestcase", 
-            "text": "", 
-            "title": "SimpleAppEngineTestCase"
-        }, 
-        {
-            "location": "/docgen-api/catnado.testing.testcase/#class-functions", 
             "text": "tearDown  setUp", 
-            "title": "Class Functions"
+            "title": "SimpleAppEngineTestCase"
         }, 
         {
             "location": "/docgen-api/catnado.utils/", 
             "text": "", 
-            "title": "Overview"
+            "title": "__init__"
         }, 
         {
             "location": "/docgen-api/catnado.utils.environment/", 
@@ -402,8 +262,8 @@
         }, 
         {
             "location": "/docgen-api/catnado.versionedmodel/", 
-            "text": "Attributes\n\n\nEVENT_TYPE_CHANGED_ACTIVE_VERSION\n\n\nERROR_WRONG_VERSION_PARENT\n\n\nERROR_WRONG_PARENT_TYPE\n\n\nERROR_MISSING_VERSION_UNIFIER\n\n\nEVENT_DATA_OLD_ACTIVE_VERSION\n\n\nEVENT_KEY\n\n\nEVENT_DATA_TIMESTAMP\n\n\nEVENT_DATA_NEW_ACTIVE_VERSION\n\n\nClasses\n\n\nKeyProperty\n\n\nA property that stores a key without automatically dereferencing it or\n  requiring a dependency between model classes.\n\n\ndb.ReferenceProperty\n performs a datastore RPC when it is accessed, which\n  can lead to unforeseen performance problems.\n\n\nFurthermore, it needs to have the Kind specified when it is declared, which\n  creates a code dependency between models that can be undesirable.\n\n\nKeyProperty\n helps alleviate these concerns.\n\n\nClass Functions\n\n\nvalidate\n\n\nArgs:\n  value: The value to validate.\nReturns:\n  A valid key.\nRaises:\n  TypeError if the value can't be converted into a `db.Key`\n\n\n\nVersionUnifier\n\n\nCommon datastore ancestor for every version of a versioned model.\n  Authoritative source of which version is active.\n\n\nClass Functions\n\n\ninner_wrapper\n\n\nPickleProperty\n\n\nA property for storing complex objects in the datastore in pickled form.\n\n\nClass Functions\n\n\ndefault_value\n\n\nIf possible, copy the value passed in the default= keyword argument.\n    This prevents mutable objects such as dictionaries from being shared across\n    instances.\n\n\nmake_value_from_datastore\n\n\nget_value_for_datastore\n\n\ndatetime\n\n\ndatetime(year, month, day[, hour[, minute[, second[, microsecond[,tzinfo]]]]])\n\n\nThe year, month and day arguments are required. tzinfo may be None, or an\ninstance of a tzinfo subclass. The remaining arguments may be ints or longs.\n\n\nClass Functions\n\n\nVersionedModel\n\n\nModel with built-in versioning. Each entity represents a single version\n  and all versions share a common \nVersionUnifier\n datastore parent.\n\n\nClass Functions\n\n\nparent\n\n\nGet this entity's feaux datastore parent (as opposed to its real parent\n    which is a \nVersionUnifier\n).\n\n\nReturns:\n  Datastore entity.\nRaises:\n  The entity is loaded using `google.appengine.ext.db.get` which can raise\n  exceptions (`KindError`?) if the Parent's Kind is not imported.\nRPC Cost:\n  2x fetch-by-key if parent is `VersionedModel` descendant\n  1x fetch-by-key otherwise\n\n\n\nall_versions\n\n\nGet a query that will fetch all of the versions of the given instance of\n    VersionedModel, ordered by their ascending creation date.\n\n\nThis function requires the following datastore index\n\nkind: VersionedModel\nproperties:\n  - name: version_unifier_key\n    direction: asc\n\nArgs:\n  instance: Any instance of any `VersionedModel` subclass.\nReturns:\n  google.appengine.ext.db.Query\n\n\n\nput\n\n\nPut a new version of this model to the datastore. Iff this is a new\n    model, create a new \nVersionUnifier\n to track all of its versions.\n    Args:\n      Keyword args passed to super call\n    Returns:\n      \ndb.Key\n for the newly-put version\n\n\nparent_key\n\n\nSee: \nparent\n.\n\n\nReturns:\n  The `db.Key` of this entity's feaux parent.\nRPC Cost:\n  1x fetch-by-key if parent is `VersionedModel` descendant\n  Free otherwise\n\n\n\nset_active\n\n\nTransactionally activate this version.\n\n\nArgs:\n  info: optional `dict` of info to record with the change", 
-            "title": "Overview"
+            "text": "Attributes\n\n\nEVENT_TYPE_CHANGED_ACTIVE_VERSION\n\n\nERROR_WRONG_VERSION_PARENT\n\n\nERROR_WRONG_PARENT_TYPE\n\n\nERROR_MISSING_VERSION_UNIFIER\n\n\nEVENT_DATA_OLD_ACTIVE_VERSION\n\n\nEVENT_KEY\n\n\nEVENT_DATA_TIMESTAMP\n\n\nEVENT_DATA_NEW_ACTIVE_VERSION\n\n\nClasses\n\n\nVersionUnifier\n\n\nCommon datastore ancestor for every version of a versioned model.\n  Authoritative source of which version is active.\n\n\ninner_wrapper\n\n\nVersionedModel\n\n\nModel with built-in versioning. Each entity represents a single version\n  and all versions share a common \nVersionUnifier\n datastore parent.\n\n\nparent\n\n\nGet this entity's feaux datastore parent (as opposed to its real parent\n    which is a \nVersionUnifier\n).\n\n\nReturns:\n  Datastore entity.\nRaises:\n  The entity is loaded using `google.appengine.ext.db.get` which can raise\n  exceptions (`KindError`?) if the Parent's Kind is not imported.\nRPC Cost:\n  2x fetch-by-key if parent is `VersionedModel` descendant\n  1x fetch-by-key otherwise\n\n\n\nall_versions\n\n\nGet a query that will fetch all of the versions of the given instance of\n    VersionedModel, ordered by their ascending creation date.\n\n\nArgs:\n  instance: Any instance of any `VersionedModel` subclass.\nReturns:\n  google.appengine.ext.db.Query\n\n\n\nput\n\n\nPut a new version of this model to the datastore. Iff this is a new\n    model, create a new \nVersionUnifier\n to track all of its versions.\n    Args:\n      Keyword args passed to super call\n    Returns:\n      \ndb.Key\n for the newly-put version\n\n\nparent_key\n\n\nSee: \nparent\n.\n\n\nReturns:\n  The `db.Key` of this entity's feaux parent.\nRPC Cost:\n  1x fetch-by-key if parent is `VersionedModel` descendant\n  Free otherwise\n\n\n\nset_active\n\n\nTransactionally activate this version.\n\n\nArgs:\n  info: optional `dict` of info to record with the change", 
+            "title": "__init__"
         }, 
         {
             "location": "/docgen-api/catnado.versionedmodel/#attributes", 
@@ -416,58 +276,18 @@
             "title": "Classes"
         }, 
         {
-            "location": "/docgen-api/catnado.versionedmodel/#keyproperty", 
-            "text": "A property that stores a key without automatically dereferencing it or\n  requiring a dependency between model classes.  db.ReferenceProperty  performs a datastore RPC when it is accessed, which\n  can lead to unforeseen performance problems.  Furthermore, it needs to have the Kind specified when it is declared, which\n  creates a code dependency between models that can be undesirable.  KeyProperty  helps alleviate these concerns.", 
-            "title": "KeyProperty"
-        }, 
-        {
-            "location": "/docgen-api/catnado.versionedmodel/#class-functions", 
-            "text": "validate  Args:\n  value: The value to validate.\nReturns:\n  A valid key.\nRaises:\n  TypeError if the value can't be converted into a `db.Key`", 
-            "title": "Class Functions"
-        }, 
-        {
             "location": "/docgen-api/catnado.versionedmodel/#versionunifier", 
-            "text": "Common datastore ancestor for every version of a versioned model.\n  Authoritative source of which version is active.", 
+            "text": "Common datastore ancestor for every version of a versioned model.\n  Authoritative source of which version is active.  inner_wrapper", 
             "title": "VersionUnifier"
         }, 
         {
-            "location": "/docgen-api/catnado.versionedmodel/#class-functions_1", 
-            "text": "inner_wrapper", 
-            "title": "Class Functions"
-        }, 
-        {
-            "location": "/docgen-api/catnado.versionedmodel/#pickleproperty", 
-            "text": "A property for storing complex objects in the datastore in pickled form.", 
-            "title": "PickleProperty"
-        }, 
-        {
-            "location": "/docgen-api/catnado.versionedmodel/#class-functions_2", 
-            "text": "default_value  If possible, copy the value passed in the default= keyword argument.\n    This prevents mutable objects such as dictionaries from being shared across\n    instances.  make_value_from_datastore  get_value_for_datastore", 
-            "title": "Class Functions"
-        }, 
-        {
-            "location": "/docgen-api/catnado.versionedmodel/#datetime", 
-            "text": "datetime(year, month, day[, hour[, minute[, second[, microsecond[,tzinfo]]]]])  The year, month and day arguments are required. tzinfo may be None, or an\ninstance of a tzinfo subclass. The remaining arguments may be ints or longs.", 
-            "title": "datetime"
-        }, 
-        {
-            "location": "/docgen-api/catnado.versionedmodel/#class-functions_3", 
-            "text": "", 
-            "title": "Class Functions"
-        }, 
-        {
             "location": "/docgen-api/catnado.versionedmodel/#versionedmodel", 
-            "text": "Model with built-in versioning. Each entity represents a single version\n  and all versions share a common  VersionUnifier  datastore parent.", 
+            "text": "Model with built-in versioning. Each entity represents a single version\n  and all versions share a common  VersionUnifier  datastore parent.  parent  Get this entity's feaux datastore parent (as opposed to its real parent\n    which is a  VersionUnifier ).  Returns:\n  Datastore entity.\nRaises:\n  The entity is loaded using `google.appengine.ext.db.get` which can raise\n  exceptions (`KindError`?) if the Parent's Kind is not imported.\nRPC Cost:\n  2x fetch-by-key if parent is `VersionedModel` descendant\n  1x fetch-by-key otherwise  all_versions  Get a query that will fetch all of the versions of the given instance of\n    VersionedModel, ordered by their ascending creation date.  Args:\n  instance: Any instance of any `VersionedModel` subclass.\nReturns:\n  google.appengine.ext.db.Query  put  Put a new version of this model to the datastore. Iff this is a new\n    model, create a new  VersionUnifier  to track all of its versions.\n    Args:\n      Keyword args passed to super call\n    Returns:\n       db.Key  for the newly-put version  parent_key  See:  parent .  Returns:\n  The `db.Key` of this entity's feaux parent.\nRPC Cost:\n  1x fetch-by-key if parent is `VersionedModel` descendant\n  Free otherwise  set_active  Transactionally activate this version.  Args:\n  info: optional `dict` of info to record with the change", 
             "title": "VersionedModel"
         }, 
         {
-            "location": "/docgen-api/catnado.versionedmodel/#class-functions_4", 
-            "text": "parent  Get this entity's feaux datastore parent (as opposed to its real parent\n    which is a  VersionUnifier ).  Returns:\n  Datastore entity.\nRaises:\n  The entity is loaded using `google.appengine.ext.db.get` which can raise\n  exceptions (`KindError`?) if the Parent's Kind is not imported.\nRPC Cost:\n  2x fetch-by-key if parent is `VersionedModel` descendant\n  1x fetch-by-key otherwise  all_versions  Get a query that will fetch all of the versions of the given instance of\n    VersionedModel, ordered by their ascending creation date.  This function requires the following datastore index\n\nkind: VersionedModel\nproperties:\n  - name: version_unifier_key\n    direction: asc\n\nArgs:\n  instance: Any instance of any `VersionedModel` subclass.\nReturns:\n  google.appengine.ext.db.Query  put  Put a new version of this model to the datastore. Iff this is a new\n    model, create a new  VersionUnifier  to track all of its versions.\n    Args:\n      Keyword args passed to super call\n    Returns:\n       db.Key  for the newly-put version  parent_key  See:  parent .  Returns:\n  The `db.Key` of this entity's feaux parent.\nRPC Cost:\n  1x fetch-by-key if parent is `VersionedModel` descendant\n  Free otherwise  set_active  Transactionally activate this version.  Args:\n  info: optional `dict` of info to record with the change", 
-            "title": "Class Functions"
-        }, 
-        {
             "location": "/docgen-api/catnado.versionedmodel.test_versionedmodel/", 
-            "text": "Classes\n\n\nVersionUnifier\n\n\nCommon datastore ancestor for every version of a versioned model.\n  Authoritative source of which version is active.\n\n\nClass Functions\n\n\ninner_wrapper\n\n\nTestVersionedModelVersions\n\n\nClass Functions\n\n\ntest_putting_new_version\n\n\ntest_creating_first_version\n\n\nThe first version should create a \nVersionUnifier\n to act as parent\n    for all versions and automatically be set active. \n\n\ntest_private_put_doesnt_save_new_version\n\n\nSimpleAppEngineTestCase\n\n\nClass Functions\n\n\ntearDown\n\n\nsetUp\n\n\nTestVersionedModelParents\n\n\nClass Functions\n\n\ntest_creating_versioned_model_with_parent_entity_or_key\n\n\nCreate datastore relationships using \nparent\n kwarg, access the feaux\n    parent through parent() or parent_key() \n\n\ntest_versioned_model_parent_always_returns_active_version\n\n\nVersionedModel\n\n\nModel with built-in versioning. Each entity represents a single version\n  and all versions share a common \nVersionUnifier\n datastore parent.\n\n\nClass Functions\n\n\nparent\n\n\nGet this entity's feaux datastore parent (as opposed to its real parent\n    which is a \nVersionUnifier\n).\n\n\nReturns:\n  Datastore entity.\nRaises:\n  The entity is loaded using `google.appengine.ext.db.get` which can raise\n  exceptions (`KindError`?) if the Parent's Kind is not imported.\nRPC Cost:\n  2x fetch-by-key if parent is `VersionedModel` descendant\n  1x fetch-by-key otherwise\n\n\n\nall_versions\n\n\nGet a query that will fetch all of the versions of the given instance of\n    VersionedModel, ordered by their ascending creation date.\n\n\nThis function requires the following datastore index\n\nkind: VersionedModel\nproperties:\n  - name: version_unifier_key\n    direction: asc\n\nArgs:\n  instance: Any instance of any `VersionedModel` subclass.\nReturns:\n  google.appengine.ext.db.Query\n\n\n\nput\n\n\nPut a new version of this model to the datastore. Iff this is a new\n    model, create a new \nVersionUnifier\n to track all of its versions.\n    Args:\n      Keyword args passed to super call\n    Returns:\n      \ndb.Key\n for the newly-put version\n\n\nparent_key\n\n\nSee: \nparent\n.\n\n\nReturns:\n  The `db.Key` of this entity's feaux parent.\nRPC Cost:\n  1x fetch-by-key if parent is `VersionedModel` descendant\n  Free otherwise\n\n\n\nset_active\n\n\nTransactionally activate this version.\n\n\nArgs:\n  info: optional `dict` of info to record with the change\n\n\n\nTestVersionedModelQueries\n\n\nClass Functions\n\n\ntest_query_only_returns_active_version\n\n\ntest_all_versions_query\n\n\nSimpleEntity\n\n\nA simple versioned model for testing. \n\n\nClass Functions", 
+            "text": "Classes\n\n\nTestVersionedModelVersions\n\n\ntest_putting_new_version\n\n\ntest_creating_first_version\n\n\nThe first version should create a \nVersionUnifier\n to act as parent\n    for all versions and automatically be set active. \n\n\ntest_private_put_doesnt_save_new_version\n\n\nTestVersionedModelParents\n\n\ntest_creating_versioned_model_with_parent_entity_or_key\n\n\nCreate datastore relationships using \nparent\n kwarg, access the feaux\n    parent through parent() or parent_key() \n\n\ntest_versioned_model_parent_always_returns_active_version\n\n\nTestVersionedModelQueries\n\n\ntest_query_only_returns_active_version\n\n\ntest_all_versions_query\n\n\nSimpleEntity\n\n\nA simple versioned model for testing.", 
             "title": "test_versionedmodel"
         }, 
         {
@@ -476,74 +296,24 @@
             "title": "Classes"
         }, 
         {
-            "location": "/docgen-api/catnado.versionedmodel.test_versionedmodel/#versionunifier", 
-            "text": "Common datastore ancestor for every version of a versioned model.\n  Authoritative source of which version is active.", 
-            "title": "VersionUnifier"
-        }, 
-        {
-            "location": "/docgen-api/catnado.versionedmodel.test_versionedmodel/#class-functions", 
-            "text": "inner_wrapper", 
-            "title": "Class Functions"
-        }, 
-        {
             "location": "/docgen-api/catnado.versionedmodel.test_versionedmodel/#testversionedmodelversions", 
-            "text": "", 
+            "text": "test_putting_new_version  test_creating_first_version  The first version should create a  VersionUnifier  to act as parent\n    for all versions and automatically be set active.   test_private_put_doesnt_save_new_version", 
             "title": "TestVersionedModelVersions"
         }, 
         {
-            "location": "/docgen-api/catnado.versionedmodel.test_versionedmodel/#class-functions_1", 
-            "text": "test_putting_new_version  test_creating_first_version  The first version should create a  VersionUnifier  to act as parent\n    for all versions and automatically be set active.   test_private_put_doesnt_save_new_version", 
-            "title": "Class Functions"
-        }, 
-        {
-            "location": "/docgen-api/catnado.versionedmodel.test_versionedmodel/#simpleappenginetestcase", 
-            "text": "", 
-            "title": "SimpleAppEngineTestCase"
-        }, 
-        {
-            "location": "/docgen-api/catnado.versionedmodel.test_versionedmodel/#class-functions_2", 
-            "text": "tearDown  setUp", 
-            "title": "Class Functions"
-        }, 
-        {
             "location": "/docgen-api/catnado.versionedmodel.test_versionedmodel/#testversionedmodelparents", 
-            "text": "", 
+            "text": "test_creating_versioned_model_with_parent_entity_or_key  Create datastore relationships using  parent  kwarg, access the feaux\n    parent through parent() or parent_key()   test_versioned_model_parent_always_returns_active_version", 
             "title": "TestVersionedModelParents"
         }, 
         {
-            "location": "/docgen-api/catnado.versionedmodel.test_versionedmodel/#class-functions_3", 
-            "text": "test_creating_versioned_model_with_parent_entity_or_key  Create datastore relationships using  parent  kwarg, access the feaux\n    parent through parent() or parent_key()   test_versioned_model_parent_always_returns_active_version", 
-            "title": "Class Functions"
-        }, 
-        {
-            "location": "/docgen-api/catnado.versionedmodel.test_versionedmodel/#versionedmodel", 
-            "text": "Model with built-in versioning. Each entity represents a single version\n  and all versions share a common  VersionUnifier  datastore parent.", 
-            "title": "VersionedModel"
-        }, 
-        {
-            "location": "/docgen-api/catnado.versionedmodel.test_versionedmodel/#class-functions_4", 
-            "text": "parent  Get this entity's feaux datastore parent (as opposed to its real parent\n    which is a  VersionUnifier ).  Returns:\n  Datastore entity.\nRaises:\n  The entity is loaded using `google.appengine.ext.db.get` which can raise\n  exceptions (`KindError`?) if the Parent's Kind is not imported.\nRPC Cost:\n  2x fetch-by-key if parent is `VersionedModel` descendant\n  1x fetch-by-key otherwise  all_versions  Get a query that will fetch all of the versions of the given instance of\n    VersionedModel, ordered by their ascending creation date.  This function requires the following datastore index\n\nkind: VersionedModel\nproperties:\n  - name: version_unifier_key\n    direction: asc\n\nArgs:\n  instance: Any instance of any `VersionedModel` subclass.\nReturns:\n  google.appengine.ext.db.Query  put  Put a new version of this model to the datastore. Iff this is a new\n    model, create a new  VersionUnifier  to track all of its versions.\n    Args:\n      Keyword args passed to super call\n    Returns:\n       db.Key  for the newly-put version  parent_key  See:  parent .  Returns:\n  The `db.Key` of this entity's feaux parent.\nRPC Cost:\n  1x fetch-by-key if parent is `VersionedModel` descendant\n  Free otherwise  set_active  Transactionally activate this version.  Args:\n  info: optional `dict` of info to record with the change", 
-            "title": "Class Functions"
-        }, 
-        {
             "location": "/docgen-api/catnado.versionedmodel.test_versionedmodel/#testversionedmodelqueries", 
-            "text": "", 
-            "title": "TestVersionedModelQueries"
-        }, 
-        {
-            "location": "/docgen-api/catnado.versionedmodel.test_versionedmodel/#class-functions_5", 
             "text": "test_query_only_returns_active_version  test_all_versions_query", 
-            "title": "Class Functions"
+            "title": "TestVersionedModelQueries"
         }, 
         {
             "location": "/docgen-api/catnado.versionedmodel.test_versionedmodel/#simpleentity", 
             "text": "A simple versioned model for testing.", 
             "title": "SimpleEntity"
-        }, 
-        {
-            "location": "/docgen-api/catnado.versionedmodel.test_versionedmodel/#class-functions_6", 
-            "text": "", 
-            "title": "Class Functions"
         }
     ]
 }

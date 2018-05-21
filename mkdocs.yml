@@ -3,35 +3,34 @@ docs_dir: docs_src
 extra_css:
 - extras.css
 pages:
-- Home: index.md
 - docgen-api:
   - catnado:
-    - Overview: docgen-api/catnado.md
-  - catnado.properties:
-    - Overview: docgen-api/catnado.properties.md
-    - array_property: docgen-api/catnado.properties.array_property.md
-    - choice_property: docgen-api/catnado.properties.choice_property.md
-    - compressed_property: docgen-api/catnado.properties.compressed_property.md
-    - derived_property: docgen-api/catnado.properties.derived_property.md
-    - domain_property: docgen-api/catnado.properties.domain_property.md
-    - key_property: docgen-api/catnado.properties.key_property.md
-    - pickle_property: docgen-api/catnado.properties.pickle_property.md
-    - set_property: docgen-api/catnado.properties.set_property.md
-    - transform_property: docgen-api/catnado.properties.transform_property.md
-  - catnado.properties.test:
-    - Overview: docgen-api/catnado.properties.test.md
-    - test_import: docgen-api/catnado.properties.test.test_import.md
-    - test_key_property: docgen-api/catnado.properties.test.test_key_property.md
-    - testcase: docgen-api/catnado.properties.test.testcase.md
-  - catnado.testing:
-    - Overview: docgen-api/catnado.testing.md
-    - testcase: docgen-api/catnado.testing.testcase.md
-  - catnado.utils:
-    - Overview: docgen-api/catnado.utils.md
-    - environment: docgen-api/catnado.utils.environment.md
-  - catnado.versionedmodel:
-    - Overview: docgen-api/catnado.versionedmodel.md
-    - test_versionedmodel: docgen-api/catnado.versionedmodel.test_versionedmodel.md
+    - __init__: docgen-api/catnado.md
+    - properties:
+      - __init__: docgen-api/catnado.properties.md
+      - array_property: docgen-api/catnado.properties.array_property.md
+      - choice_property: docgen-api/catnado.properties.choice_property.md
+      - compressed_property: docgen-api/catnado.properties.compressed_property.md
+      - derived_property: docgen-api/catnado.properties.derived_property.md
+      - domain_property: docgen-api/catnado.properties.domain_property.md
+      - key_property: docgen-api/catnado.properties.key_property.md
+      - pickle_property: docgen-api/catnado.properties.pickle_property.md
+      - set_property: docgen-api/catnado.properties.set_property.md
+      - test:
+        - __init__: docgen-api/catnado.properties.test.md
+        - test_import: docgen-api/catnado.properties.test.test_import.md
+        - test_key_property: docgen-api/catnado.properties.test.test_key_property.md
+        - testcase: docgen-api/catnado.properties.test.testcase.md
+      - transform_property: docgen-api/catnado.properties.transform_property.md
+    - testing:
+      - __init__: docgen-api/catnado.testing.md
+      - testcase: docgen-api/catnado.testing.testcase.md
+    - utils:
+      - __init__: docgen-api/catnado.utils.md
+      - environment: docgen-api/catnado.utils.environment.md
+    - versionedmodel:
+      - __init__: docgen-api/catnado.versionedmodel.md
+      - test_versionedmodel: docgen-api/catnado.versionedmodel.test_versionedmodel.md
 repo_url: https://github.com/tylertrussell/gae-catnado
 site_author: Tyler Trussell
 site_description: gae-catnado, a library of helpers for Google App Engine

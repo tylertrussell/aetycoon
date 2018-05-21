@@ -27,9 +27,9 @@ A property that stores a key without automatically dereferencing it or
   
 
         
-#### Class Functions
+        
             
-            
+
 `validate`
 
 
@@ -40,7 +40,7 @@ A property that stores a key without automatically dereferencing it or
     Raises:
       TypeError if the value can't be converted into a `db.Key`
     
- 
+
             
 
         

@@ -20,25 +20,27 @@ An unindexed, compressed property.
   
 
         
-#### Class Functions
+        
             
-            
+
 `make_value_from_datastore`
 
 
- 
+
             
+
 `value_to_str`
 
 Returns the value stored by this property encoded as a (byte) string,
     or None if value is None.  This string will be stored in the datastore.
     By default, returns the value unchanged.
- 
+
             
+
 `get_value_for_datastore`
 
 
- 
+
             
 
         
@@ -51,13 +53,13 @@ A string that will be stored in a compressed form (encoded as UTF-8).
   
 
         
-#### Class Functions
+        
             
-            
+
 `value_to_str`
 
 
- 
+
             
 
         
@@ -70,8 +72,7 @@ A byte string that will be stored in a compressed form.
   
 
         
-#### Class Functions
-            
+        
             
 
         

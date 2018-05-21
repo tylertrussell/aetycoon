@@ -21,43 +21,49 @@ A property that stores a set of things.
   
 
         
-#### Class Functions
+        
             
-            
+
 `default_value`
 
 
- 
+
             
+
 `get_form_field`
 
 
- 
+
             
+
 `make_value_from_form`
 
 
- 
+
             
+
 `get_value_for_form`
 
 
- 
+
             
+
 `make_value_from_datastore`
 
 
- 
+
             
+
 `validate`
 
 
- 
+
             
+
 `get_value_for_datastore`
 
 
- 
+
             
 
         

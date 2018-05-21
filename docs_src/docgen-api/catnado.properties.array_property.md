@@ -18,33 +18,37 @@ An array property that is stored as a string.
   
 
         
-#### Class Functions
+        
             
-            
+
 `default_value`
 
 
- 
+
             
+
 `make_value_from_datastore`
 
 
- 
+
             
+
 `validate`
 
 
- 
+
             
+
 `get_value_for_datastore`
 
 
- 
+
             
+
 `empty`
 
 
- 
+
             
 
         

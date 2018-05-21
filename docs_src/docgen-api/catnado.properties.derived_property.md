@@ -40,8 +40,7 @@ A convenience class for recording the length of another field
   
 
         
-#### Class Functions
-            
+        
             
 
         
@@ -54,8 +53,7 @@ A convenience class for generating lower-cased fields for filtering.
   
 
         
-#### Class Functions
-            
+        
             
 
         
