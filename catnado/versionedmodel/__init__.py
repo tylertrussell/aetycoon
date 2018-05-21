@@ -228,13 +228,6 @@ class VersionedModel(db.Model):
     """ Get a query that will fetch all of the versions of the given instance of
     VersionedModel, ordered by their ascending creation date.
 
-    This function requires the following datastore index
-
-    kind: VersionedModel
-    properties:
-      - name: version_unifier_key
-        direction: asc
-
     Args:
       instance: Any instance of any `VersionedModel` subclass.
     Returns:
