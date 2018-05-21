@@ -874,79 +874,10 @@
 <p><code>get_value_for_datastore</code></p>
 <h3 id="compressedtextproperty"><code>CompressedTextProperty</code></h3>
 <p>A string that will be stored in a compressed form (encoded as UTF-8).</p>
-<p>Example usage:</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>class CompressedTextModel(db.Model):
-  ...  v = CompressedTextProperty()</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>You can create a CompressedTextProperty and set its value with your string.
-  You can also retrieve the (decompressed) value by accessing the field.</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>ustr = ...
-model = CompressedTextModel(v=ustr)
-model.put()
-  datastore_types.Key.from_path(u'CompressedTextModel', ...)</p>
-<p>model2 = CompressedTextModel.all().get()
-model2.v == ustr
-  True</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>Compressed text is not indexed and therefore cannot be filtered on:</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>CompressedTextModel.gql("WHERE v = :1", ustr).count()
-  0</p>
-</blockquote>
-</blockquote>
-</blockquote>
 <h4 id="class-functions_1">Class Functions</h4>
 <p><code>value_to_str</code></p>
 <h3 id="compressedblobproperty"><code>CompressedBlobProperty</code></h3>
 <p>A byte string that will be stored in a compressed form.</p>
-<p>Example usage:</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>class CompressedBlobModel(db.Model):
-  ...   v = CompressedBlobProperty()</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>You can create a CompressedBlobProperty and set its value with your raw byte
-  string (anything of type str).  You can also retrieve the (decompressed) value
-  by accessing the field.</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>model = CompressedBlobModel(v=...)
-model.v = 'green'
-model.v
-  'green'
-model.put() # doctest: +ELLIPSIS
-  datastore_types.Key.from_path(u'CompressedBlobModel', ...)</p>
-<p>model2 = CompressedBlobModel.all().get()
-model2.v
-  'green'</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>Compressed blobs are not indexed and therefore cannot be filtered on:</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>CompressedBlobModel.gql("WHERE v = :1", 'green').count()
-  0</p>
-</blockquote>
-</blockquote>
-</blockquote>
 <h4 id="class-functions_2">Class Functions</h4>
                 
                   

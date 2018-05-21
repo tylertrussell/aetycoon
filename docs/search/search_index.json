@@ -82,7 +82,7 @@
         }, 
         {
             "location": "/docgen-api/catnado.properties.compressed_property/", 
-            "text": "Classes\n\n\nCompressedProperty\n\n\nAn unindexed, compressed property.\n\n\nCompressedTextProperty and CompressedBlobProperty derive from this class.\n\n\nClass Functions\n\n\nmake_value_from_datastore\n\n\nvalue_to_str\n\n\nReturns the value stored by this property encoded as a (byte) string,\n    or None if value is None.  This string will be stored in the datastore.\n    By default, returns the value unchanged.\n\n\nget_value_for_datastore\n\n\nCompressedTextProperty\n\n\nA string that will be stored in a compressed form (encoded as UTF-8).\n\n\nExample usage:\n\n\n\n\n\n\n\n\nclass CompressedTextModel(db.Model):\n  ...  v = CompressedTextProperty()\n\n\n\n\n\n\n\n\nYou can create a CompressedTextProperty and set its value with your string.\n  You can also retrieve the (decompressed) value by accessing the field.\n\n\n\n\n\n\n\n\nustr = ...\nmodel = CompressedTextModel(v=ustr)\nmodel.put()\n  datastore_types.Key.from_path(u'CompressedTextModel', ...)\n\n\nmodel2 = CompressedTextModel.all().get()\nmodel2.v == ustr\n  True\n\n\n\n\n\n\n\n\nCompressed text is not indexed and therefore cannot be filtered on:\n\n\n\n\n\n\n\n\nCompressedTextModel.gql(\"WHERE v = :1\", ustr).count()\n  0\n\n\n\n\n\n\n\n\nClass Functions\n\n\nvalue_to_str\n\n\nCompressedBlobProperty\n\n\nA byte string that will be stored in a compressed form.\n\n\nExample usage:\n\n\n\n\n\n\n\n\nclass CompressedBlobModel(db.Model):\n  ...   v = CompressedBlobProperty()\n\n\n\n\n\n\n\n\nYou can create a CompressedBlobProperty and set its value with your raw byte\n  string (anything of type str).  You can also retrieve the (decompressed) value\n  by accessing the field.\n\n\n\n\n\n\n\n\nmodel = CompressedBlobModel(v=...)\nmodel.v = 'green'\nmodel.v\n  'green'\nmodel.put() # doctest: +ELLIPSIS\n  datastore_types.Key.from_path(u'CompressedBlobModel', ...)\n\n\nmodel2 = CompressedBlobModel.all().get()\nmodel2.v\n  'green'\n\n\n\n\n\n\n\n\nCompressed blobs are not indexed and therefore cannot be filtered on:\n\n\n\n\n\n\n\n\nCompressedBlobModel.gql(\"WHERE v = :1\", 'green').count()\n  0\n\n\n\n\n\n\n\n\nClass Functions", 
+            "text": "Classes\n\n\nCompressedProperty\n\n\nAn unindexed, compressed property.\n\n\nCompressedTextProperty and CompressedBlobProperty derive from this class.\n\n\nClass Functions\n\n\nmake_value_from_datastore\n\n\nvalue_to_str\n\n\nReturns the value stored by this property encoded as a (byte) string,\n    or None if value is None.  This string will be stored in the datastore.\n    By default, returns the value unchanged.\n\n\nget_value_for_datastore\n\n\nCompressedTextProperty\n\n\nA string that will be stored in a compressed form (encoded as UTF-8).\n\n\nClass Functions\n\n\nvalue_to_str\n\n\nCompressedBlobProperty\n\n\nA byte string that will be stored in a compressed form.\n\n\nClass Functions", 
             "title": "compressed_property"
         }, 
         {
@@ -102,7 +102,7 @@
         }, 
         {
             "location": "/docgen-api/catnado.properties.compressed_property/#compressedtextproperty", 
-            "text": "A string that will be stored in a compressed form (encoded as UTF-8).  Example usage:     class CompressedTextModel(db.Model):\n  ...  v = CompressedTextProperty()     You can create a CompressedTextProperty and set its value with your string.\n  You can also retrieve the (decompressed) value by accessing the field.     ustr = ...\nmodel = CompressedTextModel(v=ustr)\nmodel.put()\n  datastore_types.Key.from_path(u'CompressedTextModel', ...)  model2 = CompressedTextModel.all().get()\nmodel2.v == ustr\n  True     Compressed text is not indexed and therefore cannot be filtered on:     CompressedTextModel.gql(\"WHERE v = :1\", ustr).count()\n  0", 
+            "text": "A string that will be stored in a compressed form (encoded as UTF-8).", 
             "title": "CompressedTextProperty"
         }, 
         {
@@ -112,7 +112,7 @@
         }, 
         {
             "location": "/docgen-api/catnado.properties.compressed_property/#compressedblobproperty", 
-            "text": "A byte string that will be stored in a compressed form.  Example usage:     class CompressedBlobModel(db.Model):\n  ...   v = CompressedBlobProperty()     You can create a CompressedBlobProperty and set its value with your raw byte\n  string (anything of type str).  You can also retrieve the (decompressed) value\n  by accessing the field.     model = CompressedBlobModel(v=...)\nmodel.v = 'green'\nmodel.v\n  'green'\nmodel.put() # doctest: +ELLIPSIS\n  datastore_types.Key.from_path(u'CompressedBlobModel', ...)  model2 = CompressedBlobModel.all().get()\nmodel2.v\n  'green'     Compressed blobs are not indexed and therefore cannot be filtered on:     CompressedBlobModel.gql(\"WHERE v = :1\", 'green').count()\n  0", 
+            "text": "A byte string that will be stored in a compressed form.", 
             "title": "CompressedBlobProperty"
         }, 
         {
