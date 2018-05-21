@@ -1,20 +1,9 @@
 import time
-import unittest
 
-from google.appengine.ext import db, testbed
+from google.appengine.ext import db
 
+from catnado.testing.testcase import SimpleAppEngineTestCase
 from catnado.versionedmodel import VersionedModel, VersionUnifier
-
-
-class SimpleAppEngineTestCase(unittest.TestCase):
-
-  def setUp(self):
-    self.testbed = testbed.Testbed()
-    self.testbed.activate()
-    self.testbed.init_datastore_v3_stub()
-
-  def tearDown(self):
-    self.testbed.deactivate()
 
 
 class SimpleEntity(VersionedModel):

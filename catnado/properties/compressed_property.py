@@ -53,7 +53,7 @@ class CompressedBlobProperty(CompressedProperty):
   string (anything of type str).  You can also retrieve the (decompressed) value
   by accessing the field.
 
-  >>> model = CompressedBlobModel(v='\x041\x9f\x11')
+  >>> model = CompressedBlobModel(v=...)
   >>> model.v = 'green'
   >>> model.v
   'green'

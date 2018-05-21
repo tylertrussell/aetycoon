@@ -2,6 +2,11 @@ import sys
 
 
 def setup_cloud_sdk_paths():
+  """ Setup Cloud SDK on `sys.path`.  Requires `$APPENGINE_SDK_DIR` be set to
+  your App Engine SDK directory at `google-cloud-sdk/platform/google_appengine`.
+
+  Useful for setting up tests that require App Engine stubs.
+  """
   paths_need_setup = not any(['google_appengine' in path for path in sys.path])
   if paths_need_setup:
     import os
