@@ -13,7 +13,7 @@
         <meta name="description" content="gae-catnado, a library of helpers for Google App Engine">
       
       
-        <link rel="canonical" href="https://tylertrussell.github.io/gae-catnado/docgen-api/catnado.properties.compressed_property/">
+        <link rel="canonical" href="https://tylertrussell.github.io/gae-catnado/docgen-api/catnado.properties.immutabe_property/">
       
       
         <meta name="author" content="Tyler Trussell">
@@ -42,7 +42,7 @@
     
     
       
-        <title>compressed_property - gae-catnado</title>
+        <title>immutabe_property - gae-catnado</title>
       
     
     
@@ -123,7 +123,7 @@
                 gae-catnado
               </span>
               <span class="md-header-nav__topic">
-                compressed_property
+                immutabe_property
               </span>
             
           
@@ -361,63 +361,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        compressed_property
-      </label>
-    
-    <a href="./" title="compressed_property" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../catnado.properties.compressed_property/" title="compressed_property" class="md-nav__link">
       compressed_property
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#compressedproperty" title="CompressedProperty" class="md-nav__link">
-    CompressedProperty
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#compressedtextproperty" title="CompressedTextProperty" class="md-nav__link">
-    CompressedTextProperty
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#compressedblobproperty" title="CompressedBlobProperty" class="md-nav__link">
-    CompressedBlobProperty
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -449,11 +397,63 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../catnado.properties.immutabe_property/" title="immutabe_property" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        immutabe_property
+      </label>
+    
+    <a href="./" title="immutabe_property" class="md-nav__link md-nav__link--active">
       immutabe_property
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#immutablemixin" title="ImmutableMixin" class="md-nav__link">
+    ImmutableMixin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#immutablestringproperty" title="ImmutableStringProperty" class="md-nav__link">
+    ImmutableStringProperty
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#immutablepropertyexception" title="ImmutablePropertyException" class="md-nav__link">
+    ImmutablePropertyException
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -769,22 +769,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#compressedproperty" title="CompressedProperty" class="md-nav__link">
-    CompressedProperty
+  <a href="#immutablemixin" title="ImmutableMixin" class="md-nav__link">
+    ImmutableMixin
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#compressedtextproperty" title="CompressedTextProperty" class="md-nav__link">
-    CompressedTextProperty
+  <a href="#immutablestringproperty" title="ImmutableStringProperty" class="md-nav__link">
+    ImmutableStringProperty
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#compressedblobproperty" title="CompressedBlobProperty" class="md-nav__link">
-    CompressedBlobProperty
+  <a href="#immutablepropertyexception" title="ImmutablePropertyException" class="md-nav__link">
+    ImmutablePropertyException
   </a>
   
 </li>
@@ -805,25 +805,16 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/tylertrussell/gae-catnado/edit/master/docs/docgen-api/catnado.properties.compressed_property.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/tylertrussell/gae-catnado/edit/master/docs/docgen-api/catnado.properties.immutabe_property.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
                 <h1 id="_1"></h1>
 <h2 id="classes">Classes</h2>
-<h3 id="compressedproperty"><code>CompressedProperty</code></h3>
-<p>An unindexed, compressed property.</p>
-<p>CompressedTextProperty and CompressedBlobProperty derive from this class.</p>
-<p><code>make_value_from_datastore</code></p>
-<p><code>value_to_str</code></p>
-<p>Returns the value stored by this property encoded as a (byte) string,
-    or None if value is None.  This string will be stored in the datastore.
-    By default, returns the value unchanged.</p>
-<p><code>get_value_for_datastore</code></p>
-<h3 id="compressedtextproperty"><code>CompressedTextProperty</code></h3>
-<p>A string that will be stored in a compressed form (encoded as UTF-8).</p>
-<p><code>value_to_str</code></p>
-<h3 id="compressedblobproperty"><code>CompressedBlobProperty</code></h3>
-<p>A byte string that will be stored in a compressed form.</p>
+<h3 id="immutablemixin"><code>ImmutableMixin</code></h3>
+<p>Mixin to make a property immutable.</p>
+<h3 id="immutablestringproperty"><code>ImmutableStringProperty</code></h3>
+<p>A StringProperty that is immutable after it is created.</p>
+<h3 id="immutablepropertyexception"><code>ImmutablePropertyException</code></h3>
                 
                   
                 
@@ -844,7 +835,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../catnado.properties.choice_property/" title="choice_property" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../catnado.properties.domain_property/" title="domain_property" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -853,19 +844,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                choice_property
+                domain_property
               </span>
             </div>
           </a>
         
         
-          <a href="../catnado.properties.derived_property/" title="derived_property" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../catnado.properties.key_property/" title="key_property" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                derived_property
+                key_property
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
