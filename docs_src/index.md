@@ -17,12 +17,12 @@ pip install gae-catnado
 [Google Cloud SDK](https://cloud.google.com/appengine/downloads).
 
 #### Running tests
-In order to run tests locally, you'll need to set an environment variable 
-`APPENGINE_SDK_DIR` containing your Google App Engine SDK directory (which will
-look something like `/your/path/to/google-cloud-sdk/platform/google_appengine`).
+In order to run tests locally, you'll need to:
+- set an environment variable `APPENGINE_SDK_DIR` containing your Google App 
+Engine SDK directory (which will end in `/platform/google_appengine`)
+- call `catnado.utils.environment.setup_cloud_sdk_paths` during test startup
 
-This environment variable allows `conftest.py` to add the required paths to 
-`sys.path` so that the tests may run.
+The provided `conftest.py` will perform required setup for the `pytest` test runner.
 
 ## Cats
 They're pretty great.
