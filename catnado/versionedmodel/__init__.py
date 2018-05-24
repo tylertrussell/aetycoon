@@ -1,4 +1,5 @@
-"""Rudimentary versioning system for Google App Engine and Cloud Datastore."""
+"""Rudimentary versioning system for Google App Engine and Cloud Datastore.
+"""
 
 from datetime import datetime
 
