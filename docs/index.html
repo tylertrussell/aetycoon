@@ -841,10 +841,16 @@ with additions and modifications.</p>
 <h4 id="requirements">Requirements</h4>
 <p><a href="https://cloud.google.com/appengine/downloads">Google Cloud SDK</a>.</p>
 <h4 id="running-tests">Running tests</h4>
-<p>In order to run tests locally, you'll need to:
-- set an environment variable <code>APPENGINE_SDK_DIR</code> containing your Google App 
-Engine SDK directory (which will end in <code>/platform/google_appengine</code>)
-- call <code>catnado.utils.environment.setup_cloud_sdk_paths</code> during test startup</p>
+<p>In order to run tests locally, you'll need to:</p>
+<ul>
+<li>
+<p>set an environment variable <code>APPENGINE_SDK_DIR</code> containing your Google App 
+Engine SDK directory (which will end in <code>/platform/google_appengine</code>)</p>
+</li>
+<li>
+<p>call <code>catnado.utils.environment.setup_cloud_sdk_paths</code> during test startup</p>
+</li>
+</ul>
 <p>The provided <code>conftest.py</code> will perform required setup for the <code>pytest</code> test runner.</p>
 <h2 id="cats">Cats</h2>
 <p>They're pretty great.</p>

@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/", 
-            "text": "gae-catnado\n\n\nA collection of useful Google App Engine datastore properties and helpers.\n\n\nForked from \naetycoon\n\nwith additions and modifications.\n\n\nThis package is a work-in-progress.\n Most notably, the tests are incomplete.\n\n\nSetup\n\n\nInstall via \npip\n\n\npip install gae-catnado\n\n\n\n\nRequirements\n\n\nGoogle Cloud SDK\n.\n\n\nRunning tests\n\n\nIn order to run tests locally, you'll need to:\n- set an environment variable \nAPPENGINE_SDK_DIR\n containing your Google App \nEngine SDK directory (which will end in \n/platform/google_appengine\n)\n- call \ncatnado.utils.environment.setup_cloud_sdk_paths\n during test startup\n\n\nThe provided \nconftest.py\n will perform required setup for the \npytest\n test runner.\n\n\nCats\n\n\nThey're pretty great.", 
+            "text": "gae-catnado\n\n\nA collection of useful Google App Engine datastore properties and helpers.\n\n\nForked from \naetycoon\n\nwith additions and modifications.\n\n\nThis package is a work-in-progress.\n Most notably, the tests are incomplete.\n\n\nSetup\n\n\nInstall via \npip\n\n\npip install gae-catnado\n\n\n\n\nRequirements\n\n\nGoogle Cloud SDK\n.\n\n\nRunning tests\n\n\nIn order to run tests locally, you'll need to:\n\n\n\n\n\n\nset an environment variable \nAPPENGINE_SDK_DIR\n containing your Google App \nEngine SDK directory (which will end in \n/platform/google_appengine\n)\n\n\n\n\n\n\ncall \ncatnado.utils.environment.setup_cloud_sdk_paths\n during test startup\n\n\n\n\n\n\nThe provided \nconftest.py\n will perform required setup for the \npytest\n test runner.\n\n\nCats\n\n\nThey're pretty great.", 
             "title": "Home"
         }, 
         {
@@ -22,7 +22,7 @@
         }, 
         {
             "location": "/#running-tests", 
-            "text": "In order to run tests locally, you'll need to:\n- set an environment variable  APPENGINE_SDK_DIR  containing your Google App \nEngine SDK directory (which will end in  /platform/google_appengine )\n- call  catnado.utils.environment.setup_cloud_sdk_paths  during test startup  The provided  conftest.py  will perform required setup for the  pytest  test runner.", 
+            "text": "In order to run tests locally, you'll need to:    set an environment variable  APPENGINE_SDK_DIR  containing your Google App \nEngine SDK directory (which will end in  /platform/google_appengine )    call  catnado.utils.environment.setup_cloud_sdk_paths  during test startup    The provided  conftest.py  will perform required setup for the  pytest  test runner.", 
             "title": "Running tests"
         }, 
         {
