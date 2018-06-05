@@ -42,7 +42,7 @@
 
     
     
-###`SimpleEntity`
+###`ImmutableKeyPropertyTestModel`
 
 
 

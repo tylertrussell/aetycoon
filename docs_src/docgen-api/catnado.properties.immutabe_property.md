@@ -27,7 +27,7 @@
     
 ###`ImmutableStringProperty`
 
- A StringProperty that is immutable after it is created.
+ An immutable version of `google.appengine.ext.db.StringProperty`
   
 
         
@@ -40,7 +40,8 @@
     
 ###`ImmutablePropertyException`
 
-
+ Raised when someone tries to set an immutable property.
+  
 
         
         

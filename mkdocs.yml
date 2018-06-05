@@ -12,6 +12,7 @@ pages:
       - array_property: docgen-api/catnado.properties.array_property.md
       - choice_property: docgen-api/catnado.properties.choice_property.md
       - compressed_property: docgen-api/catnado.properties.compressed_property.md
+      - decimal_property: docgen-api/catnado.properties.decimal_property.md
       - derived_property: docgen-api/catnado.properties.derived_property.md
       - domain_property: docgen-api/catnado.properties.domain_property.md
       - immutabe_property: docgen-api/catnado.properties.immutabe_property.md
@@ -20,8 +21,9 @@ pages:
       - set_property: docgen-api/catnado.properties.set_property.md
       - test:
         - __init__: docgen-api/catnado.properties.test.md
+        - test_decimal_property: docgen-api/catnado.properties.test.test_decimal_property.md
         - test_immutable_property: docgen-api/catnado.properties.test.test_immutable_property.md
-        - test_import: docgen-api/catnado.properties.test.test_import.md
+        - test_imports: docgen-api/catnado.properties.test.test_imports.md
         - test_key_property: docgen-api/catnado.properties.test.test_key_property.md
         - testcase: docgen-api/catnado.properties.test.testcase.md
       - transform_property: docgen-api/catnado.properties.transform_property.md
