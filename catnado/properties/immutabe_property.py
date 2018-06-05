@@ -2,20 +2,24 @@ from google.appengine.ext import db
 
 
 class ImmutablePropertyException(Exception):
+  """ Raised when someone tries to set an immutable property.
+  """
   pass
 
 
-class ImmutableMixin(db.Property):
+class ImmutableMixin(object):
   """ Mixin to make a property immutable.
   """
 
   def __set__(self, instance, value):
-    if getattr(instance, self.name):
-      raise ImmutablePropertyException('Property %s is immutable'.format(self.name))
+
+    if hasattr(instance, self._attr_name()):
+      raise ImmutablePropertyException('{} is immutable'.format(self.name))
+
     super(ImmutableMixin, self).__set__(instance, value)
 
 
-class ImmutableStringProperty(db.StringProperty, ImmutableMixin):
-  """ A StringProperty that is immutable after it is created.
+class ImmutableStringProperty(ImmutableMixin, db.StringProperty):
+  """ An immutable version of `google.appengine.ext.db.StringProperty`
   """
   pass

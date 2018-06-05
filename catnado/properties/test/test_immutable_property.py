@@ -33,4 +33,4 @@ class TestImmutableProperty(SimpleAppEngineTestCase):
     self.assertEqual(refetched_entity.name, NAME)
 
     with self.assertRaises(ImmutablePropertyException):
-      entity.name = 'anything'
+      refetched_entity.name = 'anything'
