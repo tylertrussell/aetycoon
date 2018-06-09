@@ -4,6 +4,8 @@ from setuptools import setup
 from codecs import open
 from os import path
 
+from catnado import __VERSION__
+
 
 here = path.abspath(path.dirname(__file__))
 
@@ -13,7 +15,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 
 setup(
   name='gae-catnado',
-  version='0.0.1.dev11',
+  version=__VERSION__,
   description='Google App Engine datastore properties and helpers',
   long_description=long_description,
   long_description_content_type='text/markdown',

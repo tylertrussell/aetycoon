@@ -10,6 +10,9 @@ See the [docs on GitHub](https://tylertrussell.github.io/gae-catnado).
 
 # Changelog
 
+### 0.0.1dev12
+* Added `catnado.utils.api` for internal APIs
+
 ### 0.0.1dev11
 * Added `JSONProperty` and basic unit tests
     * A way to store JSON data validated by a [JSON Schema](http://www.json-schema.org) (draft 3 or 4)
