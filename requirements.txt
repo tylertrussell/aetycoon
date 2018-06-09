@@ -1,2 +1,6 @@
+# for testing
 pytest
 pytest-flake8
+
+# for JSONProperty
+jsonschema
