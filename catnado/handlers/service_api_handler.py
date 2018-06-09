@@ -3,8 +3,8 @@ from webapp2 import RequestHandler
 from catnado.utils.api import validate_api_request, InsecureAPIRequestError
 
 
-class MicroserviceAPIHandler(RequestHandler):
-  """ Handler for serving a microservice's internal API.
+class ServiceAPIHandler(RequestHandler):
+  """Handler for serving a microservice's internal API.
 
   Ensures that incoming requests are coming from within the same application by
   verifying that the X-Appengine-Inbound-Appid matches the current application's
@@ -12,7 +12,7 @@ class MicroserviceAPIHandler(RequestHandler):
   """
 
   def dispatch(self):
-    """ Override dispatch to validate incoming requests are secure.
+    """Override dispatch to validate incoming requests are secure.
 
     A request is secure if its X-Appengine-Internal-Appid header matches the
     applications current application ID.
@@ -23,4 +23,4 @@ class MicroserviceAPIHandler(RequestHandler):
     except InsecureAPIRequestError:
       self.abort(403)
 
-    super(MicroserviceAPIHandler, self).dispatch()
+    super(ServiceAPIHandler, self).dispatch()
