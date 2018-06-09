@@ -27,5 +27,7 @@ setup(
     'catnado',
     'catnado.properties',
     'catnado.versionedmodel',
+    'catnado.testing',
+    'catnado.utils',
   ],
 )
