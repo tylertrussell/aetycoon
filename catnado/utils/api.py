@@ -10,7 +10,7 @@ INBOUND_APP_ID = 'X-Appengine-Inbound-Appid'
 
 def async_api_call(service, version, path, payload, base_path=None,
                    method=urlfetch.GET, deadline=None,):
-  """ Make an asynchronous API call to another service in this GAE application.
+  """Make an asynchronous API call to another service in this GAE application.
 
   This function utilizes urlfetch with follow_redirects=False so AppEngine will
   securely add the INBOUND_APP_ID header which the target service will used to
@@ -42,7 +42,10 @@ def async_api_call(service, version, path, payload, base_path=None,
 
 def blocking_api_call(service, version, path, payload, base_path=None,
                       method=urlfetch.GET, deadline=None,):
-  """ Make a synchronous API call to another service in this GAE application.
+  """Make a blocking API call to another service in this GAE application.
+
+  If you're going to make multiple calls in a single handler, consider using
+  async_api_call.
 
   See async_api_call for full documentation.
   """
@@ -52,11 +55,16 @@ def blocking_api_call(service, version, path, payload, base_path=None,
 
 
 class InsecureAPIRequestError(Exception):
+  """Raised when a handler receives a request without the appropriate header.
+
+  See validate_api_request.
+  """
+
   pass
 
 
 def validate_api_request(request):
-  """ Validate the API Request by looking for an internal AppEngine header.
+  """Validate the API Request by looking for an internal AppEngine header.
 
   The header should contain INBOUND_APP_ID (added securely by AppEngine) and its
   value should match this service's application ID.
