@@ -1,3 +1,4 @@
+import logging
 
 
 class ValidationError(Exception):
@@ -31,11 +32,13 @@ def validate(key, types, extra_validators=None, required=False):
       value = self.request.get(key)
 
       if not value and required:
-        raise ValidationError('{} is required but missing'.format(key))
+        logging.error('{} is required but missing'.format(key))
+        self.abort(400)
 
       if not isinstance(value, types):
         found = type(value)
-        raise ValidationError('Expected type {}, got {}'.format(types, found))
+        logging.error('Expected type {}, got {}'.format(types, found))
+        self.abort(400)
 
       if extra_validators:
 
@@ -43,14 +46,18 @@ def validate(key, types, extra_validators=None, required=False):
         # a variable defined in an enclosing scope and then reference it later
         # in the same function without raising an UnboundLocalError, give the
         # list a different name
-        if not isinstance(extra_validators):
+        if not isinstance(extra_validators, list):
           validators_to_run = [extra_validators]
         else:
           assert isinstance(extra_validators, list)
           validators_to_run = extra_validators
 
         for extra_validator in validators_to_run:
-          extra_validator(value)
+          try:
+            extra_validator(value)
+          except ValidationError as e:
+            logging.error('{} failed: {}'.format(extra_validator, e))
+            self.abort(400)
 
       func(self, *args, **kwargs)
 

@@ -10,10 +10,15 @@ See the [docs on GitHub](https://tylertrussell.github.io/gae-catnado).
 
 # Changelog
 
+### 0.0.1dev13
+* Updates to `catnado.utils.validators`
+
 ### 0.0.1dev12
 * Added `catnado.utils.api` and `catnado.handlers.service_api_handler`; helpers 
 for making secure API calls and building API handlers that validate requests are
 coming from another service within the same application.
+* Added `catnado.utils.validators`
+* Added `flake8-docstrings-catnado` and related bits and pieces
 
 > "we've traced the call... it's coming from inside the house!"
 
