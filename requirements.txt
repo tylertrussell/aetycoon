@@ -1,6 +1,12 @@
-# for testing
+flake8
+flake8-docstrings-catnado
+jinja2
+jsonschema
+pycountry
 pytest
 pytest-flake8
-
-# for JSONProperty
-jsonschema
+pyyaml
+twine
+webapp2
+webob
+webtest

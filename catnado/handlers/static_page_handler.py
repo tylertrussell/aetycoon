@@ -18,6 +18,7 @@ class StaticPageHandler(RequestHandler):
   TEMPLATES_PATH = 'templates'
 
   def __init__(self, *args, **kwargs):
+    """Override initializer."""
     super(StaticPageHandler, self).__init__(*args, **kwargs)
     self.jinja_env = None
 

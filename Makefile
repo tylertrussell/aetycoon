@@ -4,6 +4,7 @@ clean:
 
 .PHONY: build
 build:
+	pip install -r requirements.txt
 	python setup.py bdist_wheel
 
 upload:

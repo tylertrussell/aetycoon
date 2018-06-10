@@ -1,4 +1,4 @@
-from jinja2 import Environment, PackageLoader
+from jinja2 import Environment, FileSystemLoader
 
 
 def get_jinja_environment(package_name, package_path='templates'):
@@ -8,5 +8,5 @@ def get_jinja_environment(package_name, package_path='templates'):
     template_dir: required str; base location of templates
   """
   return Environment(
-    loader=PackageLoader(package_name, package_path),
+    loader=FileSystemLoader(package_name, package_path),
   )
