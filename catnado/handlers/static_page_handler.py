@@ -1,4 +1,4 @@
-from catnado.utils.jinja import get_jinja_environment
+from catnado.utils.jinja import create_jinja_environment
 from webapp2 import RequestHandler
 
 
@@ -13,25 +13,24 @@ class StaticPageHandler(RequestHandler):
   verifying that the X-Appengine-Inbound-Appid matches the current application's
   ID.
   """
+  TEMPLATES_PATH = None
 
-  PACKAGE = 'catnado'
-  TEMPLATES_PATH = 'templates'
+  @property
+  def jinja_env(self):
+    assert self.TEMPLATES_PATH is not None
+    print 'template path: {}'.format(self.TEMPLATES_PATH)
+    if not hasattr(self, '_jinja_env'):
+      self._jinja_env = create_jinja_environment(self.TEMPLATES_PATH)
+    return self._jinja_env
 
-  def __init__(self, *args, **kwargs):
-    """Override initializer."""
-    super(StaticPageHandler, self).__init__(*args, **kwargs)
-    self.jinja_env = None
-
-  def jinja_render(self, template, kwargs):
+  def jinja_render(self, template, kwargs=None):
     """Set Content-Type and write JSON data in a response.
 
     Arguments:
-      kwargs: a dict to pass to the Jinja template
+      kwargs: an optional dict to pass to the Jinja template
     """
+    kwargs = kwargs or {}
     self.response.headers[CONTENT_TYPE] = CONTENT_TYPE_HTML
-
-    if not self.jinja_env:
-      self.jinja_env = get_jinja_environment(self.PACKAGE, self.TEMPLATES_PATH)
 
     template = self.jinja_env.get_template(template)
     if template:
