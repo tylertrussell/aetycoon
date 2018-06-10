@@ -17,6 +17,10 @@ class StaticPageHandler(RequestHandler):
   PACKAGE = 'catnado'
   TEMPLATES_PATH = 'templates'
 
+  def __init__(self):
+    super(StaticPageHandler, self).__init__()
+    self.jinja_env = None
+
   def jinja_render(self, template, kwargs):
     """Set Content-Type and write JSON data in a response.
 
@@ -30,4 +34,4 @@ class StaticPageHandler(RequestHandler):
 
     template = self.jinja_env.get_template(template)
     if template:
-      template.render(**kwargs)
+      self.response.out.write(template.render(**kwargs))
