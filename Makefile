@@ -1,9 +1,10 @@
 clean:
-    rm -r .pytest_cache
-    rm -r dist
+	rm -rf .pytest_cache
+	rm -rf dist
 
+.PHONY: build
 build:
-    python setup.py bdist_wheel
+	python setup.py bdist_wheel
 
 upload:
-    twine upload dist/*
+	twine upload dist/*

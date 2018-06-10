@@ -1,5 +1,4 @@
-"""Rudimentary versioning system for Google App Engine and Cloud Datastore.
-"""
+"""Rudimentary versioning system for Google App Engine and Cloud Datastore."""
 
 from datetime import datetime
 
@@ -21,7 +20,8 @@ EVENT_KEY = 'event'
 
 
 class VersionUnifier(db.Model):
-  """ Common datastore ancestor for every version of a versioned model.
+  """Common datastore ancestor for every version of a versioned model.
+
   Authoritative source of which version is active.
   """
 
@@ -33,10 +33,11 @@ class VersionUnifier(db.Model):
 
   @db.transactional
   def set_active_version(self, active_version_key, info=None):
-    """ Set the active version to the provided `active_version_key`, record
-    the change in `active_version_history`, and set `VersionedModel.active`
-    on the version that is becoming active (and, if applicable, the version
-    that is becoming inactive).
+    """Set the active version to the provided `active_version_key`.
+
+    Also record change in `active_version_history` and set `active` on the
+    `VersionedModel` that is becoming active (and, if applicable, the one that
+    is becoming inactive).
 
     Args:
       active_version_key: `db.Key` of the new active version
@@ -81,8 +82,10 @@ class VersionUnifier(db.Model):
 
 
 class VersionedModel(db.Model):
-  """ Model with built-in versioning. Each entity represents a single version
-  and all versions share a common `VersionUnifier` datastore parent.
+  """Model with built-in versioning.
+
+  Each entity represents a single version and all versions share a common
+  `VersionUnifier` datastore parent.
   """
 
   # essentially the real parent_key value for this entity
@@ -91,11 +94,16 @@ class VersionedModel(db.Model):
   # to allow queries to only return the active version
   active = db.BooleanProperty(default=False)
 
+  # if created != modified, we know a versionedmodel was tampered with outside
+  # the versionedmodel system
   created = db.DateTimeProperty(auto_now_add=True)
+  modified = db.DateTimeProperty(auto_now=True)
 
   def __init__(self, parent=None, key_name=None, _app=None, _from_entity=False, **kwargs):
-    """ If a parent was specified when instantiating this `VersionedModel`,
-    copy it elsewhere on the object so that it may be passed along to the
+    """Override constructor.
+
+    If a parent was specified when instantiating this `VersionedModel`, copy it
+    elsewhere on the object so that it may be passed along to the
     `VersionUnifier` that will be this `VersionModel`'s real parent.
 
     See Model.__init__ for other documentation.
@@ -114,7 +122,8 @@ class VersionedModel(db.Model):
     self._parent_key = None
 
   def _reset_entity(self):
-    """ Reset the entity's internal state so that a new version is saved.
+    """Reset the entity's internal state so that a new version is saved.
+
     Also sets `active` to `False`.
     """
     self._entity = None
@@ -123,8 +132,11 @@ class VersionedModel(db.Model):
     self.active = False
 
   def put(self, **kwargs):
-    """ Put a new version of this model to the datastore. Iff this is a new
-    model, create a new `VersionUnifier` to track all of its versions.
+    """Put a new version of this model to the datastore.
+
+    Iff this is a new model, create a new `VersionUnifier` to track all of its
+    versions.
+
     Args:
       Keyword args passed to super call
     Returns:
@@ -143,12 +155,16 @@ class VersionedModel(db.Model):
     return my_key
 
   def _put(self, **kwargs):
-    """ The original `put` """
+    """Put this model to the datastore--the original method.
+
+    Do not use this.
+    """
     return super(VersionedModel, self).put(**kwargs)
 
   @property
   def version_unifier(self):
-    """
+    """Fetch the version unifier for this model.
+
     Returns:
       `VersionUnifier` for this model, which is its real datastore parent.
     Raises:
@@ -162,8 +178,10 @@ class VersionedModel(db.Model):
     return version_unifier
 
   def parent(self):
-    """ Get this entity's feaux datastore parent (as opposed to its real parent
-    which is a `VersionUnifier`).
+    """Get this entity's feaux datastore parent.
+
+    To get the entity's underlying datastore parent (a `VersionUnifier`, use
+    `version_unifier`.
 
     Returns:
       Datastore entity.
@@ -177,7 +195,7 @@ class VersionedModel(db.Model):
     return db.get(self.parent_key())
 
   def parent_key(self):
-    """ See: `parent`.
+    """See `parent`.
 
     Returns:
       The `db.Key` of this entity's feaux parent.
@@ -194,7 +212,7 @@ class VersionedModel(db.Model):
     return feaux_parent_key
 
   def set_active(self, info=None):
-    """ Transactionally activate this version.
+    """Transactionally activate this version.
 
     Args:
       info: optional `dict` of info to record with the change
@@ -204,7 +222,9 @@ class VersionedModel(db.Model):
 
   @classmethod
   def _all(cls, **kwargs):
-    """ The original all() function.
+    """Query all entities--the original function.
+
+    Do not use this.
 
     Returns:
       google.appengine.ext.db.Query
@@ -213,7 +233,7 @@ class VersionedModel(db.Model):
 
   @classmethod
   def all(cls, **kwargs):
-    """ When composing datastore queries, only find the active version.
+    """When composing datastore queries, only find the active version.
 
     Note: this may cause required indexes to be different than you might
     expect.
@@ -226,8 +246,9 @@ class VersionedModel(db.Model):
     return cls._all().filter('active', True)
 
   def all_versions(self):
-    """ Get a query that will fetch all of the versions of the given instance of
-    VersionedModel, ordered by their ascending creation date.
+    """Get a query for all of the versions of the given instance.
+
+    Query ordered by ascending creation date.
 
     Args:
       instance: Any instance of any `VersionedModel` subclass.
@@ -236,3 +257,15 @@ class VersionedModel(db.Model):
     """
     return (self._all().filter('version_unifier_key', self.version_unifier_key)
                        .order('created'))
+
+  @property
+  def tampered_with(self):
+    """Check to see if this model has been tampered with.
+
+    "Tampered with" in the sense that it has been modified outside of the
+    versioning system.
+
+    Returns:
+      True if the self.created == self.modified, False otherwise
+    """
+    return self.created == self.modified

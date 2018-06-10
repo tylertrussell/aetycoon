@@ -1,2 +1,1 @@
-""" Miscellaneous utilities for working within an App Engine environment.
-"""
+"""Miscellaneous utilities for working within an App Engine environment."""

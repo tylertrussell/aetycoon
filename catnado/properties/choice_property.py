@@ -26,11 +26,11 @@ class ChoiceProperty(db.IntegerProperty):
           setattr(self, c.upper(), i)
 
   def get_choices(self):
-    """Gets a list of values which may be assigned to this property."""
+    """Get a list of values which may be assigned to this property."""
     return self.choice_to_index.keys()
 
   def c2i(self, choice):
-    """Converts a choice to its datastore representation."""
+    """Convert a choice to its datastore representation."""
     return self.choice_to_index[choice]
 
   def __get__(self, model_instance, model_class):
@@ -48,10 +48,11 @@ class ChoiceProperty(db.IntegerProperty):
     super(ChoiceProperty, self).__set__(model_instance, index)
 
   def get_value_for_datastore(self, model_instance):
-    # just use the underlying value from the parent
+    """Use underlying int value for datastore."""
     return super(ChoiceProperty, self).__get__(model_instance, model_instance.__class__)
 
   def make_value_from_datastore(self, value):
+    """Convert int from datastore to choice."""
     if value is None:
       return None
     return self.index_to_choice[value]
