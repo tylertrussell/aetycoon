@@ -6,7 +6,7 @@ from google.appengine.ext import db
 
 
 class SimpleEntity(VersionedModel):
-  """ A simple versioned model for testing. """
+  """Simple versioned model for testing. """
   name = db.StringProperty()
 
 
