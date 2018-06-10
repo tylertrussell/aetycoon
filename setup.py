@@ -7,7 +7,7 @@ from codecs import open
 from os import path
 
 from catnado import __VERSION__
-from setuptools import setup
+from setuptools import find_packages, setup
 
 
 here = path.abspath(path.dirname(__file__))
@@ -33,12 +33,5 @@ setup(
     'flake8-import-order',
     'jsonschema',
   ],
-  packages=[
-    'catnado',
-    'catnado.properties',
-    'catnado.handlers',
-    'catnado.versionedmodel',
-    'catnado.testing',
-    'catnado.utils',
-  ],
+  packages=find_packages(exclude=["*.test", "*.test.*", "test.*", "test"]),
 )
