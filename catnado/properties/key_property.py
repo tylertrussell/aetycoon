@@ -2,11 +2,11 @@ from google.appengine.ext import db
 
 
 class KeyProperty(db.Property):
-  """A property that stores a key without automatically dereferencing it or
-  requiring a dependency between model classes.
+  """Property that stores a key without automatically dereferencing it.
 
-  `db.ReferenceProperty` performs a datastore RPC when it is accessed, which
-  can lead to unforeseen performance problems.
+  Note that the default alternative, `db.ReferenceProperty`, performs a
+  datastore RPC when it is accessed, which can lead to hidden performance
+  problems.
 
   Furthermore, it needs to have the Kind specified when it is declared, which
   creates a code dependency between models that can be undesirable.
@@ -15,7 +15,8 @@ class KeyProperty(db.Property):
   """
 
   def __init__(self, *args, **kwargs):
-    """
+    """Constructor.
+
     Args:
       kind: optional string; datastore kind for validation
     """
@@ -23,11 +24,12 @@ class KeyProperty(db.Property):
     self.kind = kwargs.get('kind')
 
   def validate(self, value):
-    """
+    """Validate value is a key or model.
+
     Args:
       value: The value to validate.
     Returns:
-      A valid key.
+      google.appengine.ext.db.Key
     Raises:
       TypeError if the value can't be converted into a `db.Key`
     """

@@ -1,6 +1,6 @@
 # gae-catnado
 
-*** This is a work in progress subject to sudden change. ***
+***This is a work in progress subject to sudden change.***
 
 A collection of useful properties and helpers for use with Google App Engine.
 
@@ -11,7 +11,11 @@ See the [docs on GitHub](https://tylertrussell.github.io/gae-catnado).
 # Changelog
 
 ### 0.0.1dev12
-* Added `catnado.utils.api` for internal APIs
+* Added `catnado.utils.api` and `catnado.handlers.service_api_handler`; helpers 
+for making secure API calls and building API handlers that validate requests are
+coming from another service within the same application.
+
+> "we've traced the call... it's coming from inside the house!"
 
 ### 0.0.1dev11
 * Added `JSONProperty` and basic unit tests

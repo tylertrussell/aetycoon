@@ -1,4 +1,7 @@
-# modified from https://github.com/pypa/sampleproject
+""" Setup for gae-catnado.
+
+Modified from https://github.com/pypa/sampleproject
+"""
 
 from setuptools import setup
 from codecs import open

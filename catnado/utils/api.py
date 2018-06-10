@@ -9,12 +9,12 @@ INBOUND_APP_ID = 'X-Appengine-Inbound-Appid'
 
 
 def async_api_call(service, version, path, payload, base_path=None,
-                  method=urlfetch.GET, deadline=None,):
-  """ Make an asynchronous API call to another service in this GAE application.
+                   method=urlfetch.GET, deadline=None,):
+  """Make an asynchronous API call to another service in this GAE application.
 
   This function utilizes urlfetch with follow_redirects=False so AppEngine will
-  add the X-Appengine-Inbound-Appid HTTP header which the target service will
-  used to authenticate the request.
+  securely add the INBOUND_APP_ID header which the target service will used to
+  authenticate the request.
 
   Arguments:
     service: str; service name
@@ -37,12 +37,15 @@ def async_api_call(service, version, path, payload, base_path=None,
   )
   rpc = urlfetch.create_rpc(deadline=deadline)
   return urlfetch.make_fetch_call(rpc, url, payload, method=method,
-                           follow_redirects=False)
+                                  follow_redirects=False)
 
 
 def blocking_api_call(service, version, path, payload, base_path=None,
                       method=urlfetch.GET, deadline=None,):
-  """ Make a synchronous API call to another service in this GAE application.
+  """Make a blocking API call to another service in this GAE application.
+
+  If you're going to make multiple calls in a single handler, consider using
+  async_api_call.
 
   See async_api_call for full documentation.
   """
@@ -52,11 +55,20 @@ def blocking_api_call(service, version, path, payload, base_path=None,
 
 
 class InsecureAPIRequestError(Exception):
+  """Raised when a handler receives a request without the appropriate header.
+
+  See validate_api_request.
+  """
+
   pass
 
 
 def validate_api_request(request):
-  """
+  """Validate the API Request by looking for an internal AppEngine header.
+
+  The header should contain INBOUND_APP_ID (added securely by AppEngine) and its
+  value should match this service's application ID.
+
   Arguments:
     request: webapp2 Request
 
@@ -68,6 +80,7 @@ def validate_api_request(request):
   actual_app_id = app_identity.get_application_id()
 
   if not purported_app_id or purported_app_id != actual_app_id:
+
     raise InsecureAPIRequestError(
       'Expected application ID {} but got {}'.format(
         purported_app_id,
