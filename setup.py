@@ -26,6 +26,13 @@ setup(
   author='Tyler Trussell',
   author_email='tigertrussell+pip@gmail.com',
   keywords='google app engine helpers datastore properties',
+  install_requires=[
+    'pytest',
+    'pytest-flake8',
+    'flake8-docstrings-catnado',
+    'flake8-import-order',
+    'jsonschema',
+  ],
   packages=[
     'catnado',
     'catnado.properties',
