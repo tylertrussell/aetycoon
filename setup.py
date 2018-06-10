@@ -36,6 +36,7 @@ setup(
   packages=[
     'catnado',
     'catnado.properties',
+    'catnado.handlers',
     'catnado.versionedmodel',
     'catnado.testing',
     'catnado.utils',
