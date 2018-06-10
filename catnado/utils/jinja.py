@@ -1,4 +1,4 @@
-from jinja2 import Environment, PackageLoader, select_autoescape
+from jinja2 import Environment, PackageLoader
 
 
 def get_jinja_environment(package_name, package_path='templates'):
@@ -9,5 +9,4 @@ def get_jinja_environment(package_name, package_path='templates'):
   """
   return Environment(
     loader=PackageLoader(package_name, package_path),
-    autoescape=select_autoescape(['html']),
   )
