@@ -1,3 +1,6 @@
+import logging
+
+from catnado import __VERSION__
 from catnado.utils.jinja import create_jinja_environment
 from webapp2 import RequestHandler
 
@@ -18,8 +21,8 @@ class StaticPageHandler(RequestHandler):
   @property
   def jinja_env(self):
     assert self.TEMPLATES_PATH is not None
-    print 'template path: {}'.format(self.TEMPLATES_PATH)
     if not hasattr(self, '_jinja_env'):
+      logging.critical('creating jinja environment at {}'.format(self.TEMPLATES_PATH))
       self._jinja_env = create_jinja_environment(self.TEMPLATES_PATH)
     return self._jinja_env
 
@@ -29,6 +32,8 @@ class StaticPageHandler(RequestHandler):
     Arguments:
       kwargs: an optional dict to pass to the Jinja template
     """
+    logging.critical('version {} is rendering!'.format(__VERSION__))
+
     kwargs = kwargs or {}
     self.response.headers[CONTENT_TYPE] = CONTENT_TYPE_HTML
 
