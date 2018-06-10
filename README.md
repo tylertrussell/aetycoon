@@ -10,9 +10,11 @@ See the [docs on GitHub](https://tylertrussell.github.io/gae-catnado).
 
 # Changelog
 
+### 0.0.1dev14
+* Unit tests for `catnado.utils.validators`
+
 ### 0.0.1dev13
 * Updates to `catnado.utils.validators`
-* Unit tests for `catnado.utils.validators`
 
 ### 0.0.1dev12
 * Added `catnado.utils.api` and `catnado.handlers.service_api_handler`; helpers 
