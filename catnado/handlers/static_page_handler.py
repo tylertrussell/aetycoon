@@ -17,8 +17,8 @@ class StaticPageHandler(RequestHandler):
   PACKAGE = 'catnado'
   TEMPLATES_PATH = 'templates'
 
-  def __init__(self):
-    super(StaticPageHandler, self).__init__()
+  def __init__(self, *args, **kwargs):
+    super(StaticPageHandler, self).__init__(*args, **kwargs)
     self.jinja_env = None
 
   def jinja_render(self, template, kwargs):
