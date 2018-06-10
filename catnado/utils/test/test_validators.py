@@ -1,6 +1,6 @@
-from catnado.utils.validators import validate, ValidationError
 from catnado.testing.app import create_simple_test_app
 from catnado.testing.testcase import SimpleAppEngineTestCase
+from catnado.utils.validators import validate, ValidationError
 from webapp2 import RequestHandler, Route
 
 

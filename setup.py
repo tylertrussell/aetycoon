@@ -3,11 +3,11 @@
 Modified from https://github.com/pypa/sampleproject
 """
 
-from setuptools import setup
 from codecs import open
 from os import path
 
 from catnado import __VERSION__
+from setuptools import setup
 
 
 here = path.abspath(path.dirname(__file__))

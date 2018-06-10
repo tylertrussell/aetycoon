@@ -1,3 +1,6 @@
+import base64
+import json
+
 from google.appengine.api import app_identity, urlfetch
 
 
@@ -87,3 +90,24 @@ def validate_api_request(request):
         actual_app_id
       )
     )
+
+
+class ApiDict(dict):
+  """Subclass dict and add helper funcs for passing data between services."""
+
+  def stringify(self):
+    """Convert this object to a str.
+
+    Returns:
+      str; object dumped to JSON string then base64 encoded
+    """
+    return base64.b64encode(json.dumps(self))
+
+  @classmethod
+  def from_string(cls, stringified):
+    """Reverse stringify.
+
+    Args:
+      stringified: str; a stringified TransactionData
+    """
+    return cls(json.loads(base64.b64decode(stringified)))

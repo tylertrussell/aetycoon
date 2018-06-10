@@ -2,10 +2,9 @@
 
 from datetime import datetime
 
-from google.appengine.ext import db
-
 from catnado.properties.key_property import KeyProperty
 from catnado.properties.pickle_property import PickleProperty
+from google.appengine.ext import db
 
 
 ERROR_MISSING_VERSION_UNIFIER = 'Missing VersionUnifier datastore entity'
