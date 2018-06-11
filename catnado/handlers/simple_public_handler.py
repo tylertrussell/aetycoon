@@ -9,6 +9,10 @@ CONTENT_TYPE = 'Content-Type'
 CONTENT_TYPE_HTML = 'text/html'
 
 
+def log(message):
+  logging.debug('[SimplePublicHandler] {}'.format(message))
+
+
 class SimplePublicHandler(RequestHandler):
   """Handler for serving a microservice's internal API.
 
@@ -22,7 +26,7 @@ class SimplePublicHandler(RequestHandler):
   def jinja_env(self):
     assert self.TEMPLATES_PATH is not None
     if not hasattr(self, '_jinja_env'):
-      logging.critical('creating jinja environment at {}'.format(self.TEMPLATES_PATH))
+      log('Creating jinja environment, template dir: {}'.format(self.TEMPLATES_PATH))
       self._jinja_env = create_jinja_environment(self.TEMPLATES_PATH)
     return self._jinja_env
 
@@ -32,7 +36,7 @@ class SimplePublicHandler(RequestHandler):
     Arguments:
       kwargs: an optional dict to pass to the Jinja template
     """
-    logging.critical('version {} is rendering!'.format(__VERSION__))
+    log('Trying to render {} with kwargs {}'.format(template, kwargs))
 
     kwargs = kwargs or {}
     self.response.headers[CONTENT_TYPE] = CONTENT_TYPE_HTML

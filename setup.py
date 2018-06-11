@@ -27,10 +27,6 @@ setup(
   author_email='tigertrussell+pip@gmail.com',
   keywords='google app engine helpers datastore properties',
   install_requires=[
-    'pytest',
-    'pytest-flake8',
-    'flake8-docstrings-catnado',
-    'flake8-import-order',
     'jsonschema',
   ],
   packages=find_packages(exclude=["*.test", "*.test.*", "test.*", "test"]),
