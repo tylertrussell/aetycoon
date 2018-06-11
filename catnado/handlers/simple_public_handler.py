@@ -9,7 +9,7 @@ CONTENT_TYPE = 'Content-Type'
 CONTENT_TYPE_HTML = 'text/html'
 
 
-class StaticPageHandler(RequestHandler):
+class SimplePublicHandler(RequestHandler):
   """Handler for serving a microservice's internal API.
 
   Ensures that incoming requests are coming from within the same application by
