@@ -26,25 +26,25 @@ A property for efficiently storing choices made from a finite set.
 
 `c2i`
 
-Converts a choice to its datastore representation.
+Convert a choice to its datastore representation.
 
             
 
 `get_choices`
 
-Gets a list of values which may be assigned to this property.
+Get a list of values which may be assigned to this property.
 
             
 
 `make_value_from_datastore`
 
-
+Convert int from datastore to choice.
 
             
 
 `get_value_for_datastore`
 
-
+Use underlying int value for datastore.
 
             
 

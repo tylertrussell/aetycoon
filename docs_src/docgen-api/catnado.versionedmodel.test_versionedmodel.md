@@ -94,7 +94,7 @@
     
 ###`SimpleEntity`
 
- A simple versioned model for testing. 
+Simple versioned model for testing. 
 
         
         

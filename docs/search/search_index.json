@@ -36,28 +36,118 @@
             "title": "__init__"
         }, 
         {
+            "location": "/docgen-api/catnado.handlers/", 
+            "text": "", 
+            "title": "__init__"
+        }, 
+        {
+            "location": "/docgen-api/catnado.handlers.service_api_handler/", 
+            "text": "Attributes\n\n\nCONTENT_TYPE_JSON\n\n\nCONTENT_TYPE\n\n\nFunctions\n\n\nvalidate_api_request\n\n\nValidate the API Request by looking for an internal AppEngine header.\n\n\nThe header should contain INBOUND_APP_ID (added securely by AppEngine) and its\n  value should match this service's application ID.\n\n\nArguments:\n    request: webapp2 Request\n\n\nRaises:\n    InsecureAPIRequestError: if the application ID header is missing from the\n      request or the ID does not match the current application\n\n\nClasses\n\n\nServiceAPIHandler\n\n\nHandler for serving a microservice's internal API.\n\n\nEnsures that incoming requests are coming from within the same application by\n  verifying that the X-Appengine-Inbound-Appid matches the current application's\n  ID.\n\n\njson_response\n\n\nSet Content-Type and write JSON data in a response.\n\n\nArguments:\n  data: a dict to JSON-stringify and return\n\n\n\ndispatch\n\n\nOverride dispatch to validate incoming requests are secure.\n\n\nA request is secure if its X-Appengine-Internal-Appid header matches the\napplications current application ID.", 
+            "title": "service_api_handler"
+        }, 
+        {
+            "location": "/docgen-api/catnado.handlers.service_api_handler/#attributes", 
+            "text": "CONTENT_TYPE_JSON  CONTENT_TYPE", 
+            "title": "Attributes"
+        }, 
+        {
+            "location": "/docgen-api/catnado.handlers.service_api_handler/#functions", 
+            "text": "", 
+            "title": "Functions"
+        }, 
+        {
+            "location": "/docgen-api/catnado.handlers.service_api_handler/#validate_api_request", 
+            "text": "Validate the API Request by looking for an internal AppEngine header.  The header should contain INBOUND_APP_ID (added securely by AppEngine) and its\n  value should match this service's application ID.  Arguments:\n    request: webapp2 Request  Raises:\n    InsecureAPIRequestError: if the application ID header is missing from the\n      request or the ID does not match the current application", 
+            "title": "validate_api_request"
+        }, 
+        {
+            "location": "/docgen-api/catnado.handlers.service_api_handler/#classes", 
+            "text": "", 
+            "title": "Classes"
+        }, 
+        {
+            "location": "/docgen-api/catnado.handlers.service_api_handler/#serviceapihandler", 
+            "text": "Handler for serving a microservice's internal API.  Ensures that incoming requests are coming from within the same application by\n  verifying that the X-Appengine-Inbound-Appid matches the current application's\n  ID.  json_response  Set Content-Type and write JSON data in a response.  Arguments:\n  data: a dict to JSON-stringify and return  dispatch  Override dispatch to validate incoming requests are secure.  A request is secure if its X-Appengine-Internal-Appid header matches the\napplications current application ID.", 
+            "title": "ServiceAPIHandler"
+        }, 
+        {
+            "location": "/docgen-api/catnado.handlers.simple_public_handler/", 
+            "text": "Attributes\n\n\nCONTENT_TYPE\n\n\nCONTENT_TYPE_HTML\n\n\nFunctions\n\n\ncreate_jinja_environment\n\n\nGet a Jinja environment for rendering a template.\n\n\nArgs:\n    template_path: required str; base location of templates\n\n\nClasses\n\n\nSimplePublicHandler\n\n\nHandler for serving a microservice's internal API.\n\n\nEnsures that incoming requests are coming from within the same application by\n  verifying that the X-Appengine-Inbound-Appid matches the current application's\n  ID.\n\n\njinja_render\n\n\nSet Content-Type and write JSON data in a response.\n\n\nArguments:\n  kwargs: an optional dict to pass to the Jinja template", 
+            "title": "simple_public_handler"
+        }, 
+        {
+            "location": "/docgen-api/catnado.handlers.simple_public_handler/#attributes", 
+            "text": "CONTENT_TYPE  CONTENT_TYPE_HTML", 
+            "title": "Attributes"
+        }, 
+        {
+            "location": "/docgen-api/catnado.handlers.simple_public_handler/#functions", 
+            "text": "", 
+            "title": "Functions"
+        }, 
+        {
+            "location": "/docgen-api/catnado.handlers.simple_public_handler/#create_jinja_environment", 
+            "text": "Get a Jinja environment for rendering a template.  Args:\n    template_path: required str; base location of templates", 
+            "title": "create_jinja_environment"
+        }, 
+        {
+            "location": "/docgen-api/catnado.handlers.simple_public_handler/#classes", 
+            "text": "", 
+            "title": "Classes"
+        }, 
+        {
+            "location": "/docgen-api/catnado.handlers.simple_public_handler/#simplepublichandler", 
+            "text": "Handler for serving a microservice's internal API.  Ensures that incoming requests are coming from within the same application by\n  verifying that the X-Appengine-Inbound-Appid matches the current application's\n  ID.  jinja_render  Set Content-Type and write JSON data in a response.  Arguments:\n  kwargs: an optional dict to pass to the Jinja template", 
+            "title": "SimplePublicHandler"
+        }, 
+        {
+            "location": "/docgen-api/catnado.handlers.test/", 
+            "text": "", 
+            "title": "__init__"
+        }, 
+        {
+            "location": "/docgen-api/catnado.handlers.test.test_service_api_handler/", 
+            "text": "Attributes\n\n\nCONTENT_TYPE_JSON\n\n\nCONTENT_TYPE\n\n\nINBOUND_APP_ID\n\n\nTEST_REQUEST_DATA\n\n\nFunctions\n\n\ncreate_simple_test_app\n\n\nCreate a simple webtest.TestApp with the specified routes.\n\n\nArgs:\n    routes: list of webapp2.Routes\n\n\nReturns:\n    webtest.TestApp wrapping a webapp2.WSGIApplication\n\n\nClasses\n\n\nServiceAPIHandlerTest\n\n\nsetUp\n\n\ntest_json_response\n\n\ntest_normal_requests_rejected\n\n\ntest_urlfetch_requests_accepted\n\n\nSimpleServiceAPIHandler\n\n\ntest_function", 
+            "title": "test_service_api_handler"
+        }, 
+        {
+            "location": "/docgen-api/catnado.handlers.test.test_service_api_handler/#attributes", 
+            "text": "CONTENT_TYPE_JSON  CONTENT_TYPE  INBOUND_APP_ID  TEST_REQUEST_DATA", 
+            "title": "Attributes"
+        }, 
+        {
+            "location": "/docgen-api/catnado.handlers.test.test_service_api_handler/#functions", 
+            "text": "", 
+            "title": "Functions"
+        }, 
+        {
+            "location": "/docgen-api/catnado.handlers.test.test_service_api_handler/#create_simple_test_app", 
+            "text": "Create a simple webtest.TestApp with the specified routes.  Args:\n    routes: list of webapp2.Routes  Returns:\n    webtest.TestApp wrapping a webapp2.WSGIApplication", 
+            "title": "create_simple_test_app"
+        }, 
+        {
+            "location": "/docgen-api/catnado.handlers.test.test_service_api_handler/#classes", 
+            "text": "", 
+            "title": "Classes"
+        }, 
+        {
+            "location": "/docgen-api/catnado.handlers.test.test_service_api_handler/#serviceapihandlertest", 
+            "text": "setUp  test_json_response  test_normal_requests_rejected  test_urlfetch_requests_accepted", 
+            "title": "ServiceAPIHandlerTest"
+        }, 
+        {
+            "location": "/docgen-api/catnado.handlers.test.test_service_api_handler/#simpleserviceapihandler", 
+            "text": "test_function", 
+            "title": "SimpleServiceAPIHandler"
+        }, 
+        {
             "location": "/docgen-api/catnado.properties/", 
             "text": "", 
             "title": "__init__"
         }, 
         {
-            "location": "/docgen-api/catnado.properties.array_property/", 
-            "text": "Classes\n\n\nArrayProperty\n\n\nAn array property that is stored as a string.\n\n\ndefault_value\n\n\nmake_value_from_datastore\n\n\nvalidate\n\n\nget_value_for_datastore\n\n\nempty", 
-            "title": "array_property"
-        }, 
-        {
-            "location": "/docgen-api/catnado.properties.array_property/#classes", 
-            "text": "", 
-            "title": "Classes"
-        }, 
-        {
-            "location": "/docgen-api/catnado.properties.array_property/#arrayproperty", 
-            "text": "An array property that is stored as a string.  default_value  make_value_from_datastore  validate  get_value_for_datastore  empty", 
-            "title": "ArrayProperty"
-        }, 
-        {
             "location": "/docgen-api/catnado.properties.choice_property/", 
-            "text": "Classes\n\n\nChoiceProperty\n\n\nA property for efficiently storing choices made from a finite set.\n\n\nThis works by mapping each choice to an integer.  The choices must be hashable\n  (so that they can be efficiently mapped back to their corresponding index).\n\n\nc2i\n\n\nConverts a choice to its datastore representation.\n\n\nget_choices\n\n\nGets a list of values which may be assigned to this property.\n\n\nmake_value_from_datastore\n\n\nget_value_for_datastore", 
+            "text": "Classes\n\n\nChoiceProperty\n\n\nA property for efficiently storing choices made from a finite set.\n\n\nThis works by mapping each choice to an integer.  The choices must be hashable\n  (so that they can be efficiently mapped back to their corresponding index).\n\n\nc2i\n\n\nConvert a choice to its datastore representation.\n\n\nget_choices\n\n\nGet a list of values which may be assigned to this property.\n\n\nmake_value_from_datastore\n\n\nConvert int from datastore to choice.\n\n\nget_value_for_datastore\n\n\nUse underlying int value for datastore.", 
             "title": "choice_property"
         }, 
         {
@@ -67,37 +157,12 @@
         }, 
         {
             "location": "/docgen-api/catnado.properties.choice_property/#choiceproperty", 
-            "text": "A property for efficiently storing choices made from a finite set.  This works by mapping each choice to an integer.  The choices must be hashable\n  (so that they can be efficiently mapped back to their corresponding index).  c2i  Converts a choice to its datastore representation.  get_choices  Gets a list of values which may be assigned to this property.  make_value_from_datastore  get_value_for_datastore", 
+            "text": "A property for efficiently storing choices made from a finite set.  This works by mapping each choice to an integer.  The choices must be hashable\n  (so that they can be efficiently mapped back to their corresponding index).  c2i  Convert a choice to its datastore representation.  get_choices  Get a list of values which may be assigned to this property.  make_value_from_datastore  Convert int from datastore to choice.  get_value_for_datastore  Use underlying int value for datastore.", 
             "title": "ChoiceProperty"
         }, 
         {
-            "location": "/docgen-api/catnado.properties.compressed_property/", 
-            "text": "Classes\n\n\nCompressedProperty\n\n\nAn unindexed, compressed property.\n\n\nCompressedTextProperty and CompressedBlobProperty derive from this class.\n\n\nmake_value_from_datastore\n\n\nvalue_to_str\n\n\nReturns the value stored by this property encoded as a (byte) string,\n    or None if value is None.  This string will be stored in the datastore.\n    By default, returns the value unchanged.\n\n\nget_value_for_datastore\n\n\nCompressedTextProperty\n\n\nA string that will be stored in a compressed form (encoded as UTF-8).\n\n\nvalue_to_str\n\n\nCompressedBlobProperty\n\n\nA byte string that will be stored in a compressed form.", 
-            "title": "compressed_property"
-        }, 
-        {
-            "location": "/docgen-api/catnado.properties.compressed_property/#classes", 
-            "text": "", 
-            "title": "Classes"
-        }, 
-        {
-            "location": "/docgen-api/catnado.properties.compressed_property/#compressedproperty", 
-            "text": "An unindexed, compressed property.  CompressedTextProperty and CompressedBlobProperty derive from this class.  make_value_from_datastore  value_to_str  Returns the value stored by this property encoded as a (byte) string,\n    or None if value is None.  This string will be stored in the datastore.\n    By default, returns the value unchanged.  get_value_for_datastore", 
-            "title": "CompressedProperty"
-        }, 
-        {
-            "location": "/docgen-api/catnado.properties.compressed_property/#compressedtextproperty", 
-            "text": "A string that will be stored in a compressed form (encoded as UTF-8).  value_to_str", 
-            "title": "CompressedTextProperty"
-        }, 
-        {
-            "location": "/docgen-api/catnado.properties.compressed_property/#compressedblobproperty", 
-            "text": "A byte string that will be stored in a compressed form.", 
-            "title": "CompressedBlobProperty"
-        }, 
-        {
             "location": "/docgen-api/catnado.properties.decimal_property/", 
-            "text": "Classes\n\n\nDecimalProperty\n\n\nProperty for storing Decimal types.\n\n\nmake_value_from_datastore\n\n\nvalidate\n\n\nget_value_for_datastore", 
+            "text": "Classes\n\n\nDecimalProperty\n\n\nProperty for storing Decimal types.\n\n\nmake_value_from_datastore\n\n\nConvert str from datastore back to Decimal.\n\n\nvalidate\n\n\nValidator.\n\n\nArgs:\n  value: either a string or Decimal\nReturns:\n  Decimal\nRaises:\n  db.BadValueError: if value is not a Decimal or valid string\n\n\n\nget_value_for_datastore\n\n\nConvert Decimal to str for datastore.", 
             "title": "decimal_property"
         }, 
         {
@@ -107,12 +172,12 @@
         }, 
         {
             "location": "/docgen-api/catnado.properties.decimal_property/#decimalproperty", 
-            "text": "Property for storing Decimal types.  make_value_from_datastore  validate  get_value_for_datastore", 
+            "text": "Property for storing Decimal types.  make_value_from_datastore  Convert str from datastore back to Decimal.  validate  Validator.  Args:\n  value: either a string or Decimal\nReturns:\n  Decimal\nRaises:\n  db.BadValueError: if value is not a Decimal or valid string  get_value_for_datastore  Convert Decimal to str for datastore.", 
             "title": "DecimalProperty"
         }, 
         {
             "location": "/docgen-api/catnado.properties.derived_property/", 
-            "text": "Functions\n\n\nDerivedProperty\n\n\nImplements a 'derived' datastore property.\n\n\nDerived properties are not set directly, but are instead generated by a\n  function when required. They are useful to provide fields in the datastore\n  that can be used for filtering or sorting in ways that are not otherwise\n  possible with unmodified data - for example, filtering by the length of a\n  BlobProperty, or case insensitive matching by querying the lower cased version\n  of a string.\n\n\nDerivedProperty can be declared as a regular property, passing a function as\n  the first argument, or it can be used as a decorator for the function that\n  does the calculation, either with or without arguments.\n\n\nClasses\n\n\nLengthProperty\n\n\nA convenience class for recording the length of another field\n\n\nLowerCaseProperty\n\n\nA convenience class for generating lower-cased fields for filtering.", 
+            "text": "Functions\n\n\nDerivedProperty\n\n\nDerived datastore property.\n\n\nDerived properties are not set directly, but are instead generated by a\n  function when required. They are useful to provide fields in the datastore\n  that can be used for filtering or sorting in ways that are not otherwise\n  possible with unmodified data - for example, filtering by the length of a\n  BlobProperty, or case insensitive matching by querying the lower cased version\n  of a string.\n\n\nDerivedProperty can be declared as a regular property, passing a function as\n  the first argument, or it can be used as a decorator for the function that\n  does the calculation, either with or without arguments.\n\n\nClasses\n\n\nLengthProperty\n\n\nConvenience class for recording the length of another field.\n\n\nLowerCaseProperty\n\n\nA convenience class for generating lower-cased fields for filtering.", 
             "title": "derived_property"
         }, 
         {
@@ -122,7 +187,7 @@
         }, 
         {
             "location": "/docgen-api/catnado.properties.derived_property/#derivedproperty", 
-            "text": "Implements a 'derived' datastore property.  Derived properties are not set directly, but are instead generated by a\n  function when required. They are useful to provide fields in the datastore\n  that can be used for filtering or sorting in ways that are not otherwise\n  possible with unmodified data - for example, filtering by the length of a\n  BlobProperty, or case insensitive matching by querying the lower cased version\n  of a string.  DerivedProperty can be declared as a regular property, passing a function as\n  the first argument, or it can be used as a decorator for the function that\n  does the calculation, either with or without arguments.", 
+            "text": "Derived datastore property.  Derived properties are not set directly, but are instead generated by a\n  function when required. They are useful to provide fields in the datastore\n  that can be used for filtering or sorting in ways that are not otherwise\n  possible with unmodified data - for example, filtering by the length of a\n  BlobProperty, or case insensitive matching by querying the lower cased version\n  of a string.  DerivedProperty can be declared as a regular property, passing a function as\n  the first argument, or it can be used as a decorator for the function that\n  does the calculation, either with or without arguments.", 
             "title": "DerivedProperty"
         }, 
         {
@@ -132,7 +197,7 @@
         }, 
         {
             "location": "/docgen-api/catnado.properties.derived_property/#lengthproperty", 
-            "text": "A convenience class for recording the length of another field", 
+            "text": "Convenience class for recording the length of another field.", 
             "title": "LengthProperty"
         }, 
         {
@@ -141,28 +206,8 @@
             "title": "LowerCaseProperty"
         }, 
         {
-            "location": "/docgen-api/catnado.properties.domain_property/", 
-            "text": "Classes\n\n\nCurrentDomainProperty\n\n\nA property that restricts access to the current domain.\n\n\nget_value_for_datastore\n\n\nInvalidDomainError\n\n\nRaised when something attempts to access data belonging to another domain.", 
-            "title": "domain_property"
-        }, 
-        {
-            "location": "/docgen-api/catnado.properties.domain_property/#classes", 
-            "text": "", 
-            "title": "Classes"
-        }, 
-        {
-            "location": "/docgen-api/catnado.properties.domain_property/#currentdomainproperty", 
-            "text": "A property that restricts access to the current domain.  get_value_for_datastore", 
-            "title": "CurrentDomainProperty"
-        }, 
-        {
-            "location": "/docgen-api/catnado.properties.domain_property/#invaliddomainerror", 
-            "text": "Raised when something attempts to access data belonging to another domain.", 
-            "title": "InvalidDomainError"
-        }, 
-        {
             "location": "/docgen-api/catnado.properties.immutabe_property/", 
-            "text": "Classes\n\n\nImmutableMixin\n\n\nMixin to make a property immutable.\n\n\nImmutableStringProperty\n\n\nAn immutable version of \ngoogle.appengine.ext.db.StringProperty\n\n\nImmutablePropertyException\n\n\nRaised when someone tries to set an immutable property.", 
+            "text": "Classes\n\n\nImmutableMixin\n\n\nMixin to make a property immutable.\n\n\nImmutableStringProperty\n\n\nAn immutable version of \ngoogle.appengine.ext.db.StringProperty\n.\n\n\nImmutablePropertyException\n\n\nRaise when someone tries to set an immutable property.", 
             "title": "immutabe_property"
         }, 
         {
@@ -177,17 +222,32 @@
         }, 
         {
             "location": "/docgen-api/catnado.properties.immutabe_property/#immutablestringproperty", 
-            "text": "An immutable version of  google.appengine.ext.db.StringProperty", 
+            "text": "An immutable version of  google.appengine.ext.db.StringProperty .", 
             "title": "ImmutableStringProperty"
         }, 
         {
             "location": "/docgen-api/catnado.properties.immutabe_property/#immutablepropertyexception", 
-            "text": "Raised when someone tries to set an immutable property.", 
+            "text": "Raise when someone tries to set an immutable property.", 
             "title": "ImmutablePropertyException"
         }, 
         {
+            "location": "/docgen-api/catnado.properties.json_property/", 
+            "text": "Classes\n\n\nJSONProperty\n\n\nProperty for storing simple JSON objects backed by a schema.\n\n\nmake_value_from_datastore\n\n\nConvert the datastore blob to a Python object.\n\n\nvalidate\n\n\nValidate that the value is valid JSON that conforms to the self.schema.\n\n\nArgs:\n  value: JSON-serializable object\nReturns:\n  value, unchanged\n\n\n\nget_value_for_datastore\n\n\nConvert the Python object value into a string for the datastore.", 
+            "title": "json_property"
+        }, 
+        {
+            "location": "/docgen-api/catnado.properties.json_property/#classes", 
+            "text": "", 
+            "title": "Classes"
+        }, 
+        {
+            "location": "/docgen-api/catnado.properties.json_property/#jsonproperty", 
+            "text": "Property for storing simple JSON objects backed by a schema.  make_value_from_datastore  Convert the datastore blob to a Python object.  validate  Validate that the value is valid JSON that conforms to the self.schema.  Args:\n  value: JSON-serializable object\nReturns:\n  value, unchanged  get_value_for_datastore  Convert the Python object value into a string for the datastore.", 
+            "title": "JSONProperty"
+        }, 
+        {
             "location": "/docgen-api/catnado.properties.key_property/", 
-            "text": "Classes\n\n\nKeyProperty\n\n\nA property that stores a key without automatically dereferencing it or\n  requiring a dependency between model classes.\n\n\ndb.ReferenceProperty\n performs a datastore RPC when it is accessed, which\n  can lead to unforeseen performance problems.\n\n\nFurthermore, it needs to have the Kind specified when it is declared, which\n  creates a code dependency between models that can be undesirable.\n\n\nKeyProperty\n helps alleviate these concerns.\n\n\nvalidate\n\n\nArgs:\n  value: The value to validate.\nReturns:\n  A valid key.\nRaises:\n  TypeError if the value can't be converted into a `db.Key`", 
+            "text": "Classes\n\n\nKeyProperty\n\n\nProperty that stores a key without automatically dereferencing it.\n\n\nNote that the default alternative, \ndb.ReferenceProperty\n, performs a\n  datastore RPC when it is accessed, which can lead to hidden performance\n  problems.\n\n\nFurthermore, it needs to have the Kind specified when it is declared, which\n  creates a code dependency between models that can be undesirable.\n\n\nKeyProperty\n helps alleviate these concerns.\n\n\nvalidate\n\n\nValidate value is a key or model.\n\n\nArgs:\n  value: The value to validate.\nReturns:\n  google.appengine.ext.db.Key\nRaises:\n  TypeError if the value can't be converted into a `db.Key`", 
             "title": "key_property"
         }, 
         {
@@ -197,12 +257,12 @@
         }, 
         {
             "location": "/docgen-api/catnado.properties.key_property/#keyproperty", 
-            "text": "A property that stores a key without automatically dereferencing it or\n  requiring a dependency between model classes.  db.ReferenceProperty  performs a datastore RPC when it is accessed, which\n  can lead to unforeseen performance problems.  Furthermore, it needs to have the Kind specified when it is declared, which\n  creates a code dependency between models that can be undesirable.  KeyProperty  helps alleviate these concerns.  validate  Args:\n  value: The value to validate.\nReturns:\n  A valid key.\nRaises:\n  TypeError if the value can't be converted into a `db.Key`", 
+            "text": "Property that stores a key without automatically dereferencing it.  Note that the default alternative,  db.ReferenceProperty , performs a\n  datastore RPC when it is accessed, which can lead to hidden performance\n  problems.  Furthermore, it needs to have the Kind specified when it is declared, which\n  creates a code dependency between models that can be undesirable.  KeyProperty  helps alleviate these concerns.  validate  Validate value is a key or model.  Args:\n  value: The value to validate.\nReturns:\n  google.appengine.ext.db.Key\nRaises:\n  TypeError if the value can't be converted into a `db.Key`", 
             "title": "KeyProperty"
         }, 
         {
             "location": "/docgen-api/catnado.properties.pickle_property/", 
-            "text": "Classes\n\n\nPickleProperty\n\n\nA property for storing complex objects in the datastore in pickled form.\n\n\ndefault_value\n\n\nIf possible, copy the value passed in the default= keyword argument.\n    This prevents mutable objects such as dictionaries from being shared across\n    instances.\n\n\nmake_value_from_datastore\n\n\nget_value_for_datastore", 
+            "text": "Classes\n\n\nPickleProperty\n\n\nProperty for storing complex objects in the datastore in pickled form.\n\n\ndefault_value\n\n\nIf possible, copy the value passed in the default= keyword argument.\n\n\nThis prevents mutable objects such as dictionaries from being shared across\ninstances.\n\n\n\nmake_value_from_datastore\n\n\nPickle data to store it.\n\n\nget_value_for_datastore\n\n\nUn-pickle data from the datastore.", 
             "title": "pickle_property"
         }, 
         {
@@ -212,28 +272,38 @@
         }, 
         {
             "location": "/docgen-api/catnado.properties.pickle_property/#pickleproperty", 
-            "text": "A property for storing complex objects in the datastore in pickled form.  default_value  If possible, copy the value passed in the default= keyword argument.\n    This prevents mutable objects such as dictionaries from being shared across\n    instances.  make_value_from_datastore  get_value_for_datastore", 
+            "text": "Property for storing complex objects in the datastore in pickled form.  default_value  If possible, copy the value passed in the default= keyword argument.  This prevents mutable objects such as dictionaries from being shared across\ninstances.  make_value_from_datastore  Pickle data to store it.  get_value_for_datastore  Un-pickle data from the datastore.", 
             "title": "PickleProperty"
-        }, 
-        {
-            "location": "/docgen-api/catnado.properties.set_property/", 
-            "text": "Classes\n\n\nSetProperty\n\n\nA property that stores a set of things.\n\n\nThis is a parameterized property; the parameter must be a valid\n  non-list data type, and all items must conform to this type.\n\n\ndefault_value\n\n\nget_form_field\n\n\nmake_value_from_form\n\n\nget_value_for_form\n\n\nmake_value_from_datastore\n\n\nvalidate\n\n\nget_value_for_datastore", 
-            "title": "set_property"
-        }, 
-        {
-            "location": "/docgen-api/catnado.properties.set_property/#classes", 
-            "text": "", 
-            "title": "Classes"
-        }, 
-        {
-            "location": "/docgen-api/catnado.properties.set_property/#setproperty", 
-            "text": "A property that stores a set of things.  This is a parameterized property; the parameter must be a valid\n  non-list data type, and all items must conform to this type.  default_value  get_form_field  make_value_from_form  get_value_for_form  make_value_from_datastore  validate  get_value_for_datastore", 
-            "title": "SetProperty"
         }, 
         {
             "location": "/docgen-api/catnado.properties.test/", 
             "text": "", 
             "title": "__init__"
+        }, 
+        {
+            "location": "/docgen-api/catnado.properties.test.data/", 
+            "text": "", 
+            "title": "__init__"
+        }, 
+        {
+            "location": "/docgen-api/catnado.properties.test.data.json_data/", 
+            "text": "Attributes\n\n\nGOOD_ADDRESS_DATA\n\n\nBAD_GEO_DATA\n\n\nGOOD_GEO_DATA\n\n\nBAD_ADDRESS_DATA", 
+            "title": "json_data"
+        }, 
+        {
+            "location": "/docgen-api/catnado.properties.test.data.json_data/#attributes", 
+            "text": "GOOD_ADDRESS_DATA  BAD_GEO_DATA  GOOD_GEO_DATA  BAD_ADDRESS_DATA", 
+            "title": "Attributes"
+        }, 
+        {
+            "location": "/docgen-api/catnado.properties.test.data.json_schemas/", 
+            "text": "Attributes\n\n\nADDRESS\n\n\nGEO", 
+            "title": "json_schemas"
+        }, 
+        {
+            "location": "/docgen-api/catnado.properties.test.data.json_schemas/#attributes", 
+            "text": "ADDRESS  GEO", 
+            "title": "Attributes"
         }, 
         {
             "location": "/docgen-api/catnado.properties.test.test_decimal_property/", 
@@ -291,6 +361,31 @@
             "title": "CatnadoPropertyImportTest"
         }, 
         {
+            "location": "/docgen-api/catnado.properties.test.test_json_property/", 
+            "text": "Classes\n\n\nJSONPropertyTest\n\n\ntest_validation\n\n\nJSONPropertyTestDataSanityCheckTest\n\n\ntest_sanity_check_geo_schema\n\n\ntest_sanity_check_address_schema\n\n\nSimpleJSONPropertyTestModel", 
+            "title": "test_json_property"
+        }, 
+        {
+            "location": "/docgen-api/catnado.properties.test.test_json_property/#classes", 
+            "text": "", 
+            "title": "Classes"
+        }, 
+        {
+            "location": "/docgen-api/catnado.properties.test.test_json_property/#jsonpropertytest", 
+            "text": "test_validation", 
+            "title": "JSONPropertyTest"
+        }, 
+        {
+            "location": "/docgen-api/catnado.properties.test.test_json_property/#jsonpropertytestdatasanitychecktest", 
+            "text": "test_sanity_check_geo_schema  test_sanity_check_address_schema", 
+            "title": "JSONPropertyTestDataSanityCheckTest"
+        }, 
+        {
+            "location": "/docgen-api/catnado.properties.test.test_json_property/#simplejsonpropertytestmodel", 
+            "text": "", 
+            "title": "SimpleJSONPropertyTestModel"
+        }, 
+        {
             "location": "/docgen-api/catnado.properties.test.test_key_property/", 
             "text": "Classes\n\n\nKeyPropertyAssignmentTest\n\n\nsetUp\n\n\ntest_set_with_entity\n\n\ntest_set_with_key\n\n\nImmutableKeyPropertyTestModel", 
             "title": "test_key_property"
@@ -317,7 +412,7 @@
         }, 
         {
             "location": "/docgen-api/catnado.properties.transform_property/", 
-            "text": "Functions\n\n\nTransformProperty\n\n\nImplements a 'transform' datastore property.\n\n\nTransformProperties are similar to DerivedProperties, but with two main\n  differences:\n  - Instead of acting on the whole model, the transform function is passed the\n    current value of a single property which was specified in the constructor.\n  - Property values are calculated when the property being derived from is set,\n    not when the TransformProperty is fetched. This is more efficient for\n    properties that have significant expense to calculate.\n\n\nTransformProperty can be declared as a regular property, passing the property\n  to operate on and a function as the first arguments, or it can be used as a\n  decorator for the function that does the calculation, with the property to\n  operate on passed as an argument.", 
+            "text": "Functions\n\n\nTransformProperty\n\n\nTransform Datastore Property.\n\n\nTransformProperties are similar to DerivedProperties, but with two main\n  differences:\n  - Instead of acting on the whole model, the transform function is passed the\n    current value of a single property which was specified in the constructor.\n  - Property values are calculated whenthe property being derived from is set,\n    not when the TransformProperty is fetched. This is more efficient for\n    properties that have significant expense to calculate.\n\n\nTransformProperty can be declared as a regular property, passing the property\n  to operate on and a function as the first arguments, or it can be used as a\n  decorator for the function that does the calculation, with the property to\n  operate on passed as an argument.", 
             "title": "transform_property"
         }, 
         {
@@ -327,8 +422,53 @@
         }, 
         {
             "location": "/docgen-api/catnado.properties.transform_property/#transformproperty", 
-            "text": "Implements a 'transform' datastore property.  TransformProperties are similar to DerivedProperties, but with two main\n  differences:\n  - Instead of acting on the whole model, the transform function is passed the\n    current value of a single property which was specified in the constructor.\n  - Property values are calculated when the property being derived from is set,\n    not when the TransformProperty is fetched. This is more efficient for\n    properties that have significant expense to calculate.  TransformProperty can be declared as a regular property, passing the property\n  to operate on and a function as the first arguments, or it can be used as a\n  decorator for the function that does the calculation, with the property to\n  operate on passed as an argument.", 
+            "text": "Transform Datastore Property.  TransformProperties are similar to DerivedProperties, but with two main\n  differences:\n  - Instead of acting on the whole model, the transform function is passed the\n    current value of a single property which was specified in the constructor.\n  - Property values are calculated whenthe property being derived from is set,\n    not when the TransformProperty is fetched. This is more efficient for\n    properties that have significant expense to calculate.  TransformProperty can be declared as a regular property, passing the property\n  to operate on and a function as the first arguments, or it can be used as a\n  decorator for the function that does the calculation, with the property to\n  operate on passed as an argument.", 
             "title": "TransformProperty"
+        }, 
+        {
+            "location": "/docgen-api/catnado.properties.translatable_property/", 
+            "text": "Attributes\n\n\nFALLBACK_LANGUAGE\n\n\nFunctions\n\n\nis_valid_iso639_language_code\n\n\nCheck a 2 letter ISO-639 language code is valid\n\n\nArgs:\n    language_code: 2 letter ISO-639 language code\n\n\nReturns:\n    boolean indicating whether the language was found in pycountries.languages\n\n\nClasses\n\n\nTranslatableStringProperty\n\n\nA PickleProperty subclass intended to store translations of a string as a\n  dictionary mapping two-letter language codes to Unicode translations:\n\n\n{\n    'en': 'translation',\n    'es': 'translation'\n  }\n\n\nValidator checks each language key against ISO-639 and converts all key/value\n  pairs to Unicode.\n\n\nmake_value_from_datastore\n\n\nvalidate\n\n\nRaises:\n  db.BadValueError: if any language code is invalid or any entry is not a\n    string\n\n\n\nInvalidLanguageError\n\n\nRaised when a requested 2-letter language code cannot be found\n\n\nMissingTranslationError\n\n\nRaised when the requested language is missing\n\n\nTranslationDictionary\n\n\nA dictionary with convenience functions for fetching a translation.\n\n\nget_translation\n\n\nGet the translation of the string in the given language.\n\n\nArgs:\n  model_instance: model instance this property is attached to\n  language_code: str; an ISO-639 2 letter language code\n  fallback: str; fallback language code (or True for English)\n\nRaises:\n  MissingTranslationError: if a translation could not be found\n  InvalidLanguageError: if `language_code` is not a valid ISO-639 2 letter\n    language code\n\nReturns:\n  unicode string", 
+            "title": "translatable_property"
+        }, 
+        {
+            "location": "/docgen-api/catnado.properties.translatable_property/#attributes", 
+            "text": "FALLBACK_LANGUAGE", 
+            "title": "Attributes"
+        }, 
+        {
+            "location": "/docgen-api/catnado.properties.translatable_property/#functions", 
+            "text": "", 
+            "title": "Functions"
+        }, 
+        {
+            "location": "/docgen-api/catnado.properties.translatable_property/#is_valid_iso639_language_code", 
+            "text": "Check a 2 letter ISO-639 language code is valid  Args:\n    language_code: 2 letter ISO-639 language code  Returns:\n    boolean indicating whether the language was found in pycountries.languages", 
+            "title": "is_valid_iso639_language_code"
+        }, 
+        {
+            "location": "/docgen-api/catnado.properties.translatable_property/#classes", 
+            "text": "", 
+            "title": "Classes"
+        }, 
+        {
+            "location": "/docgen-api/catnado.properties.translatable_property/#translatablestringproperty", 
+            "text": "A PickleProperty subclass intended to store translations of a string as a\n  dictionary mapping two-letter language codes to Unicode translations:  {\n    'en': 'translation',\n    'es': 'translation'\n  }  Validator checks each language key against ISO-639 and converts all key/value\n  pairs to Unicode.  make_value_from_datastore  validate  Raises:\n  db.BadValueError: if any language code is invalid or any entry is not a\n    string", 
+            "title": "TranslatableStringProperty"
+        }, 
+        {
+            "location": "/docgen-api/catnado.properties.translatable_property/#invalidlanguageerror", 
+            "text": "Raised when a requested 2-letter language code cannot be found", 
+            "title": "InvalidLanguageError"
+        }, 
+        {
+            "location": "/docgen-api/catnado.properties.translatable_property/#missingtranslationerror", 
+            "text": "Raised when the requested language is missing", 
+            "title": "MissingTranslationError"
+        }, 
+        {
+            "location": "/docgen-api/catnado.properties.translatable_property/#translationdictionary", 
+            "text": "A dictionary with convenience functions for fetching a translation.  get_translation  Get the translation of the string in the given language.  Args:\n  model_instance: model instance this property is attached to\n  language_code: str; an ISO-639 2 letter language code\n  fallback: str; fallback language code (or True for English)\n\nRaises:\n  MissingTranslationError: if a translation could not be found\n  InvalidLanguageError: if `language_code` is not a valid ISO-639 2 letter\n    language code\n\nReturns:\n  unicode string", 
+            "title": "TranslationDictionary"
         }, 
         {
             "location": "/docgen-api/catnado.testing/", 
@@ -336,8 +476,23 @@
             "title": "__init__"
         }, 
         {
+            "location": "/docgen-api/catnado.testing.app/", 
+            "text": "Functions\n\n\ncreate_simple_test_app\n\n\nCreate a simple webtest.TestApp with the specified routes.\n\n\nArgs:\n    routes: list of webapp2.Routes\n\n\nReturns:\n    webtest.TestApp wrapping a webapp2.WSGIApplication", 
+            "title": "app"
+        }, 
+        {
+            "location": "/docgen-api/catnado.testing.app/#functions", 
+            "text": "", 
+            "title": "Functions"
+        }, 
+        {
+            "location": "/docgen-api/catnado.testing.app/#create_simple_test_app", 
+            "text": "Create a simple webtest.TestApp with the specified routes.  Args:\n    routes: list of webapp2.Routes  Returns:\n    webtest.TestApp wrapping a webapp2.WSGIApplication", 
+            "title": "create_simple_test_app"
+        }, 
+        {
             "location": "/docgen-api/catnado.testing.testcase/", 
-            "text": "Classes\n\n\nSimpleAppEngineTestCase\n\n\ntearDown\n\n\nsetUp", 
+            "text": "Classes\n\n\nSimpleAppEngineTestCase\n\n\nA very simple AppEngine test case which sets up basic stubs.\n\n\nBy default, stubs for Datastore and Memcache are created.\n\n\ntearDown\n\n\nOverride tearDown to set up stubs.\n\n\nsetUp\n\n\nOverride setUp to set up stubs.", 
             "title": "testcase"
         }, 
         {
@@ -347,7 +502,7 @@
         }, 
         {
             "location": "/docgen-api/catnado.testing.testcase/#simpleappenginetestcase", 
-            "text": "tearDown  setUp", 
+            "text": "A very simple AppEngine test case which sets up basic stubs.  By default, stubs for Datastore and Memcache are created.  tearDown  Override tearDown to set up stubs.  setUp  Override setUp to set up stubs.", 
             "title": "SimpleAppEngineTestCase"
         }, 
         {
@@ -356,8 +511,78 @@
             "title": "__init__"
         }, 
         {
+            "location": "/docgen-api/catnado.utils.api/", 
+            "text": "Attributes\n\n\nAPP_ENGINE_URL_FORMAT\n\n\nDEFAULT_BASE_PATH\n\n\nINBOUND_APP_ID\n\n\nFunctions\n\n\nvalidate_api_request\n\n\nValidate the API Request by looking for an internal AppEngine header.\n\n\nThe header should contain INBOUND_APP_ID (added securely by AppEngine) and its\n  value should match this service's application ID.\n\n\nArguments:\n    request: webapp2 Request\n\n\nRaises:\n    InsecureAPIRequestError: if the application ID header is missing from the\n      request or the ID does not match the current application\n\n\nasync_api_call\n\n\nMake an asynchronous API call to another service in this GAE application.\n\n\nThis function utilizes urlfetch with follow_redirects=False so AppEngine will\n  securely add the INBOUND_APP_ID header which the target service will used to\n  authenticate the request.\n\n\nArguments:\n    service: str; service name\n    version: str; API version\n    path: str; the API path to request\n    payload: payload for urlfetch\n    base_path: optional str; base API path (defaults to \"api\")\n    method: optional int, method flag from urlfetch (defaults to urlfetch.GET)\n    deadline: optional deadline in seconds\n\n\nReturns:\n    urlfetch RPC object\n\n\nblocking_api_call\n\n\nMake a blocking API call to another service in this GAE application.\n\n\nIf you're going to make multiple calls in a single handler, consider using\n  async_api_call.\n\n\nSee async_api_call for full documentation.\n\n\nClasses\n\n\nApiDict\n\n\nSubclass dict and add helper funcs for passing data between services.\n\n\nstringify\n\n\nConvert this object to a str.\n\n\nReturns:\n  str; object dumped to JSON string then base64 encoded\n\n\n\nInsecureAPIRequestError\n\n\nRaised when a handler receives a request without the appropriate header.\n\n\nSee validate_api_request.", 
+            "title": "api"
+        }, 
+        {
+            "location": "/docgen-api/catnado.utils.api/#attributes", 
+            "text": "APP_ENGINE_URL_FORMAT  DEFAULT_BASE_PATH  INBOUND_APP_ID", 
+            "title": "Attributes"
+        }, 
+        {
+            "location": "/docgen-api/catnado.utils.api/#functions", 
+            "text": "", 
+            "title": "Functions"
+        }, 
+        {
+            "location": "/docgen-api/catnado.utils.api/#validate_api_request", 
+            "text": "Validate the API Request by looking for an internal AppEngine header.  The header should contain INBOUND_APP_ID (added securely by AppEngine) and its\n  value should match this service's application ID.  Arguments:\n    request: webapp2 Request  Raises:\n    InsecureAPIRequestError: if the application ID header is missing from the\n      request or the ID does not match the current application", 
+            "title": "validate_api_request"
+        }, 
+        {
+            "location": "/docgen-api/catnado.utils.api/#async_api_call", 
+            "text": "Make an asynchronous API call to another service in this GAE application.  This function utilizes urlfetch with follow_redirects=False so AppEngine will\n  securely add the INBOUND_APP_ID header which the target service will used to\n  authenticate the request.  Arguments:\n    service: str; service name\n    version: str; API version\n    path: str; the API path to request\n    payload: payload for urlfetch\n    base_path: optional str; base API path (defaults to \"api\")\n    method: optional int, method flag from urlfetch (defaults to urlfetch.GET)\n    deadline: optional deadline in seconds  Returns:\n    urlfetch RPC object", 
+            "title": "async_api_call"
+        }, 
+        {
+            "location": "/docgen-api/catnado.utils.api/#blocking_api_call", 
+            "text": "Make a blocking API call to another service in this GAE application.  If you're going to make multiple calls in a single handler, consider using\n  async_api_call.  See async_api_call for full documentation.", 
+            "title": "blocking_api_call"
+        }, 
+        {
+            "location": "/docgen-api/catnado.utils.api/#classes", 
+            "text": "", 
+            "title": "Classes"
+        }, 
+        {
+            "location": "/docgen-api/catnado.utils.api/#apidict", 
+            "text": "Subclass dict and add helper funcs for passing data between services.  stringify  Convert this object to a str.  Returns:\n  str; object dumped to JSON string then base64 encoded", 
+            "title": "ApiDict"
+        }, 
+        {
+            "location": "/docgen-api/catnado.utils.api/#insecureapirequesterror", 
+            "text": "Raised when a handler receives a request without the appropriate header.  See validate_api_request.", 
+            "title": "InsecureAPIRequestError"
+        }, 
+        {
+            "location": "/docgen-api/catnado.utils.csrf/", 
+            "text": "Attributes\n\n\nCSRF_TOKEN_COOKIE_KEY\n\n\nCSRF_TOKEN_FORM_KEY\n\n\nFunctions\n\n\ncsrf_token_required\n\n\nUse as a decorator to protect handler functions from CSRF attacks.\n\n\nget_csrf_token\n\n\nGet a CSRF token to embed in an HTML page.\n\n\nThe token is also stored in a Cookie and verified upon POST/PUT.\n\n\nArguments:\n    request: webapp2 Request object\n    response: webapp2 Response object\n\n\nReturns:\n    str; a CSRF token, having been saved to the Cookie", 
+            "title": "csrf"
+        }, 
+        {
+            "location": "/docgen-api/catnado.utils.csrf/#attributes", 
+            "text": "CSRF_TOKEN_COOKIE_KEY  CSRF_TOKEN_FORM_KEY", 
+            "title": "Attributes"
+        }, 
+        {
+            "location": "/docgen-api/catnado.utils.csrf/#functions", 
+            "text": "", 
+            "title": "Functions"
+        }, 
+        {
+            "location": "/docgen-api/catnado.utils.csrf/#csrf_token_required", 
+            "text": "Use as a decorator to protect handler functions from CSRF attacks.", 
+            "title": "csrf_token_required"
+        }, 
+        {
+            "location": "/docgen-api/catnado.utils.csrf/#get_csrf_token", 
+            "text": "Get a CSRF token to embed in an HTML page.  The token is also stored in a Cookie and verified upon POST/PUT.  Arguments:\n    request: webapp2 Request object\n    response: webapp2 Response object  Returns:\n    str; a CSRF token, having been saved to the Cookie", 
+            "title": "get_csrf_token"
+        }, 
+        {
             "location": "/docgen-api/catnado.utils.environment/", 
-            "text": "Functions\n\n\nsetup_cloud_sdk_paths\n\n\nSetup Cloud SDK on \nsys.path\n.  Requires \n$APPENGINE_SDK_DIR\n be set to\n  your App Engine SDK directory at \ngoogle-cloud-sdk/platform/google_appengine\n.\n\n\nUseful for setting up tests that require App Engine stubs.", 
+            "text": "Functions\n\n\nsetup_cloud_sdk_paths\n\n\nSet up Cloud SDK on \nsys.path\n.\n\n\nRequires \n$APPENGINE_SDK_DIR\n be set to your App Engine SDK directory at\n  \ngoogle-cloud-sdk/platform/google_appengine\n.\n\n\nUseful for setting up tests that require App Engine stubs.", 
             "title": "environment"
         }, 
         {
@@ -367,12 +592,157 @@
         }, 
         {
             "location": "/docgen-api/catnado.utils.environment/#setup_cloud_sdk_paths", 
-            "text": "Setup Cloud SDK on  sys.path .  Requires  $APPENGINE_SDK_DIR  be set to\n  your App Engine SDK directory at  google-cloud-sdk/platform/google_appengine .  Useful for setting up tests that require App Engine stubs.", 
+            "text": "Set up Cloud SDK on  sys.path .  Requires  $APPENGINE_SDK_DIR  be set to your App Engine SDK directory at\n   google-cloud-sdk/platform/google_appengine .  Useful for setting up tests that require App Engine stubs.", 
             "title": "setup_cloud_sdk_paths"
         }, 
         {
+            "location": "/docgen-api/catnado.utils.jinja/", 
+            "text": "Functions\n\n\ncreate_jinja_environment\n\n\nGet a Jinja environment for rendering a template.\n\n\nArgs:\n    template_path: required str; base location of templates", 
+            "title": "jinja"
+        }, 
+        {
+            "location": "/docgen-api/catnado.utils.jinja/#functions", 
+            "text": "", 
+            "title": "Functions"
+        }, 
+        {
+            "location": "/docgen-api/catnado.utils.jinja/#create_jinja_environment", 
+            "text": "Get a Jinja environment for rendering a template.  Args:\n    template_path: required str; base location of templates", 
+            "title": "create_jinja_environment"
+        }, 
+        {
+            "location": "/docgen-api/catnado.utils.test/", 
+            "text": "", 
+            "title": "__init__"
+        }, 
+        {
+            "location": "/docgen-api/catnado.utils.test.test_api/", 
+            "text": "Classes\n\n\nTestApiDict\n\n\ntest_stringify", 
+            "title": "test_api"
+        }, 
+        {
+            "location": "/docgen-api/catnado.utils.test.test_api/#classes", 
+            "text": "", 
+            "title": "Classes"
+        }, 
+        {
+            "location": "/docgen-api/catnado.utils.test.test_api/#testapidict", 
+            "text": "test_stringify", 
+            "title": "TestApiDict"
+        }, 
+        {
+            "location": "/docgen-api/catnado.utils.test.test_csrf/", 
+            "text": "Attributes\n\n\nTEST_TOKEN\n\n\nCSRF_TOKEN_FORM_KEY\n\n\nFunctions\n\n\ncsrf_token_required\n\n\nUse as a decorator to protect handler functions from CSRF attacks.\n\n\nget_csrf_token\n\n\nGet a CSRF token to embed in an HTML page.\n\n\nThe token is also stored in a Cookie and verified upon POST/PUT.\n\n\nArguments:\n    request: webapp2 Request object\n    response: webapp2 Response object\n\n\nReturns:\n    str; a CSRF token, having been saved to the Cookie\n\n\ncreate_simple_test_app\n\n\nCreate a simple webtest.TestApp with the specified routes.\n\n\nArgs:\n    routes: list of webapp2.Routes\n\n\nReturns:\n    webtest.TestApp wrapping a webapp2.WSGIApplication\n\n\nClasses\n\n\nCSRFUtilitiesTest\n\n\ntest_csrf_token_required_decorator\n\n\nsetUp\n\n\nSimpleCSRFTestHandler\n\n\ninner_decorator\n\n\ntest_get", 
+            "title": "test_csrf"
+        }, 
+        {
+            "location": "/docgen-api/catnado.utils.test.test_csrf/#attributes", 
+            "text": "TEST_TOKEN  CSRF_TOKEN_FORM_KEY", 
+            "title": "Attributes"
+        }, 
+        {
+            "location": "/docgen-api/catnado.utils.test.test_csrf/#functions", 
+            "text": "", 
+            "title": "Functions"
+        }, 
+        {
+            "location": "/docgen-api/catnado.utils.test.test_csrf/#csrf_token_required", 
+            "text": "Use as a decorator to protect handler functions from CSRF attacks.", 
+            "title": "csrf_token_required"
+        }, 
+        {
+            "location": "/docgen-api/catnado.utils.test.test_csrf/#get_csrf_token", 
+            "text": "Get a CSRF token to embed in an HTML page.  The token is also stored in a Cookie and verified upon POST/PUT.  Arguments:\n    request: webapp2 Request object\n    response: webapp2 Response object  Returns:\n    str; a CSRF token, having been saved to the Cookie", 
+            "title": "get_csrf_token"
+        }, 
+        {
+            "location": "/docgen-api/catnado.utils.test.test_csrf/#create_simple_test_app", 
+            "text": "Create a simple webtest.TestApp with the specified routes.  Args:\n    routes: list of webapp2.Routes  Returns:\n    webtest.TestApp wrapping a webapp2.WSGIApplication", 
+            "title": "create_simple_test_app"
+        }, 
+        {
+            "location": "/docgen-api/catnado.utils.test.test_csrf/#classes", 
+            "text": "", 
+            "title": "Classes"
+        }, 
+        {
+            "location": "/docgen-api/catnado.utils.test.test_csrf/#csrfutilitiestest", 
+            "text": "test_csrf_token_required_decorator  setUp", 
+            "title": "CSRFUtilitiesTest"
+        }, 
+        {
+            "location": "/docgen-api/catnado.utils.test.test_csrf/#simplecsrftesthandler", 
+            "text": "inner_decorator  test_get", 
+            "title": "SimpleCSRFTestHandler"
+        }, 
+        {
+            "location": "/docgen-api/catnado.utils.test.test_validators/", 
+            "text": "Functions\n\n\nvalidate\n\n\nUse as a decorator to validate incoming request data.\n\n\nArgs:\n    key: the request data key to validate\n    types: a type or list or list of types that are acceptable\n    extra_validators: an optional function or list of functions to call on the\n      specified key\n    required: optional bool; whether this field is required (defaults False)\n\n\nRaises:\n    AssertionError: if types is not a type or list of types\n    ValidationError: if the request contains invalid data\n\n\nvalidate_color\n\n\ncreate_simple_test_app\n\n\nCreate a simple webtest.TestApp with the specified routes.\n\n\nArgs:\n    routes: list of webapp2.Routes\n\n\nReturns:\n    webtest.TestApp wrapping a webapp2.WSGIApplication\n\n\nClasses\n\n\nValidatorTestHandler\n\n\ninner_decorator\n\n\ninner_decorator\n\n\nValidatorTest\n\n\ntest_required_validator\n\n\ntest_extra_validator\n\n\nsetUp", 
+            "title": "test_validators"
+        }, 
+        {
+            "location": "/docgen-api/catnado.utils.test.test_validators/#functions", 
+            "text": "", 
+            "title": "Functions"
+        }, 
+        {
+            "location": "/docgen-api/catnado.utils.test.test_validators/#validate", 
+            "text": "Use as a decorator to validate incoming request data.  Args:\n    key: the request data key to validate\n    types: a type or list or list of types that are acceptable\n    extra_validators: an optional function or list of functions to call on the\n      specified key\n    required: optional bool; whether this field is required (defaults False)  Raises:\n    AssertionError: if types is not a type or list of types\n    ValidationError: if the request contains invalid data", 
+            "title": "validate"
+        }, 
+        {
+            "location": "/docgen-api/catnado.utils.test.test_validators/#validate_color", 
+            "text": "", 
+            "title": "validate_color"
+        }, 
+        {
+            "location": "/docgen-api/catnado.utils.test.test_validators/#create_simple_test_app", 
+            "text": "Create a simple webtest.TestApp with the specified routes.  Args:\n    routes: list of webapp2.Routes  Returns:\n    webtest.TestApp wrapping a webapp2.WSGIApplication", 
+            "title": "create_simple_test_app"
+        }, 
+        {
+            "location": "/docgen-api/catnado.utils.test.test_validators/#classes", 
+            "text": "", 
+            "title": "Classes"
+        }, 
+        {
+            "location": "/docgen-api/catnado.utils.test.test_validators/#validatortesthandler", 
+            "text": "inner_decorator  inner_decorator", 
+            "title": "ValidatorTestHandler"
+        }, 
+        {
+            "location": "/docgen-api/catnado.utils.test.test_validators/#validatortest", 
+            "text": "test_required_validator  test_extra_validator  setUp", 
+            "title": "ValidatorTest"
+        }, 
+        {
+            "location": "/docgen-api/catnado.utils.validators/", 
+            "text": "Functions\n\n\nvalidate\n\n\nUse as a decorator to validate incoming request data.\n\n\nArgs:\n    key: the request data key to validate\n    types: a type or list or list of types that are acceptable\n    extra_validators: an optional function or list of functions to call on the\n      specified key\n    required: optional bool; whether this field is required (defaults False)\n\n\nRaises:\n    AssertionError: if types is not a type or list of types\n    ValidationError: if the request contains invalid data\n\n\nClasses\n\n\nValidationError\n\n\nRaise when a request validation decorator fails.\n\n\nSee: validate.", 
+            "title": "validators"
+        }, 
+        {
+            "location": "/docgen-api/catnado.utils.validators/#functions", 
+            "text": "", 
+            "title": "Functions"
+        }, 
+        {
+            "location": "/docgen-api/catnado.utils.validators/#validate", 
+            "text": "Use as a decorator to validate incoming request data.  Args:\n    key: the request data key to validate\n    types: a type or list or list of types that are acceptable\n    extra_validators: an optional function or list of functions to call on the\n      specified key\n    required: optional bool; whether this field is required (defaults False)  Raises:\n    AssertionError: if types is not a type or list of types\n    ValidationError: if the request contains invalid data", 
+            "title": "validate"
+        }, 
+        {
+            "location": "/docgen-api/catnado.utils.validators/#classes", 
+            "text": "", 
+            "title": "Classes"
+        }, 
+        {
+            "location": "/docgen-api/catnado.utils.validators/#validationerror", 
+            "text": "Raise when a request validation decorator fails.  See: validate.", 
+            "title": "ValidationError"
+        }, 
+        {
             "location": "/docgen-api/catnado.versionedmodel/", 
-            "text": "Attributes\n\n\nEVENT_TYPE_CHANGED_ACTIVE_VERSION\n\n\nERROR_WRONG_VERSION_PARENT\n\n\nERROR_WRONG_PARENT_TYPE\n\n\nERROR_MISSING_VERSION_UNIFIER\n\n\nEVENT_DATA_OLD_ACTIVE_VERSION\n\n\nEVENT_KEY\n\n\nEVENT_DATA_TIMESTAMP\n\n\nEVENT_DATA_NEW_ACTIVE_VERSION\n\n\nClasses\n\n\nVersionUnifier\n\n\nCommon datastore ancestor for every version of a versioned model.\n  Authoritative source of which version is active.\n\n\ninner_wrapper\n\n\nVersionedModel\n\n\nModel with built-in versioning. Each entity represents a single version\n  and all versions share a common \nVersionUnifier\n datastore parent.\n\n\nparent\n\n\nGet this entity's feaux datastore parent (as opposed to its real parent\n    which is a \nVersionUnifier\n).\n\n\nReturns:\n  Datastore entity.\nRaises:\n  The entity is loaded using `google.appengine.ext.db.get` which can raise\n  exceptions (`KindError`?) if the Parent's Kind is not imported.\nRPC Cost:\n  2x fetch-by-key if parent is `VersionedModel` descendant\n  1x fetch-by-key otherwise\n\n\n\nall_versions\n\n\nGet a query that will fetch all of the versions of the given instance of\n    VersionedModel, ordered by their ascending creation date.\n\n\nArgs:\n  instance: Any instance of any `VersionedModel` subclass.\nReturns:\n  google.appengine.ext.db.Query\n\n\n\nput\n\n\nPut a new version of this model to the datastore. Iff this is a new\n    model, create a new \nVersionUnifier\n to track all of its versions.\n    Args:\n      Keyword args passed to super call\n    Returns:\n      \ndb.Key\n for the newly-put version\n\n\nparent_key\n\n\nSee: \nparent\n.\n\n\nReturns:\n  The `db.Key` of this entity's feaux parent.\nRPC Cost:\n  1x fetch-by-key if parent is `VersionedModel` descendant\n  Free otherwise\n\n\n\nset_active\n\n\nTransactionally activate this version.\n\n\nArgs:\n  info: optional `dict` of info to record with the change", 
+            "text": "Attributes\n\n\nEVENT_TYPE_CHANGED_ACTIVE_VERSION\n\n\nERROR_WRONG_VERSION_PARENT\n\n\nERROR_WRONG_PARENT_TYPE\n\n\nERROR_MISSING_VERSION_UNIFIER\n\n\nEVENT_DATA_OLD_ACTIVE_VERSION\n\n\nEVENT_KEY\n\n\nEVENT_DATA_TIMESTAMP\n\n\nEVENT_DATA_NEW_ACTIVE_VERSION\n\n\nClasses\n\n\nVersionUnifier\n\n\nCommon datastore ancestor for every version of a versioned model.\n\n\nAuthoritative source of which version is active.\n\n\ninner_wrapper\n\n\nVersionedModel\n\n\nModel with built-in versioning.\n\n\nEach entity represents a single version and all versions share a common\n  \nVersionUnifier\n datastore parent.\n\n\nparent\n\n\nGet this entity's feaux datastore parent.\n\n\nTo get the entity's underlying datastore parent (a `VersionUnifier`, use\n`version_unifier`.\n\nReturns:\n  Datastore entity.\nRaises:\n  The entity is loaded using `google.appengine.ext.db.get` which can raise\n  exceptions (`KindError`?) if the Parent's Kind is not imported.\nRPC Cost:\n  2x fetch-by-key if parent is `VersionedModel` descendant\n  1x fetch-by-key otherwise\n\n\n\nall_versions\n\n\nGet a query for all of the versions of the given instance.\n\n\nQuery ordered by ascending creation date.\n\nArgs:\n  instance: Any instance of any `VersionedModel` subclass.\nReturns:\n  google.appengine.ext.db.Query\n\n\n\nput\n\n\nPut a new version of this model to the datastore.\n\n\nIff this is a new model, create a new `VersionUnifier` to track all of its\nversions.\n\nArgs:\n  Keyword args passed to super call\nReturns:\n  `db.Key` for the newly-put version\n\n\n\nparent_key\n\n\nSee \nparent\n.\n\n\nReturns:\n  The `db.Key` of this entity's feaux parent.\nRPC Cost:\n  1x fetch-by-key if parent is `VersionedModel` descendant\n  Free otherwise\n\n\n\nset_active\n\n\nTransactionally activate this version.\n\n\nArgs:\n  info: optional `dict` of info to record with the change", 
             "title": "__init__"
         }, 
         {
@@ -387,17 +757,17 @@
         }, 
         {
             "location": "/docgen-api/catnado.versionedmodel/#versionunifier", 
-            "text": "Common datastore ancestor for every version of a versioned model.\n  Authoritative source of which version is active.  inner_wrapper", 
+            "text": "Common datastore ancestor for every version of a versioned model.  Authoritative source of which version is active.  inner_wrapper", 
             "title": "VersionUnifier"
         }, 
         {
             "location": "/docgen-api/catnado.versionedmodel/#versionedmodel", 
-            "text": "Model with built-in versioning. Each entity represents a single version\n  and all versions share a common  VersionUnifier  datastore parent.  parent  Get this entity's feaux datastore parent (as opposed to its real parent\n    which is a  VersionUnifier ).  Returns:\n  Datastore entity.\nRaises:\n  The entity is loaded using `google.appengine.ext.db.get` which can raise\n  exceptions (`KindError`?) if the Parent's Kind is not imported.\nRPC Cost:\n  2x fetch-by-key if parent is `VersionedModel` descendant\n  1x fetch-by-key otherwise  all_versions  Get a query that will fetch all of the versions of the given instance of\n    VersionedModel, ordered by their ascending creation date.  Args:\n  instance: Any instance of any `VersionedModel` subclass.\nReturns:\n  google.appengine.ext.db.Query  put  Put a new version of this model to the datastore. Iff this is a new\n    model, create a new  VersionUnifier  to track all of its versions.\n    Args:\n      Keyword args passed to super call\n    Returns:\n       db.Key  for the newly-put version  parent_key  See:  parent .  Returns:\n  The `db.Key` of this entity's feaux parent.\nRPC Cost:\n  1x fetch-by-key if parent is `VersionedModel` descendant\n  Free otherwise  set_active  Transactionally activate this version.  Args:\n  info: optional `dict` of info to record with the change", 
+            "text": "Model with built-in versioning.  Each entity represents a single version and all versions share a common\n   VersionUnifier  datastore parent.  parent  Get this entity's feaux datastore parent.  To get the entity's underlying datastore parent (a `VersionUnifier`, use\n`version_unifier`.\n\nReturns:\n  Datastore entity.\nRaises:\n  The entity is loaded using `google.appengine.ext.db.get` which can raise\n  exceptions (`KindError`?) if the Parent's Kind is not imported.\nRPC Cost:\n  2x fetch-by-key if parent is `VersionedModel` descendant\n  1x fetch-by-key otherwise  all_versions  Get a query for all of the versions of the given instance.  Query ordered by ascending creation date.\n\nArgs:\n  instance: Any instance of any `VersionedModel` subclass.\nReturns:\n  google.appengine.ext.db.Query  put  Put a new version of this model to the datastore.  Iff this is a new model, create a new `VersionUnifier` to track all of its\nversions.\n\nArgs:\n  Keyword args passed to super call\nReturns:\n  `db.Key` for the newly-put version  parent_key  See  parent .  Returns:\n  The `db.Key` of this entity's feaux parent.\nRPC Cost:\n  1x fetch-by-key if parent is `VersionedModel` descendant\n  Free otherwise  set_active  Transactionally activate this version.  Args:\n  info: optional `dict` of info to record with the change", 
             "title": "VersionedModel"
         }, 
         {
             "location": "/docgen-api/catnado.versionedmodel.test_versionedmodel/", 
-            "text": "Classes\n\n\nTestVersionedModelVersions\n\n\ntest_putting_new_version\n\n\ntest_creating_first_version\n\n\nThe first version should create a \nVersionUnifier\n to act as parent\n    for all versions and automatically be set active. \n\n\ntest_private_put_doesnt_save_new_version\n\n\nTestVersionedModelParents\n\n\ntest_creating_versioned_model_with_parent_entity_or_key\n\n\nCreate datastore relationships using \nparent\n kwarg, access the feaux\n    parent through parent() or parent_key() \n\n\ntest_versioned_model_parent_always_returns_active_version\n\n\nTestVersionedModelQueries\n\n\ntest_query_only_returns_active_version\n\n\ntest_all_versions_query\n\n\nSimpleEntity\n\n\nA simple versioned model for testing.", 
+            "text": "Classes\n\n\nTestVersionedModelVersions\n\n\ntest_putting_new_version\n\n\ntest_creating_first_version\n\n\nThe first version should create a \nVersionUnifier\n to act as parent\n    for all versions and automatically be set active. \n\n\ntest_private_put_doesnt_save_new_version\n\n\nTestVersionedModelParents\n\n\ntest_creating_versioned_model_with_parent_entity_or_key\n\n\nCreate datastore relationships using \nparent\n kwarg, access the feaux\n    parent through parent() or parent_key() \n\n\ntest_versioned_model_parent_always_returns_active_version\n\n\nTestVersionedModelQueries\n\n\ntest_query_only_returns_active_version\n\n\ntest_all_versions_query\n\n\nSimpleEntity\n\n\nSimple versioned model for testing.", 
             "title": "test_versionedmodel"
         }, 
         {
@@ -422,7 +792,7 @@
         }, 
         {
             "location": "/docgen-api/catnado.versionedmodel.test_versionedmodel/#simpleentity", 
-            "text": "A simple versioned model for testing.", 
+            "text": "Simple versioned model for testing.", 
             "title": "SimpleEntity"
         }
     ]
