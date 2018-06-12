@@ -4,7 +4,7 @@ clean:
 
 .PHONY: docs
 docs:
-	catnado-docgen build mkdocs.yml --update-pages
+	docgen build catnado mkdocs.yml --update-pages
 	mkdocs build
 
 pip-clean:
