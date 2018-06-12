@@ -10,6 +10,10 @@ See the [docs on GitHub](https://tylertrussell.github.io/gae-catnado).
 
 # Changelog
 
+### 0.0.1dev27
+* Added `catnado.handlers.simple_public_handler` for rendering simple pages.
+* Added `catnado.utils.csrf` for easily adding CSRF protection to apps.
+
 ### 0.0.1dev14
 * Unit tests for `catnado.utils.validators`
 
