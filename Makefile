@@ -4,6 +4,7 @@ clean:
 
 .PHONY: docs
 docs:
+	pip install --upgrade catnado-docgen mkdocs mkdocs-material
 	docgen build catnado mkdocs.yml --update-pages
 	mkdocs build
 
@@ -16,4 +17,5 @@ build:
 	python setup.py bdist_wheel
 
 upload:
+	pip install --upgrade twine
 	twine upload dist/*
