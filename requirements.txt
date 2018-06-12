@@ -2,6 +2,7 @@ flake8
 flake8-docstrings-catnado
 jinja2
 jsonschema
+mock
 pycountry
 pytest
 pytest-flake8
