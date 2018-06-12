@@ -2,6 +2,10 @@ clean:
 	rm -rf .pytest_cache
 	rm -rf dist
 
+docs:
+	catnado-docgen build mkdocs.yml --update-pages
+	mkdocs build
+
 pip-clean:
 	pip freeze | xargs pip uninstall -y
 
