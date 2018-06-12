@@ -2,6 +2,7 @@ clean:
 	rm -rf .pytest_cache
 	rm -rf dist
 
+.PHONY: docs
 docs:
 	catnado-docgen build mkdocs.yml --update-pages
 	mkdocs build
