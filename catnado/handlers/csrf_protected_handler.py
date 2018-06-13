@@ -5,7 +5,7 @@ from catnado.utils.csrf import validate_csrf_token
 class CSRFProtectedHandler(SimplePublicHandler):
   """SimplePublicHandler that requires a CSRF token on POST."""
 
-  CSRF_PROTECTED_METHODS = ['POST', 'PUT', 'DELETE']
+  CSRF_PROTECTED_METHODS = {'POST', 'PUT', 'DELETE'}
 
   def dispatch(self):
     """Override dispatch to CSRF-validate POST requests."""
