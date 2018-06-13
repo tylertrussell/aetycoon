@@ -10,6 +10,10 @@ See the [docs on GitHub](https://tylertrussell.github.io/gae-catnado).
 
 # Changelog
 
+### 0.0.1dev29
+* Revamped `catnado.utils.validators` to write clean data to `self.request.registry`
+* Added some more unit tests around validators
+
 ### 0.0.1dev28
 * Added `catnado.handlers.csrf_protected_handler` as a handler whose POST/PUT/DELETE requests are protected automatically.
 
