@@ -1,8 +1,8 @@
-from catnado.handlers.simple_public_handler import SimplePublicHandler
+from catnado.handlers import CatnadoHandler
 from catnado.utils.csrf import validate_csrf_token
 
 
-class CSRFProtectedHandler(SimplePublicHandler):
+class CSRFProtectedHandler(CatnadoHandler):
   """SimplePublicHandler that requires a CSRF token on POST."""
 
   CSRF_PROTECTED_METHODS = {'POST', 'PUT', 'DELETE'}

@@ -1,12 +1,8 @@
+from catnado.handlers import CatnadoHandler, CONTENT_TYPE, CONTENT_TYPE_HTML
 from catnado.utils.jinja import create_jinja_environment
-from webapp2 import RequestHandler
 
 
-CONTENT_TYPE = 'Content-Type'
-CONTENT_TYPE_HTML = 'text/html'
-
-
-class SimplePublicHandler(RequestHandler):
+class SimplePublicHandler(CatnadoHandler):
   """Handler for serving a microservice's internal API.
 
   Ensures that incoming requests are coming from within the same application by

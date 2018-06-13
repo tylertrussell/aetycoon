@@ -1,6 +1,10 @@
 import logging
 
 
+CLEAN_DATA = 'clean_data'
+ERROR_EXTRA_VALIDATORS_NO_TYPE = 'one of type or extra validators is required'
+
+
 class ValidationError(Exception):
   """Raise when a request validation decorator fails.
 
@@ -10,42 +14,49 @@ class ValidationError(Exception):
   pass
 
 
-def validate(key, types, extra_validators=None, required=False):
+def validate(key, new_type, extra_validators=None, required=False):
   """Use as a decorator to validate incoming request data.
+
+  The validated request data is stored on `self.request.clean_data` so that it
+  can be used by the handler later.
 
   Args:
     key: the request data key to validate
-    types: a type or list or list of types that are acceptable
-    extra_validators: an optional function or list of functions to call on the
-      specified key
+    new_type: optional desired type; if None, you must specify extra_validators
+      note: arg (not kwarg) because it should be specified most of the time
+    extra_validators: optional validator func (or funcs)
     required: optional bool; whether this field is required (defaults False)
 
   Raises:
-    AssertionError: if types is not a type or list of types
-    ValidationError: if the request contains invalid data
+    AssertionError: if type_ is not a type
+    ValidationError: if the value is missing and required or if the value can't
+      be converted to the given type
   """
   def outer_decorator(func):
     def inner_decorator(self, *args, **kwargs):
 
-      assert isinstance(types, (list, type))
+      assert isinstance(new_type, (list, type))
 
-      value = self.request.get(key)
+      value = self.request.params.get(key)
 
-      if not value and required:
+      if value is None and required:
         logging.error('{} is required but missing'.format(key))
         self.abort(400)
 
-      if not isinstance(value, types):
-        found = type(value)
-        logging.error('Expected type {}, got {}'.format(types, found))
-        self.abort(400)
+      if new_type:
+        try:
+          new_value = new_type(value)
+        # in general it's bad to do this, but this avoids an HTTP 500
+        except Exception as e:
+          self.abort(400, detail='{} contains invalid input'.format(key))
+          # we make up for the badness of catching all exceptions by logging it
+          logging.error('Validator caught exception {} while handling request'.format(e))
+          return  # just to get PyCharm to stop complaining
+      else:
+        assert extra_validators, ERROR_EXTRA_VALIDATORS_NO_TYPE
+        new_value = value
 
       if extra_validators:
-
-        # convert single-function arguments to a list. since onecannot assign to
-        # a variable defined in an enclosing scope and then reference it later
-        # in the same function without raising an UnboundLocalError, give the
-        # list a different name
         if not isinstance(extra_validators, list):
           validators_to_run = [extra_validators]
         else:
@@ -54,10 +65,13 @@ def validate(key, types, extra_validators=None, required=False):
 
         for extra_validator in validators_to_run:
           try:
-            extra_validator(value)
-          except ValidationError as e:
-            logging.error('{} failed: {}'.format(extra_validator, e))
+            new_value = extra_validator(new_value)
+          except ValidationError:
+            logging.error('{} failed'.format(extra_validator))
             self.abort(400)
+
+      clean_data = self.request.registry.setdefault(CLEAN_DATA, {})
+      clean_data[key] = new_value
 
       func(self, *args, **kwargs)
 

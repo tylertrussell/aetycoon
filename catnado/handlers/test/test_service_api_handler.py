@@ -1,10 +1,7 @@
 import json
 
-from catnado.handlers.service_api_handler import (
-  CONTENT_TYPE,
-  CONTENT_TYPE_JSON,
-  ServiceAPIHandler,
-)
+from catnado.handlers import CONTENT_TYPE, CONTENT_TYPE_JSON
+from catnado.handlers.service_api_handler import ServiceAPIHandler
 from catnado.testing.app import create_simple_test_app
 from catnado.testing.testcase import SimpleAppEngineTestCase
 from catnado.utils.api import INBOUND_APP_ID
