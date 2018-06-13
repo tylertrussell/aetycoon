@@ -32,7 +32,7 @@ class ValidatorTest(SimpleAppEngineTestCase):
         methods=['GET'],
       ),
       Route(
-        '/test/unicode_post',
+        '/test/extra_validators',
         handler=ValidatorTestHandler,
         handler_method='test_function_extra_validators',
         methods=['POST'],
@@ -45,7 +45,7 @@ class ValidatorTest(SimpleAppEngineTestCase):
 
   def test_extra_validator(self):
     response = self.app.post(
-      '/test/unicode_post',
+      '/test/extra_validators',
       {'key': 'orange'},
       expect_errors=True,
     )
