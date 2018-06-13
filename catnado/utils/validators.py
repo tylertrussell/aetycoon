@@ -49,9 +49,9 @@ def validate(key, new_type, extra_validators=None, required=False):
           new_value = new_type(value)
         # in general it's bad to do this, but this avoids an HTTP 500
         except Exception as e:
-          self.abort(400, detail='{} contains invalid input'.format(key))
           # we make up for the badness of catching all exceptions by logging it
           logging.error('Validator caught exception {} while handling request'.format(e))
+          self.abort(400, detail='{} contains invalid input'.format(key))
           return  # just to get PyCharm to stop complaining
       else:
         assert extra_validators, ERROR_EXTRA_VALIDATORS_NO_TYPE
