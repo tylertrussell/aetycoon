@@ -11,6 +11,6 @@ class CSRFProtectedHandler(CatnadoHandler):
     """Override dispatch to CSRF-validate POST requests."""
     if self.request.method in self.CSRF_PROTECTED_METHODS:
       if not validate_csrf_token(self):
-        self.abort(403)
+        self.abort(403, detail='CSRF protection')
 
     super(CSRFProtectedHandler, self).dispatch()
