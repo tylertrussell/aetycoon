@@ -45,18 +45,32 @@ def _generate_csrf_token():
   return '{}-{}'.format(random_token, now)
 
 
+def validate_csrf_token(handler):
+  """Validate a CSRF token on behalf of a handler.
+
+  A CSRF token is considered valid if it exists and matches the CSRF token
+  found in the Cookie.
+
+  Args:
+    handler: webapp2.RequestHandler subclass instance
+
+  Returns:
+    bool; True if CSRF token present and valid
+  """
+  csrf_token_form = handler.request.get(CSRF_TOKEN_FORM_KEY)
+  csrf_token_cookie = handler.request.cookies.get(CSRF_TOKEN_COOKIE_KEY)
+  if not csrf_token_form or not csrf_token_cookie:
+    return False
+  return csrf_token_form == csrf_token_cookie
+
+
 def csrf_token_required():
   """Use as a decorator to protect handler functions from CSRF attacks."""
   def outer_decorator(func):
     def inner_decorator(self, *args, **kwargs):
 
-      csrf_token_form = self.request.get(CSRF_TOKEN_FORM_KEY)
-      csrf_token_cookie = self.request.cookies.get(CSRF_TOKEN_COOKIE_KEY)
-      if not csrf_token_form or not csrf_token_cookie:
-        self.abort(403)
-
-      if csrf_token_form != csrf_token_cookie:
-        self.abort(403)
+      if not validate_csrf_token(self):
+        self.abort(403, detail='CSRF attack prevention')
 
       func(self, *args, **kwargs)
 
