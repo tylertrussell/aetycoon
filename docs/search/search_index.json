@@ -42,8 +42,18 @@
         }, 
         {
             "location": "/docgen-api/catnado.handlers.csrf_protected_handler/", 
-            "text": "Classes\n\n\nCSRFProtectedHandler\n\n\nSimplePublicHandler that requires a CSRF token on POST.\n\n\ndispatch\n\n\nOverride dispatch to CSRF-validate POST requests.", 
+            "text": "Functions\n\n\nvalidate_csrf_token\n\n\nValidate a CSRF token on behalf of a handler.\n\n\nA CSRF token is considered valid if it exists and matches the CSRF token\n  found in the Cookie.\n\n\nArgs:\n    handler: webapp2.RequestHandler subclass instance\n\n\nReturns:\n    bool; True if CSRF token present and valid\n\n\nClasses\n\n\nCSRFProtectedHandler\n\n\nSimplePublicHandler that requires a CSRF token on POST.\n\n\ndispatch\n\n\nOverride dispatch to CSRF-validate POST requests.", 
             "title": "csrf_protected_handler"
+        }, 
+        {
+            "location": "/docgen-api/catnado.handlers.csrf_protected_handler/#functions", 
+            "text": "", 
+            "title": "Functions"
+        }, 
+        {
+            "location": "/docgen-api/catnado.handlers.csrf_protected_handler/#validate_csrf_token", 
+            "text": "Validate a CSRF token on behalf of a handler.  A CSRF token is considered valid if it exists and matches the CSRF token\n  found in the Cookie.  Args:\n    handler: webapp2.RequestHandler subclass instance  Returns:\n    bool; True if CSRF token present and valid", 
+            "title": "validate_csrf_token"
         }, 
         {
             "location": "/docgen-api/catnado.handlers.csrf_protected_handler/#classes", 
@@ -122,7 +132,7 @@
         }, 
         {
             "location": "/docgen-api/catnado.handlers.test.test_csrf_protected_handler/", 
-            "text": "Attributes\n\n\nTEST_TOKEN\n\n\nCSRF_TOKEN_FORM_KEY\n\n\nFunctions\n\n\ncsrf_token_required\n\n\nUse as a decorator to protect handler functions from CSRF attacks.\n\n\nget_csrf_token\n\n\nGet a CSRF token to embed in an HTML page.\n\n\nThe token is also stored in a Cookie and verified upon POST/PUT.\n\n\nArguments:\n    request: webapp2 Request object\n    response: webapp2 Response object\n\n\nReturns:\n    str; a CSRF token, having been saved to the Cookie\n\n\ncreate_simple_test_app\n\n\nCreate a simple webtest.TestApp with the specified routes.\n\n\nArgs:\n    routes: list of webapp2.Routes\n\n\nReturns:\n    webtest.TestApp wrapping a webapp2.WSGIApplication\n\n\nClasses\n\n\nCSRFProtectedHandlerTest\n\n\ntest_csrf_token_required_on_post\n\n\nsetUp\n\n\nCSRFProtectedTestHandler\n\n\ntest_post\n\n\ntest_get", 
+            "text": "Attributes\n\n\nTEST_TOKEN\n\n\nCSRF_TOKEN_FORM_KEY\n\n\nFunctions\n\n\nget_csrf_token\n\n\nGet a CSRF token to embed in an HTML page.\n\n\nThe token is also stored in a Cookie and verified upon POST/PUT.\n\n\nArguments:\n    request: webapp2 Request object\n    response: webapp2 Response object\n\n\nReturns:\n    str; a CSRF token, having been saved to the Cookie\n\n\ncreate_simple_test_app\n\n\nCreate a simple webtest.TestApp with the specified routes.\n\n\nArgs:\n    routes: list of webapp2.Routes\n\n\nReturns:\n    webtest.TestApp wrapping a webapp2.WSGIApplication\n\n\nClasses\n\n\nCSRFProtectedHandlerTest\n\n\ntest_csrf_token_required_on_post\n\n\nsetUp\n\n\nCSRFProtectedTestHandler\n\n\ntest_post\n\n\ntest_get", 
             "title": "test_csrf_protected_handler"
         }, 
         {
@@ -134,11 +144,6 @@
             "location": "/docgen-api/catnado.handlers.test.test_csrf_protected_handler/#functions", 
             "text": "", 
             "title": "Functions"
-        }, 
-        {
-            "location": "/docgen-api/catnado.handlers.test.test_csrf_protected_handler/#csrf_token_required", 
-            "text": "Use as a decorator to protect handler functions from CSRF attacks.", 
-            "title": "csrf_token_required"
         }, 
         {
             "location": "/docgen-api/catnado.handlers.test.test_csrf_protected_handler/#get_csrf_token", 

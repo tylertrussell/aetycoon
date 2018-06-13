@@ -16,11 +16,6 @@
 
 ## Functions
     
-### `csrf_token_required`
-
-Use as a decorator to protect handler functions from CSRF attacks.
-
-    
 ### `get_csrf_token`
 
 Get a CSRF token to embed in an HTML page.
