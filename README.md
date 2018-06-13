@@ -10,6 +10,9 @@ See the [docs on GitHub](https://tylertrussell.github.io/gae-catnado).
 
 # Changelog
 
+### 0.0.1dev28
+* Added `catnado.handlers.csrf_protected_handler` as a handler whose POST/PUT/DELETE requests are protected automatically.
+
 ### 0.0.1dev27
 * Added `catnado.handlers.simple_public_handler` for rendering simple pages.
 * Added `catnado.utils.csrf` for easily adding CSRF protection to apps.
