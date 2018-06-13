@@ -3,7 +3,6 @@ from catnado.testing.app import create_simple_test_app
 from catnado.testing.testcase import SimpleAppEngineTestCase
 from catnado.utils.csrf import (
   CSRF_TOKEN_FORM_KEY,
-  csrf_token_required,
   get_csrf_token,
 )
 import mock
