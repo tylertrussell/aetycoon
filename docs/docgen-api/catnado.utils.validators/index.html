@@ -97,7 +97,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#functions" tabindex="1" class="md-skip">
+      <a href="#attributes" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -971,38 +971,9 @@
       
     
     
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        validators
-      </label>
-    
     <a href="./" title="validators" class="md-nav__link md-nav__link--active">
       validators
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#validate" title="validate" class="md-nav__link">
-    validate
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
     
   </li>
 
@@ -1087,22 +1058,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#validate" title="validate" class="md-nav__link">
-    validate
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1117,18 +1072,24 @@
                 
                 
                 <h1 id="_1"></h1>
+<h2 id="attributes">Attributes</h2>
+<p><code>ERROR_EXTRA_VALIDATORS_NO_TYPE</code></p>
+<p><code>CLEAN_DATA</code></p>
 <h2 id="functions">Functions</h2>
 <h3 id="validate"><code>validate</code></h3>
 <p>Use as a decorator to validate incoming request data.</p>
+<p>The validated request data is stored on <code>self.request.clean_data</code> so that it
+  can be used by the handler later.</p>
 <p>Args:
     key: the request data key to validate
-    types: a type or list or list of types that are acceptable
-    extra_validators: an optional function or list of functions to call on the
-      specified key
+    new_type: optional desired type; if None, you must specify extra_validators
+      note: arg (not kwarg) because it should be specified most of the time
+    extra_validators: optional validator func (or funcs)
     required: optional bool; whether this field is required (defaults False)</p>
 <p>Raises:
-    AssertionError: if types is not a type or list of types
-    ValidationError: if the request contains invalid data</p>
+    AssertionError: if type_ is not a type
+    ValidationError: if the value is missing and required or if the value can't
+      be converted to the given type</p>
 <h2 id="classes">Classes</h2>
 <h3 id="validationerror"><code>ValidationError</code></h3>
 <p>Raise when a request validation decorator fails.</p>

@@ -1150,15 +1150,18 @@
 <h2 id="functions">Functions</h2>
 <h3 id="validate"><code>validate</code></h3>
 <p>Use as a decorator to validate incoming request data.</p>
+<p>The validated request data is stored on <code>self.request.clean_data</code> so that it
+  can be used by the handler later.</p>
 <p>Args:
     key: the request data key to validate
-    types: a type or list or list of types that are acceptable
-    extra_validators: an optional function or list of functions to call on the
-      specified key
+    new_type: optional desired type; if None, you must specify extra_validators
+      note: arg (not kwarg) because it should be specified most of the time
+    extra_validators: optional validator func (or funcs)
     required: optional bool; whether this field is required (defaults False)</p>
 <p>Raises:
-    AssertionError: if types is not a type or list of types
-    ValidationError: if the request contains invalid data</p>
+    AssertionError: if type_ is not a type
+    ValidationError: if the value is missing and required or if the value can't
+      be converted to the given type</p>
 <h3 id="validate_color"><code>validate_color</code></h3>
 <h3 id="create_simple_test_app"><code>create_simple_test_app</code></h3>
 <p>Create a simple webtest.TestApp with the specified routes.</p>
@@ -1170,9 +1173,16 @@
 <h3 id="validatortesthandler"><code>ValidatorTestHandler</code></h3>
 <p><code>inner_decorator</code></p>
 <p><code>inner_decorator</code></p>
+<p><code>inner_decorator</code></p>
+<p><code>inner_decorator</code></p>
+<p><code>respond_with_type_and_value</code></p>
 <h3 id="validatortest"><code>ValidatorTest</code></h3>
 <p><code>test_required_validator</code></p>
 <p><code>test_extra_validator</code></p>
+<p><code>test_decimal_validator</code></p>
+<p><code>test_boolean_validator</code></p>
+<p><code>json_post</code></p>
+<p>Helper for testing validator endpoints.</p>
 <p><code>setUp</code></p>
                 
                   

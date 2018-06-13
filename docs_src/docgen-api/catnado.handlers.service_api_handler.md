@@ -3,13 +3,6 @@
 
 
 
-## Attributes
-    
-`CONTENT_TYPE_JSON`
-    
-`CONTENT_TYPE`
-    
-
 
 
 
@@ -51,16 +44,6 @@ Handler for serving a microservice's internal API.
 
         
         
-            
-
-`json_response`
-
-Set Content-Type and write JSON data in a response.
-
-    Arguments:
-      data: a dict to JSON-stringify and return
-    
-
             
 
 `dispatch`

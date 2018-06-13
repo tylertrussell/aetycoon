@@ -37,8 +37,23 @@
         }, 
         {
             "location": "/docgen-api/catnado.handlers/", 
-            "text": "", 
+            "text": "Attributes\n\n\nCONTENT_TYPE_JSON\n\n\nCONTENT_TYPE\n\n\nCONTENT_TYPE_HTML\n\n\nCLEAN_DATA\n\n\nClasses\n\n\nCatnadoHandler\n\n\nBase handler for Catnado.\n\n\nProvides miscellaneous base functionality.\n\n\njson_response\n\n\nWrite an application/json response.\n\n\nArgs:\n  out: dictionary to serialize to JSON and send as a response\n  code: optional int; sets the HTTP status code of the response", 
             "title": "__init__"
+        }, 
+        {
+            "location": "/docgen-api/catnado.handlers/#attributes", 
+            "text": "CONTENT_TYPE_JSON  CONTENT_TYPE  CONTENT_TYPE_HTML  CLEAN_DATA", 
+            "title": "Attributes"
+        }, 
+        {
+            "location": "/docgen-api/catnado.handlers/#classes", 
+            "text": "", 
+            "title": "Classes"
+        }, 
+        {
+            "location": "/docgen-api/catnado.handlers/#catnadohandler", 
+            "text": "Base handler for Catnado.  Provides miscellaneous base functionality.  json_response  Write an application/json response.  Args:\n  out: dictionary to serialize to JSON and send as a response\n  code: optional int; sets the HTTP status code of the response", 
+            "title": "CatnadoHandler"
         }, 
         {
             "location": "/docgen-api/catnado.handlers.csrf_protected_handler/", 
@@ -67,13 +82,8 @@
         }, 
         {
             "location": "/docgen-api/catnado.handlers.service_api_handler/", 
-            "text": "Attributes\n\n\nCONTENT_TYPE_JSON\n\n\nCONTENT_TYPE\n\n\nFunctions\n\n\nvalidate_api_request\n\n\nValidate the API Request by looking for an internal AppEngine header.\n\n\nThe header should contain INBOUND_APP_ID (added securely by AppEngine) and its\n  value should match this service's application ID.\n\n\nArguments:\n    request: webapp2 Request\n\n\nRaises:\n    InsecureAPIRequestError: if the application ID header is missing from the\n      request or the ID does not match the current application\n\n\nClasses\n\n\nServiceAPIHandler\n\n\nHandler for serving a microservice's internal API.\n\n\nEnsures that incoming requests are coming from within the same application by\n  verifying that the X-Appengine-Inbound-Appid matches the current application's\n  ID.\n\n\njson_response\n\n\nSet Content-Type and write JSON data in a response.\n\n\nArguments:\n  data: a dict to JSON-stringify and return\n\n\n\ndispatch\n\n\nOverride dispatch to validate incoming requests are secure.\n\n\nA request is secure if its X-Appengine-Internal-Appid header matches the\napplications current application ID.", 
+            "text": "Functions\n\n\nvalidate_api_request\n\n\nValidate the API Request by looking for an internal AppEngine header.\n\n\nThe header should contain INBOUND_APP_ID (added securely by AppEngine) and its\n  value should match this service's application ID.\n\n\nArguments:\n    request: webapp2 Request\n\n\nRaises:\n    InsecureAPIRequestError: if the application ID header is missing from the\n      request or the ID does not match the current application\n\n\nClasses\n\n\nServiceAPIHandler\n\n\nHandler for serving a microservice's internal API.\n\n\nEnsures that incoming requests are coming from within the same application by\n  verifying that the X-Appengine-Inbound-Appid matches the current application's\n  ID.\n\n\ndispatch\n\n\nOverride dispatch to validate incoming requests are secure.\n\n\nA request is secure if its X-Appengine-Internal-Appid header matches the\napplications current application ID.", 
             "title": "service_api_handler"
-        }, 
-        {
-            "location": "/docgen-api/catnado.handlers.service_api_handler/#attributes", 
-            "text": "CONTENT_TYPE_JSON  CONTENT_TYPE", 
-            "title": "Attributes"
         }, 
         {
             "location": "/docgen-api/catnado.handlers.service_api_handler/#functions", 
@@ -92,7 +102,7 @@
         }, 
         {
             "location": "/docgen-api/catnado.handlers.service_api_handler/#serviceapihandler", 
-            "text": "Handler for serving a microservice's internal API.  Ensures that incoming requests are coming from within the same application by\n  verifying that the X-Appengine-Inbound-Appid matches the current application's\n  ID.  json_response  Set Content-Type and write JSON data in a response.  Arguments:\n  data: a dict to JSON-stringify and return  dispatch  Override dispatch to validate incoming requests are secure.  A request is secure if its X-Appengine-Internal-Appid header matches the\napplications current application ID.", 
+            "text": "Handler for serving a microservice's internal API.  Ensures that incoming requests are coming from within the same application by\n  verifying that the X-Appengine-Inbound-Appid matches the current application's\n  ID.  dispatch  Override dispatch to validate incoming requests are secure.  A request is secure if its X-Appengine-Internal-Appid header matches the\napplications current application ID.", 
             "title": "ServiceAPIHandler"
         }, 
         {
@@ -747,7 +757,7 @@
         }, 
         {
             "location": "/docgen-api/catnado.utils.test.test_validators/", 
-            "text": "Functions\n\n\nvalidate\n\n\nUse as a decorator to validate incoming request data.\n\n\nArgs:\n    key: the request data key to validate\n    types: a type or list or list of types that are acceptable\n    extra_validators: an optional function or list of functions to call on the\n      specified key\n    required: optional bool; whether this field is required (defaults False)\n\n\nRaises:\n    AssertionError: if types is not a type or list of types\n    ValidationError: if the request contains invalid data\n\n\nvalidate_color\n\n\ncreate_simple_test_app\n\n\nCreate a simple webtest.TestApp with the specified routes.\n\n\nArgs:\n    routes: list of webapp2.Routes\n\n\nReturns:\n    webtest.TestApp wrapping a webapp2.WSGIApplication\n\n\nClasses\n\n\nValidatorTestHandler\n\n\ninner_decorator\n\n\ninner_decorator\n\n\nValidatorTest\n\n\ntest_required_validator\n\n\ntest_extra_validator\n\n\nsetUp", 
+            "text": "Functions\n\n\nvalidate\n\n\nUse as a decorator to validate incoming request data.\n\n\nThe validated request data is stored on \nself.request.clean_data\n so that it\n  can be used by the handler later.\n\n\nArgs:\n    key: the request data key to validate\n    new_type: optional desired type; if None, you must specify extra_validators\n      note: arg (not kwarg) because it should be specified most of the time\n    extra_validators: optional validator func (or funcs)\n    required: optional bool; whether this field is required (defaults False)\n\n\nRaises:\n    AssertionError: if type_ is not a type\n    ValidationError: if the value is missing and required or if the value can't\n      be converted to the given type\n\n\nvalidate_color\n\n\ncreate_simple_test_app\n\n\nCreate a simple webtest.TestApp with the specified routes.\n\n\nArgs:\n    routes: list of webapp2.Routes\n\n\nReturns:\n    webtest.TestApp wrapping a webapp2.WSGIApplication\n\n\nClasses\n\n\nValidatorTestHandler\n\n\ninner_decorator\n\n\ninner_decorator\n\n\ninner_decorator\n\n\ninner_decorator\n\n\nrespond_with_type_and_value\n\n\nValidatorTest\n\n\ntest_required_validator\n\n\ntest_extra_validator\n\n\ntest_decimal_validator\n\n\ntest_boolean_validator\n\n\njson_post\n\n\nHelper for testing validator endpoints.\n\n\nsetUp", 
             "title": "test_validators"
         }, 
         {
@@ -757,7 +767,7 @@
         }, 
         {
             "location": "/docgen-api/catnado.utils.test.test_validators/#validate", 
-            "text": "Use as a decorator to validate incoming request data.  Args:\n    key: the request data key to validate\n    types: a type or list or list of types that are acceptable\n    extra_validators: an optional function or list of functions to call on the\n      specified key\n    required: optional bool; whether this field is required (defaults False)  Raises:\n    AssertionError: if types is not a type or list of types\n    ValidationError: if the request contains invalid data", 
+            "text": "Use as a decorator to validate incoming request data.  The validated request data is stored on  self.request.clean_data  so that it\n  can be used by the handler later.  Args:\n    key: the request data key to validate\n    new_type: optional desired type; if None, you must specify extra_validators\n      note: arg (not kwarg) because it should be specified most of the time\n    extra_validators: optional validator func (or funcs)\n    required: optional bool; whether this field is required (defaults False)  Raises:\n    AssertionError: if type_ is not a type\n    ValidationError: if the value is missing and required or if the value can't\n      be converted to the given type", 
             "title": "validate"
         }, 
         {
@@ -777,18 +787,23 @@
         }, 
         {
             "location": "/docgen-api/catnado.utils.test.test_validators/#validatortesthandler", 
-            "text": "inner_decorator  inner_decorator", 
+            "text": "inner_decorator  inner_decorator  inner_decorator  inner_decorator  respond_with_type_and_value", 
             "title": "ValidatorTestHandler"
         }, 
         {
             "location": "/docgen-api/catnado.utils.test.test_validators/#validatortest", 
-            "text": "test_required_validator  test_extra_validator  setUp", 
+            "text": "test_required_validator  test_extra_validator  test_decimal_validator  test_boolean_validator  json_post  Helper for testing validator endpoints.  setUp", 
             "title": "ValidatorTest"
         }, 
         {
             "location": "/docgen-api/catnado.utils.validators/", 
-            "text": "Functions\n\n\nvalidate\n\n\nUse as a decorator to validate incoming request data.\n\n\nArgs:\n    key: the request data key to validate\n    types: a type or list or list of types that are acceptable\n    extra_validators: an optional function or list of functions to call on the\n      specified key\n    required: optional bool; whether this field is required (defaults False)\n\n\nRaises:\n    AssertionError: if types is not a type or list of types\n    ValidationError: if the request contains invalid data\n\n\nClasses\n\n\nValidationError\n\n\nRaise when a request validation decorator fails.\n\n\nSee: validate.", 
+            "text": "Attributes\n\n\nERROR_EXTRA_VALIDATORS_NO_TYPE\n\n\nCLEAN_DATA\n\n\nFunctions\n\n\nvalidate\n\n\nUse as a decorator to validate incoming request data.\n\n\nThe validated request data is stored on \nself.request.clean_data\n so that it\n  can be used by the handler later.\n\n\nArgs:\n    key: the request data key to validate\n    new_type: optional desired type; if None, you must specify extra_validators\n      note: arg (not kwarg) because it should be specified most of the time\n    extra_validators: optional validator func (or funcs)\n    required: optional bool; whether this field is required (defaults False)\n\n\nRaises:\n    AssertionError: if type_ is not a type\n    ValidationError: if the value is missing and required or if the value can't\n      be converted to the given type\n\n\nClasses\n\n\nValidationError\n\n\nRaise when a request validation decorator fails.\n\n\nSee: validate.", 
             "title": "validators"
+        }, 
+        {
+            "location": "/docgen-api/catnado.utils.validators/#attributes", 
+            "text": "ERROR_EXTRA_VALIDATORS_NO_TYPE  CLEAN_DATA", 
+            "title": "Attributes"
         }, 
         {
             "location": "/docgen-api/catnado.utils.validators/#functions", 
@@ -797,7 +812,7 @@
         }, 
         {
             "location": "/docgen-api/catnado.utils.validators/#validate", 
-            "text": "Use as a decorator to validate incoming request data.  Args:\n    key: the request data key to validate\n    types: a type or list or list of types that are acceptable\n    extra_validators: an optional function or list of functions to call on the\n      specified key\n    required: optional bool; whether this field is required (defaults False)  Raises:\n    AssertionError: if types is not a type or list of types\n    ValidationError: if the request contains invalid data", 
+            "text": "Use as a decorator to validate incoming request data.  The validated request data is stored on  self.request.clean_data  so that it\n  can be used by the handler later.  Args:\n    key: the request data key to validate\n    new_type: optional desired type; if None, you must specify extra_validators\n      note: arg (not kwarg) because it should be specified most of the time\n    extra_validators: optional validator func (or funcs)\n    required: optional bool; whether this field is required (defaults False)  Raises:\n    AssertionError: if type_ is not a type\n    ValidationError: if the value is missing and required or if the value can't\n      be converted to the given type", 
             "title": "validate"
         }, 
         {

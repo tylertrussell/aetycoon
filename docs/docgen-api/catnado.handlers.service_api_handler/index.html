@@ -97,7 +97,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#attributes" tabindex="1" class="md-skip">
+      <a href="#functions" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -359,9 +359,38 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        service_api_handler
+      </label>
+    
     <a href="./" title="service_api_handler" class="md-nav__link md-nav__link--active">
       service_api_handler
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#validate_api_request" title="validate_api_request" class="md-nav__link">
+    validate_api_request
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -1058,6 +1087,22 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#validate_api_request" title="validate_api_request" class="md-nav__link">
+    validate_api_request
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1072,9 +1117,6 @@
                 
                 
                 <h1 id="_1"></h1>
-<h2 id="attributes">Attributes</h2>
-<p><code>CONTENT_TYPE_JSON</code></p>
-<p><code>CONTENT_TYPE</code></p>
 <h2 id="functions">Functions</h2>
 <h3 id="validate_api_request"><code>validate_api_request</code></h3>
 <p>Validate the API Request by looking for an internal AppEngine header.</p>
@@ -1091,11 +1133,6 @@
 <p>Ensures that incoming requests are coming from within the same application by
   verifying that the X-Appengine-Inbound-Appid matches the current application's
   ID.</p>
-<p><code>json_response</code></p>
-<p>Set Content-Type and write JSON data in a response.</p>
-<pre><code>Arguments:
-  data: a dict to JSON-stringify and return
-</code></pre>
 <p><code>dispatch</code></p>
 <p>Override dispatch to validate incoming requests are secure.</p>
 <pre><code>A request is secure if its X-Appengine-Internal-Appid header matches the
