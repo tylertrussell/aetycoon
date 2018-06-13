@@ -9,10 +9,12 @@ pages:
     - __init__: docgen-api/catnado.md
     - handlers:
       - __init__: docgen-api/catnado.handlers.md
+      - csrf_protected_handler: docgen-api/catnado.handlers.csrf_protected_handler.md
       - service_api_handler: docgen-api/catnado.handlers.service_api_handler.md
       - simple_public_handler: docgen-api/catnado.handlers.simple_public_handler.md
       - test:
         - __init__: docgen-api/catnado.handlers.test.md
+        - test_csrf_protected_handler: docgen-api/catnado.handlers.test.test_csrf_protected_handler.md
         - test_service_api_handler: docgen-api/catnado.handlers.test.test_service_api_handler.md
     - properties:
       - __init__: docgen-api/catnado.properties.md

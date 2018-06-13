@@ -16,6 +16,11 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc>https://tylertrussell.github.io/gae-catnado/docgen-api/catnado.handlers.csrf_protected_handler/</loc>
+     <lastmod>2018-06-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>https://tylertrussell.github.io/gae-catnado/docgen-api/catnado.handlers.service_api_handler/</loc>
      <lastmod>2018-06-12</lastmod>
      <changefreq>daily</changefreq>
@@ -27,6 +32,11 @@
     </url>
     <url>
      <loc>https://tylertrussell.github.io/gae-catnado/docgen-api/catnado.handlers.test/</loc>
+     <lastmod>2018-06-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://tylertrussell.github.io/gae-catnado/docgen-api/catnado.handlers.test.test_csrf_protected_handler/</loc>
      <lastmod>2018-06-12</lastmod>
      <changefreq>daily</changefreq>
     </url>

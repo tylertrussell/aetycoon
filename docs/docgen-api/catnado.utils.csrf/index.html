@@ -337,6 +337,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../catnado.handlers.csrf_protected_handler/" title="csrf_protected_handler" class="md-nav__link">
+      csrf_protected_handler
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../catnado.handlers.service_api_handler/" title="service_api_handler" class="md-nav__link">
       service_api_handler
     </a>
@@ -362,13 +374,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1-2-4" type="checkbox" id="nav-2-1-2-4">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1-2-5" type="checkbox" id="nav-2-1-2-5">
     
-    <label class="md-nav__link" for="nav-2-1-2-4">
+    <label class="md-nav__link" for="nav-2-1-2-5">
       test
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
-      <label class="md-nav__title" for="nav-2-1-2-4">
+      <label class="md-nav__title" for="nav-2-1-2-5">
         test
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -382,6 +394,18 @@
   <li class="md-nav__item">
     <a href="../catnado.handlers.test/" title="__init__" class="md-nav__link">
       __init__
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../catnado.handlers.test.test_csrf_protected_handler/" title="test_csrf_protected_handler" class="md-nav__link">
+      test_csrf_protected_handler
     </a>
   </li>
 
@@ -1052,6 +1076,14 @@
 <p><code>CSRF_TOKEN_COOKIE_KEY</code></p>
 <p><code>CSRF_TOKEN_FORM_KEY</code></p>
 <h2 id="functions">Functions</h2>
+<h3 id="validate_csrf_token"><code>validate_csrf_token</code></h3>
+<p>Validate a CSRF token on behalf of a handler.</p>
+<p>A CSRF token is considered valid if it exists and matches the CSRF token
+  found in the Cookie.</p>
+<p>Args:
+    handler: webapp2.RequestHandler subclass instance</p>
+<p>Returns:
+    bool; True if CSRF token present and valid</p>
 <h3 id="csrf_token_required"><code>csrf_token_required</code></h3>
 <p>Use as a decorator to protect handler functions from CSRF attacks.</p>
 <h3 id="get_csrf_token"><code>get_csrf_token</code></h3>
