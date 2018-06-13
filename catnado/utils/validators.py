@@ -23,7 +23,8 @@ def validate(key, new_type, extra_validators=None, required=False):
   Args:
     key: the request data key to validate
     new_type: optional desired type; if None, you must specify extra_validators
-      note: arg (not kwarg) because it should be specified most of the time
+      note: arg (not kwarg) because it should be specified most of the time.
+      This type must be instantiable! i.e. use unicode, not basestring.
     extra_validators: optional validator func (or funcs)
     required: optional bool; whether this field is required (defaults False)
 

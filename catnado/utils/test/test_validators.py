@@ -26,11 +26,11 @@ class ValidatorTestHandler(CatnadoHandler):
       'value': v,
     })
 
-  @validate('key', basestring, required=True)
+  @validate('test', unicode, required=True)
   def test_function(self):
     pass
 
-  @validate('key', basestring, extra_validators=[validate_color], required=True)
+  @validate('test', unicode, extra_validators=[validate_color], required=True)
   def test_function_extra_validators(self):
     pass
 
@@ -52,7 +52,7 @@ class ValidatorTest(SimpleAppEngineTestCase):
         '/test',
         handler=ValidatorTestHandler,
         handler_method='test_function',
-        methods=['GET'],
+        methods=['POST'],
       ),
       Route(
         '/test/extra_validators',
@@ -75,13 +75,15 @@ class ValidatorTest(SimpleAppEngineTestCase):
     ])
 
   def test_required_validator(self):
-    response = self.app.get('/test', expect_errors=True)
+    response = self.app.post('/test', expect_errors=True)
     self.assertEqual(response.status_int, 400)
+    response = self.app.post('/test', params={'test': 'gizmo'})
+    self.assertEqual(response.status_int, 200)
 
   def test_extra_validator(self):
     response = self.app.post(
       '/test/extra_validators',
-      {'key': 'orange'},
+      {'test': 'orange'},
       expect_errors=True,
     )
     self.assertEqual(response.status_int, 400)
