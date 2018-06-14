@@ -1,10 +1,11 @@
 import unittest
 
+from google.appengine.ext import db
+import jsonschema
+
 from catnado.properties.json_property import JSONProperty
 from catnado.properties.test.data import json_data, json_schemas
 from catnado.testing.testcase import SimpleAppEngineTestCase
-from google.appengine.ext import db
-import jsonschema
 
 
 class JSONPropertyTestDataSanityCheckTest(unittest.TestCase):

@@ -1,8 +1,9 @@
 import time
 
+from google.appengine.ext import db
+
 from catnado.testing.testcase import SimpleAppEngineTestCase
 from catnado.versionedmodel import VersionedModel, VersionUnifier
-from google.appengine.ext import db
 
 
 class SimpleEntity(VersionedModel):

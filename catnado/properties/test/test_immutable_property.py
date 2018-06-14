@@ -1,9 +1,10 @@
+from google.appengine.ext import db
+
 from catnado.properties.immutabe_property import (
   ImmutablePropertyException,
   ImmutableStringProperty,
 )
 from catnado.testing.testcase import SimpleAppEngineTestCase
-from google.appengine.ext import db
 
 
 class ImmutablePropertyTestModel(db.Model):

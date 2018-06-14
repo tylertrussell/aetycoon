@@ -1,8 +1,9 @@
 from decimal import Decimal
 
+from google.appengine.ext import db
+
 from catnado.properties.decimal_property import DecimalProperty
 from catnado.testing.testcase import SimpleAppEngineTestCase
-from google.appengine.ext import db
 
 
 class DecimalPropertyTestModel(db.Model):

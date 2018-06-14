@@ -1,3 +1,6 @@
+import mock
+from webapp2 import Route
+
 from catnado.handlers.csrf_protected_handler import CSRFProtectedHandler
 from catnado.testing.app import create_simple_test_app
 from catnado.testing.testcase import SimpleAppEngineTestCase
@@ -5,8 +8,6 @@ from catnado.utils.csrf import (
   CSRF_TOKEN_FORM_KEY,
   get_csrf_token,
 )
-import mock
-from webapp2 import Route
 
 
 class CSRFProtectedTestHandler(CSRFProtectedHandler):

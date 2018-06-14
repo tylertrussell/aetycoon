@@ -6,8 +6,9 @@ Modified from https://github.com/pypa/sampleproject
 from codecs import open
 from os import path
 
-from catnado import __VERSION__
 from setuptools import find_packages, setup
+
+from catnado import __VERSION__
 
 
 here = path.abspath(path.dirname(__file__))

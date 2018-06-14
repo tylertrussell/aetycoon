@@ -1,7 +1,8 @@
 import json
 
-from catnado.utils.validators import CLEAN_DATA
 from webapp2 import RequestHandler
+
+from catnado.utils.validators import CLEAN_DATA
 
 
 CONTENT_TYPE = 'Content-Type'

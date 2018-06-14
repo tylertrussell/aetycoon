@@ -15,6 +15,7 @@ class SimpleAppEngineTestCase(unittest.TestCase):
     self.testbed.activate()
     self.testbed.init_datastore_v3_stub()
     self.testbed.init_memcache_stub()
+    self.testbed.init_urlfetch_stub()
 
   def tearDown(self):
     """Override tearDown to set up stubs."""

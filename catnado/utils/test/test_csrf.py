@@ -1,3 +1,6 @@
+import mock
+from webapp2 import Route
+
 from catnado.handlers.simple_public_handler import SimplePublicHandler
 from catnado.testing.app import create_simple_test_app
 from catnado.testing.testcase import SimpleAppEngineTestCase
@@ -6,8 +9,6 @@ from catnado.utils.csrf import (
   csrf_token_required,
   get_csrf_token,
 )
-import mock
-from webapp2 import Route
 
 
 class SimpleCSRFTestHandler(SimplePublicHandler):

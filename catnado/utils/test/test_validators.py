@@ -1,11 +1,12 @@
 from decimal import Decimal
 import json
 
+from webapp2 import Route
+
 from catnado.handlers import CatnadoHandler
 from catnado.testing.app import create_simple_test_app
 from catnado.testing.testcase import SimpleAppEngineTestCase
 from catnado.utils.validators import validate, ValidationError
-from webapp2 import Route
 
 
 def validate_color(value):

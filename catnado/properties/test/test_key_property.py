@@ -1,6 +1,7 @@
+from google.appengine.ext import db
+
 from catnado.properties.key_property import KeyProperty
 from catnado.testing.testcase import SimpleAppEngineTestCase
-from google.appengine.ext import db
 
 
 class ImmutableKeyPropertyTestModel(db.Model):
