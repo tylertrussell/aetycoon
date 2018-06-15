@@ -151,11 +151,11 @@ class VersionedModel(db.Model):
     if creating_new_model:
       version_unifier = VersionUnifier(parent=self._feaux_parent_key)
       self.version_unifier_key = version_unifier.put()
-      self._parent_key = self.version_unifier_key
 
     else:
       self._reset_entity()
 
+    self._parent_key = self.version_unifier_key
     return self._put(**kwargs)
 
   def _put(self, **kwargs):
