@@ -39,7 +39,9 @@ class KeyProperty(db.Property):
       value = value.key()
     if value is not None:
       if not isinstance(value, db.Key):
-        raise TypeError('%s must be an instance of db.Key' % self.name)
+        raise TypeError(
+          '{} must be an instance of db.Key, got {}'.format(self.name, type(value))
+        )
       if self.kind and value.kind() != self.kind:
         raise TypeError('%s must be a %s' % self.kind)
     return super(KeyProperty, self).validate(value)
