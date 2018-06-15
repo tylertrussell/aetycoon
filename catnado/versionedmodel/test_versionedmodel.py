@@ -16,6 +16,7 @@ class TestVersionedModelQueries(SimpleAppEngineTestCase):
   def test_query_only_returns_active_version(self):
     foo = SimpleEntity(name='foo')
     foo.put()
+    foo.set_active()
 
     foo.name = 'foobar'
     foo.put()
@@ -34,6 +35,7 @@ class TestVersionedModelQueries(SimpleAppEngineTestCase):
   def test_all_versions_query(self):
     # Create a versioned entity and a bunch of inactive versions
     first_foo = SimpleEntity.get(SimpleEntity(name='foo-0').put())
+    first_foo.set_active()
     expected_names = ['foo-0']
 
     # Store the expected names as we create them
@@ -58,6 +60,7 @@ class TestVersionedModelVersions(SimpleAppEngineTestCase):
 
     foo = SimpleEntity(name='foo')
     foo.put()
+    foo.set_active()
 
     self.assertTrue(foo.active)
     self.assertEqual(
@@ -110,6 +113,7 @@ class TestVersionedModelParents(SimpleAppEngineTestCase):
   def test_versioned_model_parent_always_returns_active_version(self):
     foo = SimpleEntity(name='foo')
     foo.put()
+    foo.set_active()
 
     bar = SimpleEntity(name='bar', parent=foo.key())
     bar.put()
@@ -127,6 +131,7 @@ class TestVersionedModelParents(SimpleAppEngineTestCase):
     # one parent that will hold all the children
     parent = SimpleEntity(name='parent')
     parent.put()
+    parent.set_active()
 
     # specify parent as an entity
     child = SimpleEntity(name='child', parent=parent)

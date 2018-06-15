@@ -31,7 +31,8 @@ class VersionUnifier(db.Model):
   # JSON object containing historical changes to the
   active_version_history = PickleProperty(default=[])
 
-  def set_active_version(self, active_version_key, info=None):
+  @db.transactional
+  def set_active_version(self, new_active_version_key, info=None):
     """Set the active version to the provided `active_version_key`.
 
     Also record change in `active_version_history` and set `active` on the
@@ -39,7 +40,7 @@ class VersionUnifier(db.Model):
     is becoming inactive).
 
     Args:
-      active_version_key: `db.Key` of the new active version
+      new_active_version_key: `db.Key` of the new active version
       info: `dict` of extra information to store in `active_version_history`
 
     Raises:
@@ -48,44 +49,38 @@ class VersionUnifier(db.Model):
     Returns:
       True to indicate success
     """
-    def inner_set_active_version():
-      if not isinstance(active_version_key, db.Key):
-        raise ValueError('Expected active_version_key to be a db.Key')
+    if not isinstance(new_active_version_key, db.Key):
+      raise ValueError('Expected active_version_key to be a db.Key')
 
-      assert self.key() == active_version_key.parent(), ERROR_WRONG_VERSION_PARENT
+    assert self.key() == new_active_version_key.parent(), ERROR_WRONG_VERSION_PARENT
 
-      # must fetch the instance here for proper transactional semantics
-      instance = VersionUnifier.get(self.key())
+    # must fetch the instance here for proper transactional semantics
+    instance = VersionUnifier.get(self.key())
 
-      default_history_info = {
-        EVENT_KEY: EVENT_TYPE_CHANGED_ACTIVE_VERSION,
-        EVENT_DATA_OLD_ACTIVE_VERSION: str(instance.active_version_key),
-        EVENT_DATA_NEW_ACTIVE_VERSION: str(active_version_key),
-        EVENT_DATA_TIMESTAMP: datetime.utcnow(),
-      }
+    default_history_info = {
+      EVENT_KEY: EVENT_TYPE_CHANGED_ACTIVE_VERSION,
+      EVENT_DATA_OLD_ACTIVE_VERSION: str(instance.active_version_key),
+      EVENT_DATA_NEW_ACTIVE_VERSION: str(new_active_version_key),
+      EVENT_DATA_TIMESTAMP: datetime.utcnow(),
+    }
 
-      if info:
-        default_history_info.update(info)
-      instance.active_version_history.append(default_history_info)
+    if info:
+      default_history_info.update(info)
+    instance.active_version_history.append(default_history_info)
 
-      if instance.active_version_key:
-        version_becoming_inactive = VersionedModel.get(instance.active_version_key)
-        version_becoming_inactive.active = False
-        version_becoming_inactive._put()
+    if instance.active_version_key:
+      version_becoming_inactive = VersionedModel.get(instance.active_version_key)
+      version_becoming_inactive.active = False
+      version_becoming_inactive._put()
 
-      instance.active_version_key = active_version_key
-      instance.put()
+    instance.active_version_key = new_active_version_key
+    instance.put()
 
-      version_becoming_active = VersionedModel.get(active_version_key)
-      version_becoming_active.active = True
-      version_becoming_active._put()
+    version_becoming_active = VersionedModel.get(new_active_version_key)
+    version_becoming_active.active = True
+    version_becoming_active._put()
 
-      return True
-
-    if db.is_in_transaction():
-      return inner_set_active_version()
-    else:
-      return db.run_in_transaction(inner_set_active_version)
+    return True
 
 
 class VersionedModel(db.Model):
@@ -161,11 +156,7 @@ class VersionedModel(db.Model):
     else:
       self._reset_entity()
 
-    new_key = self._put(**kwargs)
-    if creating_new_model:
-      self.set_active(version_unifier=version_unifier)
-
-    return new_key
+    return self._put(**kwargs)
 
   def _put(self, **kwargs):
     """Put this model to the datastore--the original method.
@@ -205,7 +196,9 @@ class VersionedModel(db.Model):
       2x fetch-by-key if parent is `VersionedModel` descendant
       1x fetch-by-key otherwise
     """
-    return db.get(self.parent_key())
+    parent_key = self.parent_key()
+    if parent_key:
+      return db.get(parent_key)
 
   def parent_key(self):
     """See `parent`.
@@ -273,15 +266,3 @@ class VersionedModel(db.Model):
     """
     return (self._all().filter('version_unifier_key', self.version_unifier_key)
                        .order('created'))
-
-  @property
-  def tampered_with(self):
-    """Check to see if this model has been tampered with.
-
-    "Tampered with" in the sense that it has been modified outside of the
-    versioning system.
-
-    Returns:
-      True if the self.created == self.modified, False otherwise
-    """
-    return self.created != self.modified
