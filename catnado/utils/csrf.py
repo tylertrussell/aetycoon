@@ -5,6 +5,7 @@ import time
 
 CSRF_TOKEN_FORM_KEY = '_csrf_token'
 CSRF_TOKEN_COOKIE_KEY = 'cf53b32a803ef1cbee5ba32d7c062c716567234b1441de16a79c602456c61163'
+CSRF_TOKEN = 'csrf_token'
 
 
 def get_csrf_token(request, response):

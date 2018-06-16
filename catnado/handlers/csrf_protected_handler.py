@@ -1,8 +1,11 @@
-from catnado.handlers import CatnadoHandler
-from catnado.utils.csrf import validate_csrf_token
+from catnado.handlers.simple_public_handler import SimplePublicHandler
+from catnado.utils.csrf import get_csrf_token, validate_csrf_token
 
 
-class CSRFProtectedHandler(CatnadoHandler):
+CSRF_TOKEN = 'csrf_token'
+
+
+class CSRFProtectedHandler(SimplePublicHandler):
   """SimplePublicHandler that requires a CSRF token on POST."""
 
   CSRF_PROTECTED_METHODS = {'POST', 'PUT', 'DELETE'}
@@ -14,3 +17,13 @@ class CSRFProtectedHandler(CatnadoHandler):
         self.abort(403, detail='CSRF protection')
 
     super(CSRFProtectedHandler, self).dispatch()
+
+  def jinja_render(self, template, kwargs=None):
+    """set content-type and write json data in a response.
+
+    arguments:
+      kwargs: an optional dict to pass to the jinja template
+    """
+    kwargs = kwargs or {}
+    kwargs[CSRF_TOKEN] = get_csrf_token()
+    super(CSRFProtectedHandler, self).jinja_render(template, kwargs)
