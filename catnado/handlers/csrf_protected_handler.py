@@ -25,5 +25,5 @@ class CSRFProtectedHandler(SimplePublicHandler):
       kwargs: an optional dict to pass to the jinja template
     """
     kwargs = kwargs or {}
-    kwargs[CSRF_TOKEN] = get_csrf_token()
+    kwargs[CSRF_TOKEN] = get_csrf_token(self.request, self.response)
     super(CSRFProtectedHandler, self).jinja_render(template, kwargs)
