@@ -26,8 +26,7 @@ class SimplePublicHandler(CatnadoHandler):
       self._jinja_env = create_jinja_environment(self.TEMPLATES_PATH)
     return self._jinja_env
 
-  @staticmethod
-  def jinja_render(template, kwargs=None):
+  def jinja_render(self, template, kwargs=None):
     """Set Content-Type and write JSON data in a response.
 
     Arguments:

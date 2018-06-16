@@ -18,8 +18,7 @@ class CSRFProtectedHandler(SimplePublicHandler):
 
     super(CSRFProtectedHandler, self).dispatch()
 
-  @staticmethod
-  def jinja_render(template, kwargs=None):
+  def jinja_render(self, template, kwargs=None):
     """set content-type and write json data in a response.
 
     arguments:
