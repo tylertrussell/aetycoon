@@ -3,16 +3,20 @@ from google.appengine.ext import db
 from catnado.properties.key_property import KeyProperty
 
 
+class UniquePropertyRecordExistsError(Exception):
+  """Raise when attempting to create a property that already exists."""
+
+  pass
+
+
 class UniquePropertyRecord(db.Model):
-  """Helper class for unique datastore properties.
+  """Datastore model for keeping particular properties unique.
 
-  This works by creating a Key Name using a combination of the Kind, Property
-  Name, and Value. Since get_by_key_name is strongly consistent within a
-  datastore transactional, we can be certain that no entity exists with a
-  specific property/value.
+  Creates a key name using a combination of the Kind, Property Name, and Value.
 
-  The type of race condition that this class is designed to prevent is a little
-  difficult to write unit tests for.
+  Since get_by_key_name is strongly consistent within a datastore transactional,
+  one can be certain that no other entity exists with that specific combination
+  as long as a UniquePropertyRecord is created during the same transaction.
   """
 
   target_key = KeyProperty()
@@ -44,6 +48,10 @@ class UniquePropertyRecord(db.Model):
              allow_none=False):
     """Create a UniquePropertyRecord.
 
+    The key/property_name/value combination provided is only guaranteed to be
+    unique if the transactional=True or this function is called from within a
+    datastore transactional.
+
     Args:
       (see make_key_name)
       target_key: optional db.Model subclass or key pointing at any entity
@@ -59,22 +67,17 @@ class UniquePropertyRecord(db.Model):
     """
     assert value is not None or allow_none
 
-    key_name = UniquePropertyRecord.make_key_name(kind, property_name, value)
-
-    def create_transactionally():
-      preexisting_record = UniquePropertyRecord.get_by_key_name(key_name)
-      if preexisting_record:
-        return None
-
-      return UniquePropertyRecord(
-        key_name=key_name,
-        target_key=target_key,
-      ).put()
+    def _create():
+      existing_record = UniquePropertyRecord.retrieve(kind, property_name, value)
+      if existing_record:
+        raise UniquePropertyRecordExistsError(existing_record.key().name())
+      key_name = UniquePropertyRecord.make_key_name(kind, property_name, value)
+      return UniquePropertyRecord(key_name=key_name, target_key=target_key).put()
 
     if transactional:
-      return db.run_in_transaction(create_transactionally)
+      return db.run_in_transaction(_create)
     else:
-      return create_transactionally()
+      return _create()
 
   @staticmethod
   def retrieve(kind, property_name, value):

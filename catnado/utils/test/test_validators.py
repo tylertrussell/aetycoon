@@ -1,5 +1,4 @@
-from decimal import Decimal
-import json
+from decimal import Decimal, InvalidOperation
 
 from webapp2 import Route
 
@@ -37,11 +36,11 @@ class ValidatorTestHandler(CatnadoHandler):
 
   @validate('test', bool, required=True)
   def test_bool_validator(self):
-    self.respond_with_type_and_value(self.clean_request_data.get('test'))
+    pass
 
-  @validate('test', Decimal, required=True)
+  @validate('test', Decimal, required=True, excs=(InvalidOperation))
   def test_decimal_validator(self):
-    self.respond_with_type_and_value(self.clean_request_data.get('test'))
+    pass
 
 
 class ValidatorTest(SimpleAppEngineTestCase):
@@ -82,38 +81,33 @@ class ValidatorTest(SimpleAppEngineTestCase):
     self.assertEqual(response.status_int, 200)
 
   def test_extra_validator(self):
-    response = self.app.post(
-      '/test/extra_validators',
-      {'test': 'orange'},
-      expect_errors=True,
+    self.assertEqual(
+      self.app.post(
+        '/test/extra_validators',
+        {'test': 'orange'},
+        expect_errors=True,
+      ).status_int, 400
     )
-    self.assertEqual(response.status_int, 400)
-
-  def json_post(self, target, value, **kwargs):
-    """Helper for testing validator endpoints."""
-    response = self.app.post(target, {'test': value}, **kwargs)
-    return json.loads(response.body)
+    self.assertEqual(
+      self.app.post(
+        '/test/extra_validators',
+        {'test': 'blue'},
+      ).status_int, 200
+    )
 
   def test_boolean_validator(self):
     target = '/test/bool_validator'
+
     for item in ['True', 'bloop', '1', 1]:
-      self.assertEqual(
-        self.json_post(target, item),
-        {'type': 'bool', 'value': True}
-      )
-    # since everything gets converted to a string only an empty string is False
-    for item in ['']:
-      self.assertEqual(
-        self.json_post(target, item),
-        {'type': 'bool', 'value': False}
-      )
+      response = self.app.post(target, {'test': item})
+      self.assertEqual(response.status_int, 200)
+
+    response = self.app.post(target, '', expect_errors=True)
+    self.assertEqual(response.status_int, 400)
 
   def test_decimal_validator(self):
     target = '/test/decimal_validator'
     for item in ['1', '1.0', '1.00']:
-      self.assertEqual(
-        self.json_post(target, item),
-        {'type': 'Decimal', 'value': item}
-      )
-    response = self.app.post(target, {'test': 'notadecimal'}, expect_errors=True)
+      self.assertEqual(self.app.post(target, {'test': item}).status_int, 200)
+    response = self.app.post(target, {'test': 'notdecimal'}, expect_errors=True)
     self.assertEqual(response.status_int, 400)

@@ -20,6 +20,6 @@ class ServiceAPIHandler(CatnadoHandler):
       validate_api_request(self.request)
 
     except InsecureAPIRequestError:
-      self.abort(403, detail='Insecure request to service API')
+      self.abort(403)
 
     super(ServiceAPIHandler, self).dispatch()

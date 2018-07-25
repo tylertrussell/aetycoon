@@ -36,8 +36,8 @@ class ServiceAPITestCase(SimpleAppEngineTestCase):
 
   def setUp(self):
     """Override setUp to patch over request validation."""
+    super(ServiceAPITestCase, self).setUp()
     self._csrf_token_patch = mock.patch(
       'catnado.handlers.service_api_handler.validate_api_request'
     )
     self._csrf_token_mock = self._csrf_token_patch.start()
-    super(ServiceAPITestCase, self).setUp()
