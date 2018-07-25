@@ -44,13 +44,13 @@ class UniquePropertyRecord(db.Model):
     return '{}:{}:{}'.format(kind, property_name, value)
 
   @staticmethod
-  def create(kind, property_name, value, target_key=None, transactional=True,
-             allow_none=False):
+  def create(kind, property_name, value, target_key=None):
     """Create a UniquePropertyRecord.
 
-    The key/property_name/value combination provided is only guaranteed to be
-    unique if the transactional=True or this function is called from within a
-    datastore transactional.
+    If called from within a transactional, there is no attempt to verify that
+    the given combo of key/property_name/value doesn't already exist. It is
+    assumed that one calling this function from within a transactional is already
+    verifying that the combo is unique.
 
     Args:
       (see make_key_name)
@@ -58,23 +58,25 @@ class UniquePropertyRecord(db.Model):
       transactional: optional bool, whether to create in a transaction (True)
 
     Returns:
-      UniquePropertyRecord key, if one was created
-      None otherwise
+      newly-created UniquePropertyRecord key or None
 
     Raises:
       AssertionError: if value is None and allow_none is False
       ValueError: if kind is not a string or db.Model subclass
     """
-    assert value is not None or allow_none
+    assert value is not None
+
+    called_from_transaction = db.is_in_transaction()
 
     def _create():
-      existing_record = UniquePropertyRecord.retrieve(kind, property_name, value)
-      if existing_record:
-        raise UniquePropertyRecordExistsError(existing_record.key().name())
+      if not called_from_transaction:
+        existing_record = UniquePropertyRecord.retrieve(kind, property_name, value)
+        if existing_record:
+          raise UniquePropertyRecordExistsError(existing_record.key().name())
       key_name = UniquePropertyRecord.make_key_name(kind, property_name, value)
       return UniquePropertyRecord(key_name=key_name, target_key=target_key).put()
 
-    if transactional:
+    if not called_from_transaction:
       return db.run_in_transaction(_create)
     else:
       return _create()

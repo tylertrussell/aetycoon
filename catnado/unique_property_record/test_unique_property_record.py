@@ -36,7 +36,6 @@ class UniquePropertyRecordTest(SimpleAppEngineTestCase):
     with self.assertRaises(UniquePropertyRecordExistsError):
       UniquePropertyRecord.create(SimpleTestModel, UNIQUE_NAME, NAME)
 
-  def test_nones_disallowed_unless_specified(self):
+  def test_nones_disallowed(self):
     with self.assertRaises(AssertionError):
       UniquePropertyRecord.create(TEST, TEST, None)
-    UniquePropertyRecord.create(TEST, TEST, None, allow_none=True)

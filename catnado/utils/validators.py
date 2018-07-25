@@ -74,7 +74,8 @@ def validate(key, new_type, extra_validators=None, required=False, excs=None,
           message = 'required value missing'
           error_handler(key, message, self)
           return
-        else:  # don't run extra validators on EMPTY_STRING
+        else:  # don't run extra validators on EMPTY_STRING, just continue
+          func(self, *args, **kwargs)
           return
 
       if new_type:
@@ -97,6 +98,8 @@ def validate(key, new_type, extra_validators=None, required=False, excs=None,
         for extra_validator in validators_to_run:
           try:
             new_value = extra_validator(new_value)
+            if not new_value:
+              logging.warn('validator {} returned None'.format(extra_validator))
           except ValidationError as e:
             error_handler(key, e.message, self)
             return
